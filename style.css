@@ -10,7 +10,8 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: visible; 
+    overflow-x: visible;
+	scrollbar-width: none; /* disable srcrollbar for firefox */
 }
 
 /* remove spacing between html elements */
@@ -20,8 +21,6 @@ body {
 	font-family:Arial Narrow, sans-serif;
 	color: goldenrod;
 	background-color: black;
-	scrollbar-width: none; /* disable srcrollbar for firefox */
-	overflow: -moz-scrollbars-none;
 }
 
 /* disables scroll bar b/c it messes with % units like margins */
@@ -53,6 +52,10 @@ main {
 }
 ::-webkit-scrollbar-track {
   background: #131313;
+}
+
+html {
+	scrollbar-color: #5559 #131313; /* mozilla */
 }
 
 #click-background {
@@ -849,7 +852,7 @@ main { background-image: url('img/boardtest8.png'); }
 
 .row-score {
 	width: 5.1%;
-	top:5%;
+	top:7%;
 	height: 95%;
 	margin-bottom: -12.65%;
 	font-size: 1.8vw;
@@ -1010,11 +1013,6 @@ main { background-image: url('img/boardtest8.png'); }
 	height: calc(100vw * 1080 / 1920);
 	background-color: rgba(10,10,10,.95);
 	z-index: 85;
-	
-	
-	
-	/*background-image: url('img/boardtest9.png');
-	background-size: contain;*/
 }
 
 #faction-title {
