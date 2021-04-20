@@ -1,3 +1,5 @@
+"use strict"
+
 var factions = {
 	realms: {
 		name: "Northern Realms",
@@ -54,17 +56,16 @@ var factions = {
 			return true;
 		}),
 		description: "Decides who takes first turn."
-/*	},
+	},
 	skellige: {
 		name: "Skellige",
 		factionAbility: player => game.roundStart.push( async () => {
-			if (game.round != 3)
-				return true;
+			if (game.roundCount != 3)
+				return false;
 			await ui.notification("skellige-" + player.tag, 1200);
 			await Promise.all(player.grave.findCardsRandom(c => c.isUnit(), 2).map(c => board.toRow(c, player.grave)));
-			return false;
+			return true;
 		}),
 		description: "2 random cards from the graveyard are placed on the battlefield at the start of the third round."
-	*/
 	}
 }
