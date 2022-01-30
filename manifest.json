@@ -5,7 +5,7 @@
 	"display":"fullscreen",
 	"background_color":"#583716",
 	"theme_color":"#583716",
-	"scope": ".",
+	"scope": "./gwent-classic",
 	"description":"Gwent Classic from The Widtcher 3: Wild Hunt",
     "categories": ["games"],
     "lang": "en-US",
