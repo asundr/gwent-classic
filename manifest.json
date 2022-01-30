@@ -5,7 +5,7 @@
 	"display":"fullscreen",
 	"background_color":"#583716",
 	"theme_color":"#583716",
-	"scope": "./gwent-classic",
+	"scope": ".",
 	"description":"Gwent Classic from The Witcher 3: Wild Hunt",
     "categories": ["games"],
     "lang": "en-US",
