@@ -9,7 +9,11 @@
 	<meta name="description" content="Play the original Gwent minigame from The Witcher 3 in your browser! Includes cards from Hearts of Stone and Blood & Wine!" />
 	<meta name="keywords" content="arun, sundaram, programmer, gwent, tw3, witcher, card, game, gamedev, play" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="apple-mobile-web-app-status-bar" content="#583716">
+  	<meta name="theme-color" content="#583716">
 	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="manifest" href="manifest.json">
+	<link rel="icon" type="image/png" href="img/icon-192.png" />
 </head>
 
 <body>
@@ -283,6 +287,25 @@
 <script type="text/javascript" src="factions.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script type="text/javascript" src="gwent.js"></script>
+
+<script>
+    window.addEventListener('load', () => {
+      registerSW();
+    });
+ 
+    async function registerSW() {
+      if ('serviceWorker' in navigator) {
+        try {
+          await navigator
+                .serviceWorker
+                .register('serviceworker.js');
+        }
+        catch (e) {
+          console.log('SW registration failed');
+        }
+      }
+    }
+ </script>
 </body>
 
 </html>
