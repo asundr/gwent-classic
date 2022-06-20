@@ -2508,6 +2508,13 @@ class DeckMaker {
 		this.deck_elem = document.getElementById("card-deck");
 		this.leader_elem = document.getElementById("card-leader");
 		this.leader_elem.children[1].addEventListener("click", () => this.selectLeader(), false);
+		this.leader_elem.children[1].addEventListener("mouseover", function() {
+			tocar("card", false);
+			this.style.boxShadow = "0 0 1.5vw #6d5210"
+		});
+		this.leader_elem.children[1].addEventListener("mouseout", function() {
+			this.style.boxShadow = "0 0 0 #6d5210"
+		});
 
 		this.faction = "realms";
 		this.setFaction(this.faction, true);
