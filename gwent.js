@@ -3100,6 +3100,15 @@ document.onkeydown = function (e) {
 					Carousel.curr.shift(e, 1);
 					break;
 			}
+		} else if (document.getElementsByClassName("hover_un")[0].innerText.length > 1) {
+			switch(e.keyCode) {
+				case 69:
+					Popup.curr.selectYes();
+					break;
+				case 81:
+					Popup.curr.selectNo();
+					break;
+			}
 		} else if (!iniciou && (e.keyCode == 13 || e.keyCode == 69)) inicio();
 	} else return false;
 }
@@ -3136,7 +3145,6 @@ function aviso(texto) {
 	setTimeout(function() {
 		alert(texto);
 		tocar("warning", false);
-		openFullscreen();
 	}, 150);
 }
 
