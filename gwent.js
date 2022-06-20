@@ -2476,8 +2476,9 @@ class Popup {
 		this.elem.classList.add("hide");
 		Popup.clearCurrent();
 	}
-
 }
+
+var carta_selecionada = null;
 
 // Screen used to customize, import and export deck contents
 class DeckMaker {
@@ -2526,8 +2527,13 @@ class DeckMaker {
 	setFaction(faction_name, silent) {
 		if (!silent && this.faction === faction_name)
 			return false;
-		if (!silent && !confirm("Changing factions will clear the current deck. Continue? "))
-			return false;
+		if (!silent) {
+			tocar("warning", false);
+			if (!confirm("Changing factions will clear the current deck. Continue? ")) {
+				tocar("warning", false);
+				return false;
+			}
+		}
 		this.elem.getElementsByTagName("h1")[0].innerHTML = factions[faction_name].name;
 		this.elem.getElementsByTagName("h1")[0].style.backgroundImage = iconURL("deck_shield_" + faction_name);
 		document.getElementById("faction-description").innerHTML = factions[faction_name].description;
@@ -2611,6 +2617,15 @@ class DeckMaker {
 		cards.push(bankID);
 		let cardIndex = cards.length - 1;
 		elem.addEventListener("dblclick", () => this.select(cardIndex, isBank), false);
+		elem.addEventListener("mouseover", () => {
+			var aux = this;
+			carta_selecionada = function() {
+				aux.select(cardIndex, isBank);
+			}
+		}, false);
+		window.addEventListener("keydown", function (e) {
+			if (e.keyCode == 13 && carta_selecionada !== null) carta_selecionada();
+		});
 
 		return bankID;
 	}
@@ -2712,6 +2727,7 @@ class DeckMaker {
 
 	// Called when client selects s a preview card. Moves it from bank to deck or vice-versa then updates;
 	select(index, isBank) {
+		carta_selecionada = null;
 		if (isBank) {
 			tocar("menu_buy", false);
 			this.add(index, this.deck);
@@ -2857,8 +2873,13 @@ class DeckMaker {
 				count: Math.min(c[1], card_dict[c[0]].count)
 			}));
 
-		if (warning && !confirm(warning + "\n\n\Continue importing deck?"))
-			return;
+		if (warning) {
+			tocar("warning", false);
+			if (!confirm(warning + "\n\n\Continue importing deck?")) {
+				tocar("warning", false);
+				return;
+			}
+		}
 		this.setFaction(deck.faction, true);
 		if (card_dict[deck.leader].row === "leader" && deck.faction === card_dict[deck.leader].deck) {
 			this.leader = this.leaders.filter(c => c.index === deck.leader)[0];
@@ -3086,9 +3107,11 @@ document.onkeydown = function (e) {
 var elem_principal = document.documentElement;
 
 function openFullscreen() {
-	if (elem_principal.requestFullscreen) elem_principal.requestFullscreen();
-	else if (elem_principal.webkitRequestFullscreen) elem_principal.webkitRequestFullscreen();
-	else if (elem_principal.msRequestFullscreen) elem_principal.msRequestFullscreen();
+	try {
+		if (elem_principal.requestFullscreen) elem_principal.requestFullscreen();
+		else if (elem_principal.webkitRequestFullscreen) elem_principal.webkitRequestFullscreen();
+		else if (elem_principal.msRequestFullscreen) elem_principal.msRequestFullscreen();
+	} catch(err) {}
 }
 
 var lastSound = "";
@@ -3113,6 +3136,7 @@ function aviso(texto) {
 	setTimeout(function() {
 		alert(texto);
 		tocar("warning", false);
+		openFullscreen();
 	}, 150);
 }
 

@@ -33,7 +33,7 @@ main {
 	background-repeat: no-repeat
 }
 
-a:hover, label:hover {
+a:hover, label:hover, .hover_un:hover {
 	text-decoration:underline
 }
 
