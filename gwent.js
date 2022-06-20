@@ -1025,9 +1025,9 @@ class Row extends CardContainer {
 		};
 		this.elem.addEventListener("click", () => ui.selectRow(this), true);
 		this.elem.addEventListener("mouseover", function() {
-				tocar("card", false);
-				this.style.boxShadow = "0 0 1.5vw #6d5210"
-			});
+			tocar("card", false);
+			this.style.boxShadow = "0 0 1.5vw #6d5210"
+		});
 		this.elem.addEventListener("mouseout", function() {
 			this.style.boxShadow = "0 0 0 #6d5210"
 		});
