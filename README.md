@@ -1,8 +1,7 @@
 # gwent-classic-v2.0
 ![cover](https://user-images.githubusercontent.com/26311830/116256903-f1599b00-a7b6-11eb-84a1-16dcb5c9bfc6.jpg)
 
-A browser remake of the original Gwent minigame from The Witcher 3: Wild Hunt including all cards from the DLC.
-Click [here](https://randompianist.github.io/gwent-classic-v2.0/) to play.
+A browser remake of the original Gwent minigame from The Witcher 3: Wild Hunt including all cards from the DLC.<br/>Click [here](https://randompianist.github.io/gwent-classic-v2.0/) to play.
 
 ## Improvements
 
