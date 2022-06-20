@@ -2054,7 +2054,7 @@ class UI {
 
 	// Called when the client cancels out of a card-preview
 	cancel() {
-		if (fimU) {
+		if (!fimU) {
 			fimU = true;
 			tocar("discard", false);
 			lCard = null;
