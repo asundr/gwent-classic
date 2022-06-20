@@ -2579,6 +2579,9 @@ class DeckMaker {
 			this.leader_elem.children[1].style.backgroundImage = largeURL(this.leader.card.deck + "_" + this.leader.card.filename);
 		}
 		this.faction = faction_name;
+		setTimeout(function() {
+			somCarta();
+		}, 300);
 		return true;
 	}
 
