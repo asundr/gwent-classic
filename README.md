@@ -17,7 +17,7 @@ To play, download the repo and open index.html in a browser.
 #### Changes
 - The game is now played in full screen.
 - As in the original game, passing the round now requires a countdown timer.
-- As in the original game, modifying cards in the deck now requires double-clicking.
+- As in the original game, modifying cards in the deck now requires double-clicking (or pressing **"Enter"** key [still in alfa]).
 
 ### Operations included with the keyboard:
 **"E"** starts the game<br />
