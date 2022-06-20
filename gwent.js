@@ -1874,6 +1874,7 @@ var load_pass = load_passT,
 	may_pass1 = false,
 	may_pass2 = true,
 	may_pass3 = true,
+	fimU = false,
 	timer, original, lCard;
 
 // Handles notifications and client interration with menus
@@ -2053,14 +2054,18 @@ class UI {
 
 	// Called when the client cancels out of a card-preview
 	cancel() {
-		tocar("discard", false);
-		lCard = null;
-		exibindo_lider = false;
-		this.hidePreview();
+		if (fimU) {
+			fimU = true;
+			tocar("discard", false);
+			lCard = null;
+			exibindo_lider = false;
+			this.hidePreview();
+		}
 	}
 
 	// Displays a card preview then enables and highlights potential card destinations
 	showPreview(card) {
+		fimU = false;
 		tocar("explaining", false);
 		this.showPreviewVisuals(card);
 		this.setSelectable(card, true);
@@ -2294,6 +2299,8 @@ class UI {
 	}
 }
 
+var fimC = false;
+
 // Displays up to 5 cards for the client to cycle through and select to perform an action
 // Clicking the middle card performs the action on that card "count" times
 // Clicking adejacent cards shifts the menu to focus on that card
@@ -2356,6 +2363,7 @@ class Carousel {
 		this.elem.classList.remove("hide");
 		ui.enablePlayer(true);
 		tocar("explaining", false);
+		fimC = false;
 		setTimeout(function() {
 			var label = document.getElementById("carousel_label");
 			if (label.innerText.indexOf("redraw") > -1 && label.className.indexOf("hide") == -1) tocar("game_start", false);
@@ -2392,14 +2400,17 @@ class Carousel {
 
 	// Called by client to exit out of the current Carousel if allowed. Enables player interraction.
 	cancel() {
-		tocar("discard", false);
-		lCard = null;
-		exibindo_lider = false;
-		if (this.bExit) {
-			this.cancelled = true;
-			this.exit();
+		if (!fimC) {
+			fimC = true;
+			tocar("discard", false);
+			lCard = null;
+			exibindo_lider = false;
+			if (this.bExit) {
+				this.cancelled = true;
+				this.exit();
+			}
+			ui.enablePlayer(true);
 		}
-		ui.enablePlayer(true);
 	}
 
 	// Returns true if there are no more cards to view or select
