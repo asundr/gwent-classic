@@ -1024,6 +1024,13 @@ class Row extends CardContainer {
 			mardroeme: 0
 		};
 		this.elem.addEventListener("click", () => ui.selectRow(this), true);
+		this.elem.addEventListener("mouseover", function() {
+				tocar("card", false);
+				this.style.boxShadow = "0 0 1.5vw #6d5210"
+			});
+		this.elem.addEventListener("mouseout", function() {
+			this.style.boxShadow = "0 0 0 #6d5210"
+		});
 		window.addEventListener("keydown", function (e) {
 			if (e.keyCode == 13 && fileira_clicavel !== null && may_act_card) {
 				ui.selectRow(fileira_clicavel);
