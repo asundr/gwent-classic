@@ -187,7 +187,10 @@ var ability_dict = {
 	},
 	foltest_lord: {
 		description: "Clear any weather effects (resulting from Biting Frost, Torrential Rain or Impenetrable Fog cards) in play.",
-		activated: async () => await weather.clearWeather(),
+		activated: async () => {
+			tocar("clear", false);
+			await weather.clearWeather()
+		},
 		weight: (card, ai) =>  ai.weightCard( {row:"weather", name:"Clear Weather"} )
 	},
 	foltest_siegemaster: {

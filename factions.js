@@ -3,8 +3,8 @@
 var factions = {
 	realms: {
 		name: "Northern Realms",
-		factionAbility: player => game.roundStart.push( async () => {
-			if (game.roundCount > 1 && game.roundHistory[game.roundCount-2].winner === player) {
+		factionAbility: player => game.roundStart.push(async () => {
+			if (game.roundCount > 1 && game.roundHistory[game.roundCount - 2].winner === player) {
 				player.deck.draw(player.hand);
 				await ui.notification("north", 1200);
 			}
@@ -36,10 +36,10 @@ var factions = {
 	},
 	scoiatael: {
 		name: "Scoia'tael",
-		factionAbility: player => game.gameStart.push( async () => {
+		factionAbility: player => game.gameStart.push(async () => {
 			let notif = "";
 			if (player === player_me) {
-				await ui.popup("Go First", () => game.firstPlayer = player, "Let Opponent Start", () => game.firstPlayer = player.opponent(), "Would you like to go first?", "The Scoia'tael faction perk allows you to decide who will get to go first.");
+				await ui.popup("Go First [E]", () => game.firstPlayer = player, "Let Opponent Start [Q]", () => game.firstPlayer = player.opponent(), "Would you like to go first?", "The Scoia'tael faction perk allows you to decide who will get to go first.");
 				notif = game.firstPlayer.tag + "-first";
 			} else if (player.hand instanceof HandAI) {
 				if (Math.random() < 0.5) {
@@ -49,10 +49,8 @@ var factions = {
 					game.firstPlayer = player.opponent();
 					notif = game.firstPlayer.tag + "-first";
 				}
-			} else {
-				//sleepUntil(game.firstPlayer); //TODO online
 			}
-			await ui.notification(notif,1200);
+			await ui.notification(notif, 1200);
 			return true;
 		}),
 		description: "Decides who takes first turn."
