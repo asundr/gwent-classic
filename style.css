@@ -607,6 +607,10 @@ html {
 	box-shadow: 0 0 1vw #6d5210
 }
 
+#pass-button:hover, #toggle-music:hover {
+	text-shadow: 0 0 1vw #6d5210
+}
+
 #end-screen button:hover {
 	box-shadow: 0 0 2vw #6d5210
 }

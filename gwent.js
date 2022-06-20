@@ -652,10 +652,18 @@ class Player {
 		this.elem_leader.children[1].classList.remove("hide");
 
 		if (this.id === 0 && this.leader.activated.length > 0) {
-			this.elem_leader.addEventListener("click",
+			this.elem_leader.children[0].addEventListener("click",
 				async () => await ui.viewCard(this.leader, async () => await this.activateLeader()),
 					false
 			);
+			this.elem_leader.children[0].addEventListener("mouseover", function() {
+				tocar("card", false);
+				this.style.boxShadow = "0 0 1.5vw #6d5210"
+			});
+			this.elem_leader.children[0].addEventListener("mouseout", function() {
+				this.style.boxShadow = "0 0 0 #6d5210"
+			});
+			
 			window.addEventListener("keydown", async (e) => {
 				if (may_leader && may_pass1) {
 					if (e.keyCode == 88) {
@@ -677,7 +685,9 @@ class Player {
 				if (player_me.leaderAvailable) may_leader = true;
 			});
 		} else {
-			this.elem_leader.addEventListener("click", async () => await ui.viewCard(this.leader), false);
+			this.elem_leader.children[0].addEventListener("click", async () => await ui.viewCard(this.leader), false);
+			this.elem_leader.children[0].addEventListener("mouseover", function() {});
+			this.elem_leader.children[0].addEventListener("mouseout", function() {});
 		}
 		// TODO set crown color
 	}
@@ -2036,6 +2046,7 @@ class UI {
 
 	// Called when the client cancels out of a card-preview
 	cancel() {
+		tocar("discard", false);
 		lCard = null;
 		exibindo_lider = false;
 		this.hidePreview();
@@ -2043,6 +2054,7 @@ class UI {
 
 	// Displays a card preview then enables and highlights potential card destinations
 	showPreview(card) {
+		tocar("explaining", false);
 		this.showPreviewVisuals(card);
 		this.setSelectable(card, true);
 		document.getElementById("click-background").classList.remove("noclick");
@@ -2373,6 +2385,7 @@ class Carousel {
 
 	// Called by client to exit out of the current Carousel if allowed. Enables player interraction.
 	cancel() {
+		tocar("discard", false);
 		lCard = null;
 		exibindo_lider = false;
 		if (this.bExit) {
@@ -3165,6 +3178,10 @@ function somCarta() {
 			tocar("card", false);
 		});
 	}
+	var ids = ["pass-button", "toggle-music"];
+	for (var i = 0; i < ids.length; i++) document.getElementById(ids[i]).addEventListener("mouseover", function() {
+		tocar("card", false);
+	});
 }
 
 function cartaNaLinha(id, carta) {
