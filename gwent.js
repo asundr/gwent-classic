@@ -2530,6 +2530,9 @@ class DeckMaker {
 			if (document.getElementById("deck-customization").className.indexOf("hide") == -1) {
 				switch(e.keyCode) {
 					case 69:
+						try {
+							Carousel.curr.cancel();
+						} catch(err) {}
 						dm.startNewGame();
 						break;
 					case 88:
@@ -3164,6 +3167,7 @@ function aviso(texto) {
 	tocar("warning", false);
 	setTimeout(function() {
 		alert(texto);
+		document.getElementById("start-game").blur();
 		tocar("warning", false);
 	}, 150);
 }
