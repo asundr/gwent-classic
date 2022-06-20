@@ -2254,7 +2254,7 @@ class UI {
 					r.elem_special.classList.add("noclick");
 				} else {
 					r.elem_special.classList.add("row-selectable");
-					alteraClicavel(r, true);
+					fileira_clicavel = null;
 				}
 			}
 			return;
