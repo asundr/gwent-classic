@@ -2817,6 +2817,7 @@ class DeckMaker {
 		}
 		fr.readAsText(files.item(0));
 		document.getElementById("add-file").value = "";
+		openFullscreen();
 	}
 
 	// Creates a deck from a JSON file's contents and sets that as the current deck
