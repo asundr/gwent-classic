@@ -2749,6 +2749,7 @@ class DeckMaker {
 
 	// Verifies current deck, creates the players and their decks, then starts a new game
 	startNewGame() {
+		openFullscreen();
 		let warning = "";
 		if (this.stats.units < 22)
 			warning += "Your deck must have at least 22 unit cards. \n";
