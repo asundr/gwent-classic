@@ -3124,6 +3124,13 @@ function somCarta() {
 			});
 		}
 	}
+	var tags = ["label", "a", "button"];
+	for (var i = 0; i < tags.length; i++) {
+		var rec = document.getElementsByTagName(tags[i]);
+		for (var j = 0; j < rec.length; j++) rec[j].addEventListener("mouseover", function() {
+			tocar("card", false);
+		});
+	}
 }
 
 function cartaNaLinha(id, carta) {

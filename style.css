@@ -33,6 +33,10 @@ main {
 	background-repeat: no-repeat
 }
 
+a:hover, label:hover {
+	text-decoration:underline
+}
+
 div.abs {
 	position:fixed;
 	width: 100%;
