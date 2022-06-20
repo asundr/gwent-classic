@@ -6,24 +6,18 @@ To play, download the repo and open index.html in a browser.
 
 ## Improvements
 
-Deleted unuseful commented code. All comments in this version are documentation-relative.
-
-Improved code presentation: spacing and identation remade.
-
-Fixed a bug regarding the long exposure of the leader card.
-
-Fixed typo in page title.
-
-Fixed the style of end screen buttons.
-
-Fixed notification read times.
-
-Added sound effects to the game.
+- Deleted unuseful commented code. All comments in this version are documentation-relative.
+- Improved code presentation: spacing and identation remade.
+- Fixed a bug regarding the long exposure of the leader card.
+- Fixed typo in page title.
+- Fixed the style of end screen buttons.
+- Fixed notification read times.
+- Added sound effects to the game.
 
 #### Changes
-The game is now played in full screen.<br />
-As in the original game, passing the round now requires a countdown timer.<br />
-As in the original game, modifying cards in the deck now requires double-clicking.
+- The game is now played in full screen.
+- As in the original game, passing the round now requires a countdown timer.
+- As in the original game, modifying cards in the deck now requires double-clicking.
 
 ### Operations included with the keyboard:
 **"E"** starts the game<br />
