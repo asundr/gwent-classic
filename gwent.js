@@ -17,7 +17,7 @@ class ControllerAI {
 		}
 		let data_max = this.getMaximums();
 		let data_board = this.getBoardData();
-		let weights = []; player.hand.cards.map(c =>
+		let weights = player.hand.cards.map(c =>
 			({
 				weight: this.weightCard(c, data_max, data_board),
 				action: async () => await this.playCard(c, data_max, data_board)
