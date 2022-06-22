@@ -1739,6 +1739,7 @@ class Card {
 
 	// Animates an ability effect
 	async animate(name, bFade = true, bExpand = true) {
+		if (!may_pass1 && playingOnline) await sleep(600);
 		var guia = {
 			"medic" : "med",
 			"muster" : "ally",
@@ -1870,6 +1871,7 @@ class Card {
 
 var fileira_clicavel = null;
 const load_passT = 60;
+var cache_notif = new Array();
 var load_pass = load_passT,
 	may_pass1 = false,
 	may_pass2 = true,
@@ -2154,6 +2156,9 @@ class UI {
 		duration = parseInt(0.7454878 * Math.max(parseInt((1e3 / 17) * caracteres), parseInt((6e4 / 300) * palavras)) + 211.653152) + 1;
 		const fadeSpeed = 150;
 		fadeIn(this.notif_elem, fadeSpeed);
+		var ch = playingOnline && duration < 1000 & cache_notif.indexOf(name) == -1 ? 800 : 0;
+		cache_notif[cache_notif.length] = name;
+		duration += ch;
 		fadeOut(this.notif_elem, fadeSpeed, duration - fadeSpeed);
 		await sleep(duration);
 	}
@@ -3239,10 +3244,21 @@ function inicio() {
 }
 
 function iniciarMusica() {
-	if (ui.youtube.getPlayerState() !== YT.PlayerState.PLAYING) {
-		ui.youtube.playVideo();
-		ui.toggleMusic_elem.classList.remove("fade");
-	}
+	try {
+		if (ui.youtube.getPlayerState() !== YT.PlayerState.PLAYING) {
+			ui.youtube.playVideo();
+			ui.toggleMusic_elem.classList.remove("fade");
+		}
+	} catch(err) {}
 }
 
 var iniciou = false;
+
+var playingOnline;
+
+window.onload = function() {
+	playingOnline = window.location.href == "https://randompianist.github.io/gwent-classic-v2.0/";
+	document.getElementById("button_start").addEventListener("click", function() {
+		inicio();
+	});
+}
