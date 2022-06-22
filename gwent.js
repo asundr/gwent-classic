@@ -1025,8 +1025,10 @@ class Row extends CardContainer {
 		};
 		this.elem.addEventListener("click", () => ui.selectRow(this), true);
 		this.elem.addEventListener("mouseover", function() {
-			tocar("card", false);
-			this.style.boxShadow = "0 0 1.5vw #6d5210"
+			if (hover_row) {
+				tocar("card", false);
+				this.style.boxShadow = "0 0 1.5vw #6d5210";
+			}
 		});
 		this.elem.addEventListener("mouseout", function() {
 			this.style.boxShadow = "0 0 0 #6d5210"
@@ -1877,6 +1879,8 @@ var load_pass = load_passT,
 	may_pass2 = true,
 	may_pass3 = true,
 	fimU = false,
+	carta_c = false,
+	hover_row = true,
 	timer, original, lCard;
 
 // Handles notifications and client interration with menus
@@ -2061,6 +2065,7 @@ class UI {
 			tocar("discard", false);
 			lCard = null;
 			exibindo_lider = false;
+			carta_c = false;
 			this.hidePreview();
 		}
 	}
@@ -2242,6 +2247,13 @@ class UI {
 				row.elem_special.classList.add("noclick");
 			}
 			weather.elem.classList.add("row-selectable");
+			carta_c = true;
+			document.getElementById("field-op").addEventListener("click",function() {
+				cancelaClima();
+			});
+			document.getElementById("field-me").addEventListener("click",function() {
+				cancelaClima();
+			});
 			alteraClicavel(weather, true);
 			return;
 		}
@@ -3250,6 +3262,16 @@ function iniciarMusica() {
 			ui.toggleMusic_elem.classList.remove("fade");
 		}
 	} catch(err) {}
+}
+
+function cancelaClima() {
+	if (carta_c) {
+		ui.cancel();
+		hover_row = false;
+		setTimeout(function() {
+			hover_row = true;
+		}, 100);
+	}
 }
 
 var iniciou = false;
