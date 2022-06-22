@@ -17,7 +17,7 @@ class ControllerAI {
 		}
 		let data_max = this.getMaximums();
 		let data_board = this.getBoardData();
-		let weights = player.hand.cards.map(c =>
+		let weights = []; player.hand.cards.map(c =>
 			({
 				weight: this.weightCard(c, data_max, data_board),
 				action: async () => await this.playCard(c, data_max, data_board)
@@ -25,7 +25,10 @@ class ControllerAI {
 		if (player.leaderAvailable)
 			weights.push({
 				weight: this.weightLeader(player.leader, data_max, data_board),
-				action: async () => await player.activateLeader()
+				action: async () => {
+					await ui.notification("op-leader", 1200);
+					await player.activateLeader();
+				}
 			});
 		weights.push({
 			weight: this.weightPass(),
@@ -1330,6 +1333,7 @@ class Board {
 
 	// Sends and translates a card from the source to the Deck of the card's holder
 	async toDeck(card, source) {
+		tocar("discard", false);
 		await this.moveTo(card, "deck", source);
 	}
 
@@ -1476,12 +1480,14 @@ class Game {
 			if (factions[player.deck.faction] && factions[player.deck.faction].factionAbility)
 				factions[player.deck.faction].factionAbility(player);
 		}
+		
+		return l2 === ability_dict["emhyr_whiteflame"];
 	}
 
 	// Sets initializes player abilities, player hands and redraw
 	async startGame() {
 		ui.toggleMusic_elem.classList.remove("music-customization");
-		this.initPlayers(player_me, player_op);
+		var white_flame = this.initPlayers(player_me, player_op);
 		await Promise.all([...Array(10).keys()].map(async () => {
 			await player_me.deck.draw(player_me.hand);
 			await player_op.deck.draw(player_op.hand);
@@ -1490,6 +1496,7 @@ class Game {
 		await this.runEffects(this.gameStart);
 		if (!this.firstPlayer)
 			this.firstPlayer = await this.coinToss();
+		if (white_flame) await ui.notification("op-white-flame", 1200);
 		this.initialRedraw();
 		somCarta();
 	}
@@ -1873,7 +1880,7 @@ class Card {
 
 var fileira_clicavel = null;
 const load_passT = 60;
-var cache_notif = new Array();
+var cache_notif = ["op-leader"];
 var load_pass = load_passT,
 	may_pass1 = false,
 	may_pass2 = true,
@@ -2126,6 +2133,8 @@ class UI {
 	// Displayed a timed notification to the client
 	async notification(name, duration) {
 		var guia1 = {
+			"notif-op-white-flame": "The opponent's leader cancel your opponent's Leader Ability",
+			"notif-op-leader": "Opponent uses leader",
 			"notif-me-first": "You will go first",
 			"notif-op-first": "Your opponent will go first",
 			"notif-me-coin": "You will go first",
@@ -2149,7 +2158,9 @@ class UI {
 			"win-round" : "round_win",
 			"lose-round" : "round_lose",
 			"me-turn" : "turn_me",
-			"op-turn" : "turn_op"
+			"op-turn" : "turn_op",
+			"op-leader" : "turn_op",
+			"op-white-flame" : "turn_op"
 		}
 		var temSom = new Array();
 		for (var x in guia2) temSom[temSom.length] = x;
