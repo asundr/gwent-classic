@@ -60,8 +60,7 @@ div.abs {
 
 #very_start {
 	position:absolute;
-	height: 55%;
-	bottom: 0;
+	height:auto;
 	font-size: 20px;
 	color: #FFF;
 	z-index: 3000;

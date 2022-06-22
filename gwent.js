@@ -3279,8 +3279,23 @@ var iniciou = false;
 var playingOnline;
 
 window.onload = function() {
+	dimensionar();
 	playingOnline = window.location.href == "https://randompianist.github.io/gwent-classic-v2.0/";
 	document.getElementById("button_start").addEventListener("click", function() {
 		inicio();
 	});
+}
+
+window.onresize = function() {
+	dimensionar();
+}
+
+function dimensionar() {
+	var prop = window.innerWidth / window.innerHeight;
+	var dim = document.getElementById("dimensions").offsetHeight;
+	document.getElementById("very_start_bg2").style.height = prop < 1.8 ? (parseInt(dim * 0.94) - 8) + "px" : "";
+	document.getElementById("very_start").style.paddingTop = "";
+	document.getElementById("very_start").style.paddingTop = parseInt(
+		(document.getElementById("very_start_bg2").offsetHeight - document.getElementById("very_start").offsetHeight) / 2
+	) + "px";
 }
