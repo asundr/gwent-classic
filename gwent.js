@@ -2568,7 +2568,7 @@ class DeckMaker {
 						try {
 							Carousel.curr.cancel();
 						} catch(err) {}
-						dm.startNewGame();
+						if (isLoaded && iniciou) dm.startNewGame();
 						break;
 					case 88:
 						dm.selectLeader();
@@ -3170,7 +3170,7 @@ document.onkeydown = function (e) {
 					Popup.curr.selectNo();
 					break;
 			}
-		} else if (!iniciou && (e.keyCode == 13 || e.keyCode == 69)) inicio();
+		} else if (!iniciou && isLoaded && (e.keyCode == 13 || e.keyCode == 69)) inicio();
 	} else return false;
 }
 
@@ -3274,16 +3274,19 @@ function cancelaClima() {
 	}
 }
 
-var iniciou = false;
+var iniciou = false, isLoaded = false;
 
 var playingOnline;
 
 window.onload = function() {
 	dimensionar();
 	playingOnline = window.location.href == "https://randompianist.github.io/gwent-classic-v2.0/";
+	document.getElementById("load_text").style.display = "none";
+	document.getElementById("button_start").style.display = "inline-block";
 	document.getElementById("button_start").addEventListener("click", function() {
 		inicio();
 	});
+	isLoaded = true;
 }
 
 window.onresize = function() {
