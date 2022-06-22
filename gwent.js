@@ -2,6 +2,8 @@
 
 class Controller {}
 
+var nilfgaard_wins_draws = false;
+
 // Makes decisions for the AI opponent player
 class ControllerAI {
 	constructor(player) {
@@ -10,8 +12,8 @@ class ControllerAI {
 
 	// Collects data and weighs options before taking a weighted random action
 	async startTurn(player) {
-		if (player.opponent().passed && (player.winning ||
-				player.deck.faction === "nilfgaard" && player.total === player.opponent().total)) {
+		if (player.opponent().passed && (player.winning || player.deck.faction === "nilfgaard" && player.total === player.opponent().total)) {
+			nilfgaard_wins_draws = player.deck.faction === "nilfgaard" && player.total === player.opponent().total;
 			await player.passRound();
 			return;
 		}
@@ -1590,11 +1592,15 @@ class Game {
 		player_me.endRound(dif > 0);
 		player_op.endRound(dif < 0);
 
-		if (dif > 0)
+		if (dif > 0) {
 			await ui.notification("win-round", 1200);
-		else if (dif < 0)
+		} else if (dif < 0) {
+			if (nilfgaard_wins_draws) {
+				nilfgaard_wins_draws = false;
+				await ui.notification("nilfgaard-wins-draws", 1200);
+			}
 			await ui.notification("lose-round", 1200);
-		else
+		} else
 			await ui.notification("draw-round", 1200);
 
 		if (player_me.health === 0 || player_op.health === 0)
@@ -2133,6 +2139,7 @@ class UI {
 	// Displayed a timed notification to the client
 	async notification(name, duration) {
 		var guia1 = {
+			"notif-nilfgaard-wins-draws": "Nilfgaard wins draws",
 			"notif-op-white-flame": "The opponent's leader cancel your opponent's Leader Ability",
 			"notif-op-leader": "Opponent uses leader",
 			"notif-me-first": "You will go first",
@@ -2160,7 +2167,8 @@ class UI {
 			"me-turn" : "turn_me",
 			"op-turn" : "turn_op",
 			"op-leader" : "turn_op",
-			"op-white-flame" : "turn_op"
+			"op-white-flame" : "turn_op",
+			"nilfgaard-wins-draws" : "turn_op"
 		}
 		var temSom = new Array();
 		for (var x in guia2) temSom[temSom.length] = x;
