@@ -174,12 +174,20 @@ html {
 	white-space: pre
 }
 
+#notif-nilfgaard-wins-draws {
+	background-image: url(img/icons/notif_nilfgaard.png)
+}
+
 #notif-nilfgaard-wins-draws::after {
 	content: "Nilfgaard wins draws"
 }
 
 #notif-op-leader::after {
 	content: "Opponent uses leader"
+}
+
+#notif-op-white-flame {
+	background-image: url(img/icons/notif_nilfgaard.png)
 }
 
 #notif-op-white-flame::after {
