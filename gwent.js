@@ -3299,3 +3299,5 @@ function dimensionar() {
 		(document.getElementById("very_start_bg2").offsetHeight - document.getElementById("very_start").offsetHeight) / 2
 	) + "px";
 }
+
+setTimeout(dimensionar(), 300);
