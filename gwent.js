@@ -3283,6 +3283,8 @@ window.onload = function() {
 	playingOnline = window.location.href == "https://randompianist.github.io/gwent-classic-v2.0/";
 	document.getElementById("load_text").style.display = "none";
 	document.getElementById("button_start").style.display = "inline-block";
+	document.getElementById("deck-customization").style.display = "block";
+	document.getElementById("toggle-music").style.display = "block";
 	document.getElementById("button_start").addEventListener("click", function() {
 		inicio();
 	});
