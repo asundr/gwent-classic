@@ -170,7 +170,8 @@ html {
 	text-align: left;
 	font-weight: 700;
 	display: flex;
-	align-items: center
+	align-items: center;
+	white-space: pre
 }
 
 #notif-me-first::after {
@@ -266,7 +267,7 @@ html {
 }
 
 #notif-north::after {
-	content: "Northern Realms faction ability triggered - North draws an additional card."
+	content: "Northern Realms faction ability triggered: \A North draws an additional card."
 }
 
 #notif-monsters {
@@ -274,7 +275,7 @@ html {
 }
 
 #notif-monsters::after {
-	content: "Monsters faction ability triggered - one randomly-chosen Monster Unit Card stays on the board"
+	content: "Monsters faction ability triggered: \A one randomly-chosen Monster Unit Card stays on the board"
 }
 
 #notif-scoiatael {
