@@ -1925,7 +1925,7 @@ class UI {
 			if (e.button == 0) {
 				passStart("mouse");
 				may_pass3 = false;
-			}
+			} else if (may_pass2 == "mouse") passBreak();
 		});
 		document.getElementById("pass-button").addEventListener("mouseup", () => {
 			if (may_pass2 == "mouse") passBreak();
