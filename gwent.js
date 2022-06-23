@@ -631,9 +631,12 @@ class Player {
 		try {
 			Carousel.curr.cancel();
 		} catch(err) {}
-		await this.leader.activated[0](this.leader, this);
-		this.disableLeader();
-		this.endTurn();
+		if (!called_leader) {
+			called_leader = true;
+			await this.leader.activated[0](this.leader, this);
+			this.disableLeader();
+			this.endTurn();
+		}
 	}
 
 	// Disable access to leader ability and toggles leader visuals to off state
@@ -673,17 +676,13 @@ class Player {
 				if (may_leader && may_pass1) {
 					if (e.keyCode == 88) {
 						if (exibindo_lider) {
-							player_me.activateLeader();
 							exibindo_lider = false;
-							called_leader = true;
-						} else if (player_me.leaderAvailable && !called_leader) {
+							player_me.activateLeader();
+						} else if (!called_leader) {
 							may_leader = false;
 							exibindo_lider = true;
 							player_me.callLeader();
 						}
-					} else if (e.keyCode == 13 && exibindo_lider) {
-						player_me.activateLeader();
-						exibindo_lider = false;
 					}
 				}
 			});
