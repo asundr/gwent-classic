@@ -2184,7 +2184,7 @@ class UI {
 		var som = temSom.indexOf(name) > -1 ? guia2[name] : name == "round-start" && game.roundHistory.length == 0 ? "round1_start" : "";
 		if (som != "") tocar(som, false);
 		this.notif_elem.children[0].id = "notif-" + name;
-		if (name == "op-leader") this.notif_elem.children[0].style.backgroundImage = "url(img/icons/notif_" + player_op.deck.faction + ")";
+		if (name == "op-leader") this.notif_elem.children[0].style.backgroundImage = "url(img/icons/notif_" + player_op.deck.faction + ".png)";
 		var caracteres = guia1[this.notif_elem.children[0].id].length;
 		var palavras = guia1[this.notif_elem.children[0].id].split(" ").length;
 		duration = parseInt(0.7454878 * Math.max(parseInt((1e3 / 17) * caracteres), parseInt((6e4 / 300) * palavras)) + 211.653152) + 1;
