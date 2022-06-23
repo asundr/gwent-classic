@@ -1418,10 +1418,9 @@ function limpar() {
 	fileira_clicavel = null;
 	load_pass = load_passT;
 	may_pass1 = false;
-	may_pass2 = true;
+	may_pass2 = "";
 	may_pass3 = true;
-	timer = null;
-	original = null;
+	timer2 = null;
 	lCard = null;
 }
 
@@ -1884,17 +1883,35 @@ class Card {
 	}
 }
 
+function passBreak() {
+	clearInterval(timer2);
+	load_pass = load_passT;
+	may_pass2 = "";
+	document.getElementById("pass-button").innerHTML = original;
+}
+
+function passStart(input) {
+	if (may_pass1 && may_pass2 == "") {
+		may_pass2 = input;
+		ui.passLoad();
+		timer2 = setInterval(function () {
+			ui.passLoad();
+		}, 750);
+	}
+}
+
+var original = "Pass";
 var fileira_clicavel = null;
-const load_passT = 60;
+const load_passT = 3;
 var cache_notif = ["op-leader"];
 var load_pass = load_passT,
 	may_pass1 = false,
-	may_pass2 = true,
+	may_pass2 = "",
 	may_pass3 = true,
 	fimU = false,
 	carta_c = false,
 	hover_row = true,
-	timer, original, lCard;
+	timer2, lCard;
 
 // Handles notifications and client interration with menus
 class UI {
@@ -1904,18 +1921,17 @@ class UI {
 		this.preview = document.getElementsByClassName("card-preview")[0];
 		this.previewCard = null;
 		this.lastRow = null;
-		document.getElementById("pass-button").addEventListener("mousedown", () => {
-			timer = setInterval(function () {
-				ui.loadPass();
-			}, 40);
-		}, false);
-		document.getElementById("pass-button").addEventListener("mouseup", () => {
-			if (may_pass1 && may_pass2) {
-				load_pass = load_passT;
-				may_pass3 = true;
-				document.getElementById("pass-button").innerHTML = original;
-				clearInterval(timer);
+		document.getElementById("pass-button").addEventListener("mousedown", function(e) {
+			if (e.button == 0) {
+				passStart("mouse");
+				may_pass3 = false;
 			}
+		});
+		document.getElementById("pass-button").addEventListener("mouseup", () => {
+			if (may_pass2 == "mouse") passBreak();
+		}, false);
+		document.getElementById("pass-button").addEventListener("mouseout", () => {
+			if (may_pass2 == "mouse") passBreak();
 		}, false);
 		document.getElementById("click-background").addEventListener("click", () => ui.cancel(), false);
 		window.addEventListener("keydown", function (e) {
@@ -1927,24 +1943,14 @@ class UI {
 					} catch (err) {}
 					break;
 				case 32:
-					if (may_pass1 && may_pass2 && may_pass3) {
-						if (load_pass == load_passT) original = document.getElementById("pass-button").innerHTML;
-						load_pass -= (((load_passT - load_pass) * -0.0325) + 2);
-						if (load_pass < 11) {
-							document.getElementById("pass-button").innerHTML = original;
-							load_pass = load_passT;
-							may_pass2 = false;
-							player_me.passRound();
-						} else document.getElementById("pass-button").innerHTML = (parseInt(load_pass / (load_passT / 3)) + 1);
-					}
+					if (may_pass3) passStart("keyboard");
 					break;
 			}
 		});
 		window.addEventListener("keyup", function (e) {
-			if (e.keyCode == 32 && may_pass1 && may_pass3) {
-				load_pass = load_passT;
-				may_pass2 = true;
-				document.getElementById("pass-button").innerHTML = original;
+			if (e.keyCode == 32 && may_pass1) {
+				may_pass3 = true;
+				if (may_pass2 == "keyboard") passBreak();
 			}
 		});
 		this.youtube;
@@ -1954,18 +1960,14 @@ class UI {
 		this.toggleMusic_elem.addEventListener("click", () => this.toggleMusic(), false);
 	}
 
-	loadPass() {
-		if (may_pass1 && may_pass2 && may_pass3) {
-			if (load_pass == load_passT) original = document.getElementById("pass-button").innerHTML;
-			load_pass--;
-			if (load_pass == 0) {
-				document.getElementById("pass-button").innerHTML = original;
-				load_pass = load_passT;
-				may_pass3 = false;
-				player_me.passRound();
-				clearInterval(timer);
-			} else document.getElementById("pass-button").innerHTML = (parseInt(load_pass / (load_passT / 3)) + 1);
-		}
+	passLoad() {
+		load_pass--;
+		if (load_pass == -1) {
+			document.getElementById("pass-button").innerHTML = original;
+			load_pass = load_passT;
+			player_me.passRound();
+			passBreak();
+		} else document.getElementById("pass-button").innerHTML = load_pass + 1;
 	}
 
 	// Enables or disables client interration
