@@ -1,119 +1,154 @@
 * {
-   box-sizing:border-box;
-   cursor: url('img/icons/cursor.png'), auto;
+	box-sizing: border-box;
+	cursor: url(img/icons/cursor.png), auto
 }
 
-html,body
-{
-	/* eliminate whitespace */
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: visible;
-	scrollbar-width: none; /* disable srcrollbar for firefox */
-}
-
-/* remove spacing between html elements */
+html,
 body {
-	font-size: 0px;
-	/*font-family: Impact;*/
-	font-family:Arial Narrow, sans-serif;
-	color: goldenrod;
-	background-color: black;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-X: visible;
+	scrollbar-width: none
 }
 
-/* disables scroll bar b/c it messes with % units like margins */
+body {
+	font-size: 0;
+	font-family: Arial Narrow, sans-serif;
+	color: goldenrod;
+	background-color: #000
+}
+
 body::-webkit-scrollbar {
-	display: none;
+	display: none
 }
 
 main {
-	position:absolute;
+	position: absolute;
 	width: 100%;
 	height: calc(100vw * 1080 / 1920);
-	background-image: url('img/board.jpg');
+	background-image: url(img/board.jpg);
 	background-size: 100% auto;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat
 }
 
-/* makes text seleciton and highlighting invisible */
-::selection { background: transparent; }		/* WebKit/Blink Browsers */
-::-moz-selection { background: transparent; }	/* Gecko Browsers */
+a:hover, label:hover, .hover_un:hover {
+	text-decoration:underline
+}
+
+div.abs {
+	position:fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+}
+
+#very_start_bg1 {
+	background-image: url(img/start.jpg);
+	background-size: 100% auto;
+	background-repeat: no-repeat
+}
+
+#very_start_bg2 {
+	top: 3%;
+	left: 2%;
+	width: 32%;
+	height: 94%;
+	border: solid 4px white
+}
+
+#very_start {
+	position:absolute;
+	height:auto;
+	font-size: 20px;
+	color: #FFF;
+	z-index: 3000;
+	text-align: center;
+	font-weight: bold
+}
+
+::selection {
+	background: transparent
+}
+
+::-moz-selection {
+	background: transparent
+}
 
 ::-webkit-scrollbar {
-  width: 1.5vw;
+	width: 1.5vw
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #5559;
-  border-radius: .5vw;
-  height: 3vw;
-  border: .35vw double black;
+	background: #5559;
+	border-radius: .5vw;
+	height: 3vw;
+	border: .35vw double #000
 }
+
 ::-webkit-scrollbar-track {
-  background: #131313;
+	background: #131313
 }
 
 html {
-	scrollbar-color: #5559 #131313; /* mozilla */
+	scrollbar-color: #5559 #131313
 }
 
 #click-background {
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	z-index: 1;
+	z-index: 1
 }
 
 #hand-op {
-	position:absolute;
+	position: absolute;
 	height: 6.35vw;
 	width: 4.45vw;
-	top:-7vw;
+	top: -7vw;
 	left: 33vw;
-	
-	border: 1px solid blue;
+	border: 1px solid blue
 }
 
-#hand-op .card { position : absolute; }
-
-/* ----------- media player ------------------ */
+#hand-op .card {
+	position: absolute
+}
 
 #youtube {
 	position: fixed;
 	height: 10px;
 	width: 10px;
 	display: hidden;
-	z-index: -100;
+	z-index: -100
 }
 
 #toggle-music {
 	position: absolute;
-    top: 45.6vw;
-    left: 26vw;
-    width: 2vw;
-    height: 3vw;
-    font-size: 3vw;
+	top: 45.6vw;
+	left: 26vw;
+	width: 2vw;
+	height: 3vw;
+	font-size: 3vw;
 	color: goldenrod;
-    text-shadow: 0 0 2vw black;
-	z-index: 86;
+	text-shadow: 0 0 2vw #000;
+	z-index: 86
 }
-.music-customization { 
-	transform: translate(22.5vw, -0.5vw);
-}	
 
-/* ----------- notification bar ------------------ */
+.music-customization {
+	transform: translate(22.5vw, -.5vw)
+}
 
 #notification-bar {
-	position:absolute;
-	width:100%;
+	position: absolute;
+	width: 100%;
 	height: 14%;
 	top: 43%;
-	background-color: rgba(10,10,10,0.95);
-	z-index: 100;
+	background-color: rgba(10, 10, 10, .95);
+	z-index: 100
 }
 
-#notification-bar > div { 
+#notification-bar>div {
 	width: 22.1%;
 	height: 207.25%;
 	top: -66.6%;
@@ -121,9 +156,10 @@ html {
 	position: absolute;
 	background-repeat: no-repeat;
 	background-size: contain;
-	background-position: center;
+	background-position: center
 }
-#notification-bar > div::after {
+
+#notification-bar>div::after {
 	position: absolute;
 	left: 100.5%;
 	top: 32.1%;
@@ -131,483 +167,589 @@ html {
 	height: 47.25%;
 	color: goldenrod;
 	font-size: 1.6vw;
-	text-align:left;
-	font-weight:bold;
+	text-align: left;
+	font-weight: 700;
 	display: flex;
 	align-items: center;
+	white-space: pre
 }
 
-#notif-me-first::after { content:"You will go first"; }
-#notif-op-first::after { content:"Your opponent will go first"; }
+#notif-nilfgaard-wins-draws {
+	background-image: url(img/icons/notif_nilfgaard.png)
+}
 
-#notif-me-coin { background-image: url('img/icons/notif_me_coin.png'); }
-#notif-me-coin::after { content:"You will go first"; }
+#notif-nilfgaard-wins-draws::after {
+	content: "Nilfgaard wins draws"
+}
 
-#notif-op-coin { background-image: url('img/icons/notif_op_coin.png'); }
-#notif-op-coin::after { content:"Your opponent will go first"; }
+#notif-op-leader::after {
+	content: "Opponent uses leader"
+}
 
-#notif-round-start { background-image: url('img/icons/notif_round_start.png'); }
-#notif-round-start::after { content:"Round Start"; }
+#notif-op-white-flame {
+	background-image: url(img/icons/notif_nilfgaard.png)
+}
 
-#notif-me-pass { background-image: url('img/icons/notif_round_passed.png'); }
-#notif-me-pass::after { content:"Round passed"; }
+#notif-op-white-flame::after {
+	content: "The opponent's leader cancel \A your opponent's Leader Ability"
+}
 
-#notif-op-pass { background-image: url('img/icons/notif_round_passed.png'); }
-#notif-op-pass::after { content:"Your opponent has passed"; }
+#notif-me-first::after {
+	content: "You will go first"
+}
 
-#notif-win-round { background-image: url('img/icons/notif_win_round.png'); } 
-#notif-win-round::after { content:"You won the round!"; }
+#notif-op-first::after {
+	content: "Your opponent will go first"
+}
 
-#notif-lose-round { background-image: url('img/icons/notif_lose_round.png'); }
-#notif-lose-round::after { content:"Your opponent won the round"; }
+#notif-me-coin {
+	background-image: url(img/icons/notif_me_coin.png)
+}
 
-#notif-draw-round { background-image: url('img/icons/notif_draw_round.png'); }
-#notif-draw-round::after {content:"The round ended in a draw"; }
+#notif-me-coin::after {
+	content: "You will go first"
+}
 
-#notif-me-turn { background-image: url('img/icons/notif_me_turn.png'); } 
-#notif-me-turn::after { content:"Your turn!"; }
+#notif-op-coin {
+	background-image: url(img/icons/notif_op_coin.png)
+}
 
-#notif-op-turn { background-image: url('img/icons/notif_op_turn.png'); }
-#notif-op-turn::after { content:"Opponent's turn"; }
+#notif-op-coin::after {
+	content: "Your opponent will go first"
+}
 
-#notif-north { background-image: url('img/icons/notif_north.png'); }
-#notif-north::after { content:"Northern Realms faction ability triggered - North draws an additional card."; }
+#notif-round-start {
+	background-image: url(img/icons/notif_round_start.png)
+}
 
-#notif-monsters { background-image: url('img/icons/notif_monsters.png'); }
-#notif-monsters::after { content: "Monsters faction ability triggered - one randomly-chosen Monster Unit Card stays on the board"; }
+#notif-round-start::after {
+	content: "Round Start"
+}
 
-#notif-scoiatael { background-image: url('img/icons/notif_scoiatael.png'); }
-#notif-scoiatael::after { content: "Opponent used the Scoia'tael faction perk to go first."; }
+#notif-me-pass {
+	background-image: url(img/icons/notif_round_passed.png)
+}
 
-#notif-skellige-op{ background-image: url('img/icons/notif_skellige.png'); }
-#notif-skellige-op::after { content: "Opponent Skellige Ability Triggered!"; }
+#notif-me-pass::after {
+	content: "Round passed"
+}
 
-#notif-skellige-me{ background-image: url('img/icons/notif_skellige.png'); }
-#notif-skellige-me::after { content: "Skellige Ability Triggered!"; }
+#notif-op-pass {
+	background-image: url(img/icons/notif_round_passed.png)
+}
 
-/* ------- card preview ------------- */
+#notif-op-pass::after {
+	content: "Your opponent has passed"
+}
 
-.card-preview { position: relative; z-index: 80;}
-.card-preview > .card-lg {
+#notif-win-round {
+	background-image: url(img/icons/notif_win_round.png)
+}
+
+#notif-win-round::after {
+	content: "You won the round!"
+}
+
+#notif-lose-round {
+	background-image: url(img/icons/notif_lose_round.png)
+}
+
+#notif-lose-round::after {
+	content: "Your opponent won the round"
+}
+
+#notif-draw-round {
+	background-image: url(img/icons/notif_draw_round.png)
+}
+
+#notif-draw-round::after {
+	content: "The round ended in a draw"
+}
+
+#notif-me-turn {
+	background-image: url(img/icons/notif_me_turn.png)
+}
+
+#notif-me-turn::after {
+	content: "Your turn!"
+}
+
+#notif-op-turn {
+	background-image: url(img/icons/notif_op_turn.png)
+}
+
+#notif-op-turn::after {
+	content: "Opponent's turn"
+}
+
+#notif-north {
+	background-image: url(img/icons/notif_north.png)
+}
+
+#notif-north::after {
+	content: "Northern Realms faction ability triggered: \A North draws an additional card."
+}
+
+#notif-monsters {
+	background-image: url(img/icons/notif_monsters.png)
+}
+
+#notif-monsters::after {
+	content: "Monsters faction ability triggered: \A one randomly-chosen Monster Unit Card stays on the board"
+}
+
+#notif-scoiatael {
+	background-image: url(img/icons/notif_scoiatael.png)
+}
+
+#notif-scoiatael::after {
+	content: "Opponent used the Scoia'tael faction perk to go first."
+}
+
+#notif-skellige-op {
+	background-image: url(img/icons/notif_skellige.png)
+}
+
+#notif-skellige-op::after {
+	content: "Opponent Skellige Ability Triggered!"
+}
+
+#notif-skellige-me {
+	background-image: url(img/icons/notif_skellige.png)
+}
+
+#notif-skellige-me::after {
+	content: "Skellige Ability Triggered!"
+}
+
+.card-preview {
+	position: relative;
+	z-index: 80
+}
+
+.card-preview>.card-lg {
 	position: absolute;
 	top: 11.95vw;
-	left: 80.3vw;
+	left: 80.3vw
 }
-.card-preview > .card-description {
+
+.card-preview>.card-description {
 	top: 43.1vw;
-	left: 67.95vw;
+	left: 67.95vw
 }
 
 .card-lg {
 	height: 30.4vw;
 	width: 16.1vw;
 	border-radius: 1.5vw;
-	
 	background-size: contain;
-	background-position:center;
+	background-position: center
 }
+
 .card-description {
 	position: absolute;
-
 	height: 7.87vw;
 	width: 29.12vw;
-	background-color: rgba(20,20,20, 0.95);
+	background-color: rgba(20, 20, 20, .95);
 	color: tan;
 	text-align: center;
-	pointer-events : none;
+	pointer-events: none;
 	border: .1vw solid #ffffff57;
-    border-width: .1vw 0;
+	border-width: .1vw 0
 }
 
-.card-description > * { position: relative; }
+.card-description>* {
+	position: relative
+}
 
-.card-description > div {
-	top: 1.0vw;
-	left: 0.9vw;
+.card-description>div {
+	top: 1vw;
+	left: .9vw;
 	width: 1.95vw;
 	height: 1.95vw;
 	margin-bottom: -1.9vw;
-	background-size:cover;
-	background-position:center;
+	background-size: cover;
+	background-position: center
 }
 
-.card-description > h1 {
-	font-weight: bold;
-	
-	top: 0.5vw;
+.card-description>h1 {
+	font-weight: 700;
+	top: .5vw;
 	left: 16%;
 	height: 16%;
 	width: 70%;
 	margin-bottom: -2.1vw;
 	text-transform: capitalize;
-	
-	font-size: 1vw;
+	font-size: 1vw
 }
 
-.card-description > p {
+.card-description>p {
 	top: 37%;
 	left: 5%;
 	width: 90%;
-	height:50%;
-	
-	font-size: 0.9vw;
+	height: 50%;
+	font-size: .9vw
 }
-
-/* ------- carousel ------------- */
 
 #carousel {
-	position:absolute;
-	width: 100%;
-	height: calc(100vw * 1080 / 1920);
-	z-index:90;
-}
-
-/*
-#carousel > :nth-child(1) {
 	position: absolute;
 	width: 100%;
-	height: 100%;
-	border: 1px solid blue;
-	z-index: -1;
-	background-image: url('img/icons/blank.png');
-	background-size: cover;
+	height: calc(100vw * 1080 / 1920);
+	z-index: 90
 }
-*/
 
-#carousel > :nth-child(1) {
-	wdith:100%;
-	heigth:100%;
-	
+#carousel>:nth-child(1) {
+	wdith: 100%;
+	heigth: 100%;
 	padding: 11.5% 10%;
-	
-	display:flex;
+	display: flex;
 	align-items: flex-start;
-	justify-content: space-between;
+	justify-content: space-between
 }
 
-#carousel > :nth-child(1)  > :nth-child(3){
+#carousel>:nth-child(1)>:nth-child(3) {
 	border: .3vw solid goldenrod;
 	box-shadow: 0 0 4vw goldenrod;
-	background-origin: border-box;
+	background-origin: border-box
 }
 
-#carousel > :nth-child(1)  > :nth-child(2n) {
+#carousel>:nth-child(1)>:nth-child(3):hover {
+	border: .3vw solid goldenrod;
+	box-shadow: 0 0 4vw goldenrod;
+	background-origin: border-box
+}
+
+#carousel>:nth-child(1)>:nth-child(2n) {
 	width: 13.75vw;
-	height: 25.9vw;
+	height: 25.9vw
 }
 
-#carousel > :nth-child(1)  > :nth-child(4n - 3) {
+#carousel>:nth-child(1)>:nth-child(4n - 3) {
 	width: 11.3vw;
 	height: 21.3vw;
-	margin: 0 2.75%;
+	margin: 0 2.75%
 }
 
 #carousel .card-lg {
-	display:inline-block;
-	background-size:cover;
-	background-position: center;
+	display: inline-block;
+	background-size: cover;
+	background-position: center
+}
+
+.card-lg {
+	border: .1vw solid transparent
+}
+
+.card-lg:hover {
+	border: .1vw solid goldenrod;
+	box-shadow: 0 0 1vw goldenrod
+}
+
+.start-game_class:hover {
+	border: .1vw solid white;
+	box-shadow: 0 0 .1vw white
+}
+
+#no_hover:hover {
+	border: .1vw solid transparent;
+	box-shadow: none
+}
+
+#carousel .card-lg:hover {
+	background-origin: border-box
 }
 
 #carousel .card-description {
 	left: 35.35%;
-	top: 77%;
+	top: 77%
 }
 
-#carousel > :nth-child(3) {
+#carousel>:nth-child(3) {
 	position: absolute;
-    width: 100%;
-    height: 7.5%;
-    top: 12%;
-    font-size: 1.75vw;
-    line-height: 250%;
-    background-color: rgba(10,10,10,.95);
-    text-align: center;
-    box-shadow: 0 0 1vw #ffffff54;
+	width: 100%;
+	height: 7.5%;
+	top: 12%;
+	font-size: 1.75vw;
+	line-height: 250%;
+	background-color: rgba(10, 10, 10, .95);
+	text-align: center;
+	box-shadow: 0 0 1vw #ffffff54
 }
-
-/* --------------------- popup ---------------------------  */
 
 #popup {
 	position: absolute;
-    width: 100%;
-    height: calc(100vw * 1080 / 1920);
-    background-color: rgba(10,10,10,.95);
-    z-index: 1000;
-    /* background-image: url(img/boardtest10.png); */
-    /* background-size: contain; */
+	width: 100%;
+	height: calc(100vw * 1080 / 1920);
+	background-color: rgba(10, 10, 10, .95);
+	z-index: 1000
 }
 
-
-#popup > div {
-    margin-top: -89px;
-    width: 26.5%;
-    border: .2vw ridge rgb(40,40,40);
-    padding: 0 0.5vw;
-    background-color: rgb(20,20,20);
+#popup>div {
+	margin-top: -89px;
+	width: 26.5%;
+	border: .2vw ridge rgb(40, 40, 40);
+	padding: 0 .5vw;
+	background-color: rgb(20, 20, 20)
 }
 
 #popup h3 {
-    display: block;
-    font-size: 1.05vw;
-    text-transform: uppercase;
-    color: grey;
-    text-align: center;
-    line-height: 100%;
+	display: block;
+	font-size: 1.05vw;
+	text-transform: uppercase;
+	color: grey;
+	text-align: center;
+	line-height: 100%
 }
 
 #popup p {
-    text-align: center;
-    font-size: 1.23vw;
-    padding-top: .6vw;
-    color: tan;
+	text-align: center;
+	font-size: 1.23vw;
+	padding-top: .6vw;
+	color: tan
 }
 
-#popup > div > div {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .2vw;
-    min-width: 10%;
-    width: fit-content;
-    margin: -1.4vw auto 0;
-    border: .2vw ridge rgb(25,25,25);
-    background-color: black;
-    top: 1.3vw;
+#popup>div>div {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: .2vw;
+	min-width: 10%;
+	width: fit-content;
+	margin: -1.4vw auto 0;
+	border: .2vw ridge rgb(25, 25, 25);
+	background-color: #000;
+	top: 1.3vw
 }
 
 #popup button {
-    display: inline-block;
-    width: auto;
-    height: 1.8vw;
-    border: .2vw ridge rgb(20,20,20);
-    background-color: rgb(20,20,20);
-    font-size: 1vw;
-    text-shadow: 1vw 1vw 1vw black;
+	display: inline-block;
+	width: auto;
+	height: 1.8vw;
+	border: .2vw ridge rgb(20, 20, 20);
+	background-color: rgb(20, 20, 20);
+	font-size: 1vw;
+	text-shadow: 1vw 1vw 1vw #000;
 	text-transform: capitalize;
-	margin: 0 0.3vw;
+	margin: 0 .3vw
 }
 
-#popup button:first-child { color: green; }
-#popup button:last-child {color: darkred; }
+#popup button:first-child {
+	color: green
+}
 
-/* --------------------- end screen ---------------------------  */
+#popup button:last-child {
+	color: darkred
+}
 
 #end-screen {
 	width: 100%;
 	height: calc(100vw * 1080 / 1920);
 	position: absolute;
 	z-index: 1000;
-	background-color: rgba(10,10,10,0.95);
+	background-color: rgba(10, 10, 10, .95)
 }
 
 #end-screen * {
-	position: relative;
+	position: relative
 }
 
-#end-screen > :nth-child(1)  {
-	top:12.6%;
-	left:32.9%;
-	width: calc(100% * 656 / 1920 );
-	height: calc(100% * 416 / 1080 );
+#end-screen>:nth-child(1) {
+	top: 12.6%;
+	left: 32.9%;
+	width: calc(100% * 656 / 1920);
+	height: calc(100% * 416 / 1080);
 	margin-bottom: -21.65%;
-	background-size: contain;
+	background-size: contain
 }
-.end-draw { background-image: url('img/icons/end_draw.png'); }
-.end-win  { background-image: url('img/icons/end_win.png');  }
-.end-lose { background-image: url('img/icons/end_lose.png'); }
 
-#end-screen > table {
+.end-draw {
+	background-image: url(img/icons/end_draw.png)
+}
+
+.end-win {
+	background-image: url(img/icons/end_win.png)
+}
+
+.end-lose {
+	background-image: url(img/icons/end_lose.png)
+}
+
+#end-screen>table {
 	top: 55%;
 	left: 7.6%;
 	width: 74%;
 	height: 22%;
 	margin-bottom: -12.3%;
-	table-layout: fixed;
+	table-layout: fixed
 }
 
 #end-screen tbody :first-child th {
 	font-size: .9vw;
 	text-align: center;
 	color: darkslategrey;
-	color: rgb(100,100,100);
+	color: rgb(100, 100, 100)
 }
 
 #end-screen td {
 	font-size: 1.7vw;
 	text-align: center;
-	color: rgb(180,180,180);
+	color: rgb(180, 180, 180)
 }
 
 #end-screen tr :first-child {
 	font-size: 1.2vw;
 	text-align: right;
-	color:darkorange;
-	padding-right: 5%;
+	color: darkorange;
+	padding-right: 5%
 }
 
-#end-screen > p {
+#end-screen>p {
 	top: 80%;
 	left: 30.1%;
 	width: 41%;
 	height: 3%;
 	font-size: 1.21vw;
-	color: rgb(180,180,180);
+	color: rgb(180, 180, 180)
 }
 
 #end-screen button {
-    position: absolute;
-    height: 3vw;
-    width: 10vw;
-    top: 87%;
+	position: absolute;
+	height: 3vw;
+	width: 10vw;
+	top: 87%;
 	font-family: Arial Narrow;
-    font-size: 1.5vw;
-    color: goldenrod;
-    background-color: #4c390a66;
-    border: .2vw solid #1d180b;
-    border-radius: 1vw;
-    box-shadow: 0 0 2vw #6d5210;
+	font-size: 1.5vw;
+	color: goldenrod;
+	background-color: #4c390a66;
+	border: .2vw solid #1d180b;
+	border-radius: 1vw;
+	box-shadow: 0 0 1vw #6d5210
 }
 
-#end-screen button ::hover {
-	box-shadow: 0 0 3vw #6d5210;
+#pass-button:hover, #toggle-music:hover {
+	text-shadow: 0 0 1vw #6d5210
 }
 
-#end-screen button:nth-of-type(1) { left: 35%; }
-#end-screen button:nth-of-type(2) { left: 55%; }
+#end-screen button:hover {
+	box-shadow: 0 0 2vw #6d5210
+}
 
-/* --------------------- panels ---------------------------  */
+#end-screen button:nth-of-type(1) {
+	left: 35%
+}
+
+#end-screen button:nth-of-type(2) {
+	left: 55%
+}
 
 .panel {
-	display:inline-block;
+	display: inline-block;
 	height: 100%;
 	box-sizing: border-box;
 	overflow-y: hidden;
 	overflow-x: visible;
-	
-	/*new values*/
 	overflow-y: visible;
-	position:absolute;
-	height: calc(100vw * 1080 / 1920);
+	position: absolute;
+	height: calc(100vw * 1080 / 1920)
 }
 
-.panel div, .panel section, .panel span{
-	position: relative;
+.panel div,
+.panel section,
+.panel span {
+	position: relative
 }
-
-/*
-.panel div, .panel section, .panel span{
-	border: 1px solid yellow;
-	background-color: rgba(0, 100, 100, 0.2);
-	box-sizing: border-box;
-	background-origin: border-box;
-}
-*/
-
-/*
-main { background-image: url('img/boardtest8.png'); }
-*/
-
-/*
-#panel-left { border: 1px solid blue;	background-color: rgba(0,0,100,.2); }
-#panel-mid { border: 1px solid green; background-color: rgba(0, 100, 0, 0.2); }
-#panel-right { border: 1px solid red; background-color: rgba(100, 0, 0, 0.2); }
-*/
 
 #panel-left {
-	width: 26.5%;
+	width: 26.5%
 }
 
 #panel-mid {
-	width:52.5%;
-	left: 26.5%;
+	width: 52.5%;
+	left: 26.5%
 }
 
 #panel-right {
 	width: 21%;
-	left: 79%;
+	left: 79%
 }
 
-/* -------------------- left panel ----------------------- */
-
 #weather {
-	top: 41.25%; 
+	top: 41.25%;
 	left: 27.9%;
 	width: 54.9%;
 	height: 12.75%;
 	margin-bottom: -27%;
-	z-index: 1;
+	z-index: 1
 }
 
 .leader-box {
 	left: 27.5%;
 	width: 31.4%;
 	height: 12.5%;
-	margin-bottom: -26.25%;
+	margin-bottom: -26.25%
 }
 
 .leader-box .card {
-	pointer-events: none;
+	pointer-events: none
 }
 
-.leader-box > .leader-container {
+.leader-box>.leader-container {
 	height: 100%;
 	width: 63%;
 	margin-bottom: -80%;
-	
-	/* replace it html with center class */
-	display:flex;
-	flex-items:center;
-	justify-content:center;
+	display: flex;
+	flex-items: center;
+	justify-content: center
 }
 
-.leader-box > div > .card {
-	position:absolute;
+.leader-box>div>.card {
+	position: absolute;
 	height: 98%;
 	width: 95%;
-	border-radius: 0.6vw;
+	border-radius: .6vw
 }
 
 .leader-active {
 	top: 33%;
 	left: 75%;
 	height: 28%;
-	width: 24%;
+	width: 24%
 }
 
-.leader-active > div {
-	background-image: url('img/icons/icon_leader_active.png');
+.leader-active>div {
+	background-image: url(img/icons/icon_leader_active.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 100%;
+	height: 100%
 }
 
 #leader-op {
-	top: 7.55%;
+	top: 7.55%
 }
 
 #leader-me {
-	top: 77.5%;
+	top: 77.5%
 }
 
 .stats {
 	height: 12.5%;
 	width: 88.5%;
 	margin-bottom: -27%;
-	background-color: rgba(20,20,20,0.6);
+	background-color: rgba(20, 20, 20, .6)
 }
 
 .current-turn {
-	box-shadow: -3vw 0px 1vw 0.1vw goldenrod;
+	box-shadow: -3vw 0 1vw .1vw goldenrod
 }
 
 #stats-op {
-	top: 24.25%;
+	top: 24.25%
 }
 
 #stats-me {
-	top: 61.75%;
+	top: 61.75%
 }
 
 .profile-img {
@@ -616,40 +758,37 @@ main { background-image: url('img/boardtest8.png'); }
 	width: 21.9%;
 	height: 80%;
 	margin-bottom: -24%;
-	
-	background-image: url('img/icons/profile.png');
+	background-image: url(img/icons/profile.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	border-radius: 100%;
-	/*background-overflow: hidden;*/
+	border-radius: 100%
 }
 
-.profile-img > div {
+.profile-img>div {
 	left: -10%;
 	top: -6%;
 	height: 118%;
 	width: 118%;
-	background-image: url('img/icons/icon_player_border.png');
+	background-image: url(img/icons/icon_player_border.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	overflow: visible;
+	overflow: visible
 }
 
-.profile-img > div > div {
+.profile-img>div>div {
 	width: 43%;
 	height: 43%;
 	left: -10.5%;
 	top: .5%;
-	
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center
 }
 
-#stats-me > div > div > div {
-	top: 59%;
+#stats-me>div>div>div {
+	top: 59%
 }
 
 .score-total {
@@ -657,40 +796,35 @@ main { background-image: url('img/boardtest8.png'); }
 	left: 94.5%;
 	height: 40%;
 	width: 12%;
-	
-	top:31%;
-	
+	top: 31%;
 	margin-bottom: -12%;
-	
-	color: black;
-	text-shadow: 0 0 5px white;
+	color: #000;
+	text-shadow: 0 0 5px #fff;
 	font-size: 2.3vw;
-	font-weight: bold;
-	
+	font-weight: 700;
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center
 }
 
 #score-total-me {
-	background-image: url('img/icons/score_total_me.png');
+	background-image: url(img/icons/score_total_me.png)
 }
 
 #score-total-op {
-	background-image: url('img/icons/score_total_op.png');
+	background-image: url(img/icons/score_total_op.png)
 }
 
-.score-leader > div{
-	background-image: url('img/icons/icon_high_score.png');
+.score-leader>div {
+	background-image: url(img/icons/icon_high_score.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: bottom;
-	left:-46%;
+	left: -46%;
 	top: -32%;
-	width:195%;
-	height: 170%;
+	width: 195%;
+	height: 170%
 }
-
 
 .hand-count {
 	top: 58.5%;
@@ -698,72 +832,64 @@ main { background-image: url('img/boardtest8.png'); }
 	height: 29.5%;
 	width: 17%;
 	margin-bottom: -9%;
-
 	font-size: 1.7vw;
-	font-weight: bold;
+	font-weight: 700;
 	padding-left: 7%;
-	
-	
-	
-	background-image: url('img/icons/icon_card_count.png');
+	background-image: url(img/icons/icon_card_count.png);
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: left;
-	
-	
+	background-position: left
 }
 
 #hand-count-me {
-	top:18.5%;
+	top: 18.5%
 }
 
 .gem {
 	width: 9%;
-	height:31%;
+	height: 31%;
 	margin-bottom: -9.25%;
-	background-image: url('img/icons/icon_gem_off.png');
+	background-image: url(img/icons/icon_gem_off.png)
 }
 
 .gem-on {
-	background-image: url('img/icons/icon_gem_on.png');
+	background-image: url(img/icons/icon_gem_on.png)
 }
 
 #gem2-op {
 	top: 56.25%;
-	left: 70.75%;
+	left: 70.75%
 }
 
-#gem1-op{
-	top:56%;
-	left:80%;
+#gem1-op {
+	top: 56%;
+	left: 80%
 }
 
 #gem2-me {
 	top: 14.5%;
-	left: 70.75%;
+	left: 70.75%
 }
 
-#gem1-me{
+#gem1-me {
 	top: 14.5%;
-	left: 80%;
+	left: 80%
 }
 
 .name {
 	left: 53%;
 	top: 6%;
-	width:41.5%;
+	width: 41.5%;
 	height: 20%;
 	margin-bottom: -6%;
 	overflow: hidden;
 	white-space: nowrap;
 	font-size: 1.1vw;
-	font-weight: bold;
-	
-	/*font-family: Arial Narrow, sans-serif;*/
+	font-weight: 700
 }
 
 #name-me {
-	top: 60%;
+	top: 60%
 }
 
 .deck-name {
@@ -773,108 +899,102 @@ main { background-image: url('img/boardtest8.png'); }
 	height: 20%;
 	margin-bottom: -6%;
 	overflow: hidden;
-	text-transform:capitalize;
-	
+	text-transform: capitalize;
 	color: tan;
-	font-size: .95vw;
-	/*font-family: Arial Narrow, sans-serif;*/
+	font-size: .95vw
 }
 
 #deck-name-me {
-	top:80%;
+	top: 80%
 }
 
 .passed {
 	height: 0%;
 	width: 0%;
-	left:90%;
+	left: 90%;
 	top: 87%;
-	
 	color: tan;
 	font-size: 1.5vw;
-	font-weight: bold;
-	text-shadow: 1px 1px 2px black;
+	font-weight: 700;
+	text-shadow: 1px 1px 2px #000
 }
-#passed-me{ top: -3%;}
+
+#passed-me {
+	top: -3%
+}
 
 #pass-button {
 	top: 82%;
 	left: 63%;
-	width:20%;
+	width: 20%;
 	height: 4%;
-	
 	font-size: 2vw;
-	font-weight: bold;
-	
+	font-weight: 700;
 	border: .1vw solid goldenrod;
 	border-radius: .5vw;
-	background-color: rgba(20,20,20,.9);
+	background-color: rgba(20, 20, 20, .9)
 }
-
-/* ------------- middle pannel ------------------ */
 
 .field {
 	width: 100%;
-	height: 38.5%;
+	height: 38.5%
 }
 
 .field .hero {
-	pointer-events: none;
+	pointer-events: none
 }
 
 #field-op {
-	top:-1.1%;
+	top: -1.1%
 }
 
 #field-op .card {
-	pointer-events: none;
+	pointer-events: none
 }
 
 #field-me {
-	top: -1.0%;
+	top: -1%
 }
 
 #field-hand {
 	width: 100%;
-	height:13%;
+	height: 13%
 }
 
 .field-row {
 	height: 32%;
 	top: 4%;
-	display:flex;
-	z-index: 1;
+	display: flex;
+	z-index: 1
 }
 
-.field-row > div {
-	position: absolute;
+.field-row>div {
+	position: absolute
 }
 
 .row-score {
 	width: 5.1%;
-	top:7%;
+	top: 7%;
 	height: 95%;
 	margin-bottom: -12.65%;
 	font-size: 1.8vw;
-	
-	color: black;
-	text-shadow: 0 0 5px white;
+	color: #000;
+	text-shadow: 0 0 5px #fff
 }
 
 .row-special {
 	width: 14.25%;
 	height: 100%;
 	left: 5.1%;
-	margin-bottom: -12.65%;
+	margin-bottom: -12.65%
 }
 
 .row-cards {
 	height: 100%;
 	width: 80.65%;
 	left: 19.35%;
-
 	left: 20%;
-	width: 79.7%;
+	width: 79.7%
 }
 
 .row-weather {
@@ -883,74 +1003,66 @@ main { background-image: url('img/boardtest8.png'); }
 	left: 5.75%;
 	width: 94.25%;
 	height: 100%;
-	
-	pointer-events : none;
-	
+	pointer-events: none;
 	background-size: cover;
 	background-position: bottom;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat
 }
-.frost { background-image: url('img/icons/overlay_frost.png'); }
-.rain  { background-image: url('img/icons/overlay_rain.png');  }
-.fog   { background-image: url('img/icons/overlay_fog.png');   }
+
+.frost {
+	background-image: url(img/icons/overlay_frost.png)
+}
+
+.rain {
+	background-image: url(img/icons/overlay_rain.png)
+}
+
+.fog {
+	background-image: url(img/icons/overlay_fog.png)
+}
 
 #hand-row {
 	top: 8%;
-	height:91%;
+	height: 91%;
 	left: 7.1%;
 	width: 92.5%;
-	z-index: 1;
+	z-index: 1
 }
 
 .row-selectable {
-	background-color: rgba(255,255,0, 0.08);
+	background-color: rgba(255, 255, 0, .08)
 }
 
 .row-selectable:hover {
-	box-shadow: 0 0 .25vw rgba(255,255,0, 1);
-	/*outline: .25vw solid rgba(255,255,0, 0.5);*/
-	box-sizing: border-box;
+	box-shadow: 0 0 .25vw rgba(255, 255, 0, 1);
+	box-sizing: border-box
 }
 
-.card-selectable > .card:hover {
-	/*box-shadow: 0 0 .2vw rgba(255,255,0, 0.5);*/
+.card-selectable>.card:hover {
 	border: .12vw outset goldenrod;
 	border-radius: .3vw;
 	margin-bottom: 1vw;
-	z-index: 1;
+	z-index: 1
 }
-
-/*
-#hand-row > .card {
-	position: relative;
-	position: absolute;
-	
-	height: 100%;
-	width: 9.35%;
-}
-*/
-
-/* ---------------- right panel ------------- */
 
 .cardpile {
 	width: 27.6%;
 	height: 13.5%;
 	margin-bottom: -36.25%;
-	
-	display:flex;
-	flex-direction:column-reverse;
+	display: flex;
+	flex-direction: column-reverse;
 	align-items: center;
 	overflow: visible;
-	z-index: 1;
+	z-index: 1
 }
 
 .cardpile .card {
-	pointer-events: none;
+	pointer-events: none
 }
 
 #grave-op {
 	top: 6.5%;
-	left: 6.5%;
+	left: 6.5%
 }
 
 #deck-op {
@@ -960,7 +1072,7 @@ main { background-image: url('img/boardtest8.png'); }
 
 #grave-me {
 	top: 76.5%;
-	left: 6.5%;
+	left: 6.5%
 }
 
 #deck-me {
@@ -971,71 +1083,58 @@ main { background-image: url('img/boardtest8.png'); }
 .deck-card {
 	position: relative;
 	display: inline-block;
-	
 	height: 6.675vw;
 	width: 4.45vw;
-
-	background-size:contain;
+	background-size: contain;
 	background-repeat: no-repeat;
-	box-shadow: -.1vw -.1vw .5vw rgba(20,20,20, 0.5);
+	box-shadow: -.1vw -.1vw .5vw rgba(20, 20, 20, .5)
 }
 
 .deck-counter {
 	position: relative;
-	background-color: rgba(20,20,20, 0.8);
-	
+	background-color: rgba(20, 20, 20, .8);
 	width: 3vw;
 	height: 2vw;
-	
 	z-index: 1;
-	
-	color:tan;
-	font-size: 1.3vw;
+	color: tan;
+	font-size: 1.3vw
 }
 
 .cardpile .deck-card {
 	top: -5%;
-	margin-top: -114.5%;
+	margin-top: -114.5%
 }
 
-
-.cardpile > .card {
-	/* position: relative; */
+.cardpile>.card {
 	top: -5%;
-	margin-top: -108.5%;
+	margin-top: -108.5%
 }
-
-/* ----------- deck creation menu  ------------------*/
 
 #deck-customization {
 	position: absolute;
 	width: 100%;
 	height: calc(100vw * 1080 / 1920);
-	background-color: rgba(10,10,10,.95);
-	z-index: 85;
+	background-color: rgba(10, 10, 10, .95);
+	z-index: 85
 }
 
 #faction-title {
 	position: absolute;
 	height: 5%;
 	width: 100%;
-	top: 6%;
+	top: 6%
 }
 
 #deck-customization h1 {
-    position: absolute;
-    font-size: 1.45vw;
-    color: #dedede;
-    line-height: 220%;
-    text-transform: capitalize;
-    padding: 0 3%;
-	
-
-	
+	position: absolute;
+	font-size: 1.45vw;
+	color: #dedede;
+	line-height: 220%;
+	text-transform: capitalize;
+	padding: 0 3%;
 	top: -60%;
-	
-    background-size: contain;
-    background-repeat: no-repeat;
+	background-size: contain;
+	background-repeat: no-repeat
 }
 
 #faction-description {
@@ -1045,26 +1144,26 @@ main { background-image: url('img/boardtest8.png'); }
 	top: 9.45%;
 	left: 20.2%;
 	width: 60%;
-	text-align: center;
+	text-align: center
 }
 
-.deck-options{
+.deck-options {
 	position: absolute;
 	font-size: 1vw;
-	color: white;
-	top: 15%;
+	color: #fff;
+	top: 15%
 }
 
 #download-deck {
-	left: 55%;
+	left: 55%
 }
 
 #upload-deck {
-	left: 40%;
+	left: 40%
 }
 
 #change-faction {
-	left: 47%;
+	left: 47%
 }
 
 .card-array {
@@ -1074,28 +1173,28 @@ main { background-image: url('img/boardtest8.png'); }
 	overflow-y: scroll;
 	padding: .1vw 1.1vw;
 	display: flex;
-	flex-wrap:wrap;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: space-between
 }
 
 #card-bank {
 	top: 22.5%;
-	left: 8.275%;
+	left: 8.275%
 }
 
 #card-deck {
 	top: 22.5%;
-	left: 58.4%;
+	left: 58.4%
 }
 
 .card-array .card-lg {
-    width: 9.88vw;
-    height: 18.45vw;
-    border-radius: 1vw;
-	margin-bottom: 0.75vw;
+	width: 9.88vw;
+	height: 18.45vw;
+	border-radius: 1vw;
+	margin-bottom: .75vw
 }
 
-.card-array .card-lg > div {
+.card-array .card-lg>div {
 	position: relative;
 	top: 82.5%;
 	left: 76%;
@@ -1104,10 +1203,10 @@ main { background-image: url('img/boardtest8.png'); }
 	font-size: 1.2vw;
 	color: #5f4923;
 	padding-left: 1.7vw;
-	background-image: url('img/icons/preview_count.png');
+	background-image: url(img/icons/preview_count.png);
 	background-position: left;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: contain
 }
 
 #card-leader {
@@ -1115,7 +1214,7 @@ main { background-image: url('img/boardtest8.png'); }
 	height: 27%;
 	width: 6.9%;
 	top: 20.8%;
-	left: 46.6%;
+	left: 46.6%
 }
 
 #card-leader p {
@@ -1123,16 +1222,15 @@ main { background-image: url('img/boardtest8.png'); }
 	text-align: center;
 	color: #8f6c36;
 	line-height: 0%;
-	margin: 9%;
+	margin: 9%
 }
 
-#card-leader > div {
+#card-leader>div {
 	position: relative;
 	height: 84.5%;
 	margin-top: 24.5%;
-	
 	background-size: contain;
-	border-radius: .5vw;
+	border-radius: .5vw
 }
 
 #deck-stats {
@@ -1140,34 +1238,47 @@ main { background-image: url('img/boardtest8.png'); }
 	width: 12%;
 	height: 30%;
 	top: 49.5%;
-	left: 44.05%;
+	left: 44.05%
 }
 
-#deck-stats > p:nth-child(odd) {
+#deck-stats>p:nth-child(odd) {
 	color: #82735f;
 	font-size: 1.05vw;
 	text-align: center;
-	margin-bottom: -6.75%;
+	margin-bottom: -6.75%
 }
 
-#deck-stats > p:nth-child(even) {
+#deck-stats>p:nth-child(even) {
 	font-size: 1.2vw;
 	text-align: left;
 	color: #9f7d3e;
 	padding-left: 2.3vw;
 	margin-left: 3.95vw;
 	margin-bottom: -6.75%;
-	
 	background-repeat: no-repeat;
 	background-position: left;
-	background-size: 2.5vw;
+	background-size: 2.5vw
 }
 
-#deck-stats > p:nth-child(2) { background-image: url('img/icons/deck_stats_count.png'); }
-#deck-stats > p:nth-child(4) { background-image: url('img/icons/deck_stats_unit.png'); }
-#deck-stats > p:nth-child(6) { background-image: url('img/icons/deck_stats_special.png'); }
-#deck-stats > p:nth-child(8) { background-image: url('img/icons/deck_stats_strength.png'); }
-#deck-stats > p:nth-child(10) { background-image: url('img/icons/deck_stats_hero.png'); }
+#deck-stats>p:nth-child(2) {
+	background-image: url(img/icons/deck_stats_count.png)
+}
+
+#deck-stats>p:nth-child(4) {
+	background-image: url(img/icons/deck_stats_unit.png)
+}
+
+#deck-stats>p:nth-child(6) {
+	background-image: url(img/icons/deck_stats_special.png)
+}
+
+#deck-stats>p:nth-child(8) {
+	background-image: url(img/icons/deck_stats_strength.png)
+}
+
+#deck-stats>p:nth-child(10) {
+	background-image: url(img/icons/deck_stats_hero.png)
+}
 
 #start-game {
 	position: absolute;
@@ -1175,11 +1286,14 @@ main { background-image: url('img/boardtest8.png'); }
 	left: 46.65%;
 	width: 6%;
 	height: 3%;
-	font-size: 0.98vw;
+	font-size: .98vw
+}
+
+.start-game_class {
 	white-space: nowrap;
-	color: white;
-	background-color: rgb(20,20,20);
-	border: 0.1vw ridge rgb(30,30,30);
+	color: #fff;
+	background-color: rgb(20, 20, 20);
+	border: .1vw ridge rgb(30, 30, 30)
 }
 
 .card-contianer-title {
@@ -1187,141 +1301,128 @@ main { background-image: url('img/boardtest8.png'); }
 	width: 10%;
 	height: 3%;
 	font-size: 1.3vw;
-	color: #959595;
+	color: #959595
 }
 
 #card-bank-title {
 	top: 7.45%;
-	left: 8.5%;
+	left: 8.5%
 }
 
 #card-deck-title {
 	top: 7.8%;
-	left: 84.45%;
+	left: 84.45%
 }
-
-/* ----------- cards ------------------*/
 
 .card {
-	/*height: 100%;
-	width: auto;*/
-	/*width: calc(100% * 775 / 410);*/
-	
 	height: 6.35vw;
 	width: 4.45vw;
-	
-	background-size:contain;
+	background-size: contain;
 	background-repeat: no-repeat;
-	
-	box-shadow: -.1vw -.1vw .5vw rgba(20,20,20, 0.5);
-	
+	box-shadow: -.1vw -.1vw .5vw rgba(20, 20, 20, .5);
 	display: inline-block;
-	
-	/*position: absolute;*/
 	position: relative;
-	
 	transition: margin-bottom 0.05s, margin-left .25s, margin-right .25s, transform 0.5s;
-	
-	z-index = 1;
+	z-index=1
 }
 
-.deck-card .card { position : absolute; }
+.deck-card .card {
+	position: absolute
+}
 
-.card > div {
+.card>div {
 	background-size: contain;
 	background-position: center;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat
 }
 
-.card > div:nth-child(1) {
+.card>div:nth-child(1) {
 	top: -4%;
 	left: -4%;
 	width: 70%;
 	height: 50%;
 	margin-bottom: -71%;
-	
-	background-position: 0 0;
-	
+	background-position: 0 0
 }
 
-.card > div:nth-child(1) > div {
+.card>div:nth-child(1)>div {
 	top: 13%;
 	left: 7%;
 	width: 50%;
-	heighth:  50%;
+	heighth: 50%;
 	font-size: 1vw;
-	font-weight: bold;
-	color: black;
-	text-shadow: 0 0 .1vw white;
+	font-weight: 700;
+	color: #000;
+	text-shadow: 0 0 .1vw #fff
 }
 
-.hero > div:nth-child(1) > div {
-	color: white;
-	text-shadow: 0 0 .1vw black;
+.hero>div:nth-child(1)>div {
+	color: #fff;
+	text-shadow: 0 0 .1vw #000
 }
 
-
-
-.card > div:nth-child(2) {
+.card>div:nth-child(2) {
 	top: 75%;
 	left: 65%;
 	width: 33%;
 	height: 22%;
-	margin-bottom: -32%;
-	/*border: 1px solid blue;*/
+	margin-bottom: -32%
 }
 
-.card > div:nth-child(3){
+.card>div:nth-child(3) {
 	top: 75%;
 	left: 31%;
 	width: 33%;
 	height: 22%;
 	margin-bottom: -32%;
-	
-	font-size: 1vw;
-	/*border: 1px solid red;*/
+	font-size: 1vw
 }
 
-.card > div:nth-child(4) {
+.card>div:nth-child(4) {
 	width: 100%;
 	height: 100%;
 	background-position: center;
 	background-size: 40% auto;
 	opacity: 0;
 	filter: alpha(opacity=0);
-	transition: background-size 0.25s;
+	transition: background-size 0.25s
 }
 
 .card-container {
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: flex-end
 }
 
 .card-container .card {
 	margin: 0 1px;
-	flex-shrink: 0;
-	/*margin: 0 -10px;*/
-	/*margin: 0 calc((100% - (4.45vw * 14)) / 26);*/
+	flex-shrink: 0
 }
-
-/* ----------- misc ----------------  */
 
 .center {
 	display: flex;
 	justify-content: center;
-	align-items:center;
+	align-items: center
 }
 
-.bg-contain{
+.bg-contain {
 	background-size: contain;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat
 }
 
-.visible { display: visible; }
-.hide {display: none; }
-.fade {opacity: 0.2; filter: alpha(opacity=20); }
+.visible {
+	display: visible
+}
+
+.hide {
+	display: none
+}
+
+.fade {
+	opacity: .2;
+	filter: alpha(opacity=20)
+}
 
 .noclick {
-	pointer-events: none;
+	pointer-events: none
 }

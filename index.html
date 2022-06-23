@@ -1,289 +1,245 @@
 <!doctype html>
-
-<html lang="en-US">
-
-<head>
-	<title>Gwent Classic from The Widtcher 3: Wild Hunt</title>
-	<meta charset="utf-8" />
-	<meta name="author" content="Arun Sundaram" />
-	<meta name="description" content="Play the original Gwent minigame from The Witcher 3 in your browser! Includes cards from Hearts of Stone and Blood & Wine!" />
-	<meta name="keywords" content="arun, sundaram, programmer, gwent, tw3, witcher, card, game, gamedev, play" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-
-<body>
-
-<div id="dimensions" style="position:fixed;width:100vw;height:calc(100vw * 1080 / 1920);"></div>
-
-<div id="youtube"></div>
-
-<main>
-
-	<section id="click-background" class="noclick"></section>
-
-	<section id="panel-left" class="panel">
-	
-		<div id="leader-op" class="leader-box">
-			<div class="leader-container center"> 
+<html lang = "en-US">
+	<head>
+		<title>Gwent Classic from The Witcher 3: Wild Hunt</title>
+		<meta charset = "utf-8" />
+		<meta name = "author" content = "Arun Sundaram & Reynolds Costa" />
+		<meta name = "description" content = "Play the original Gwent minigame from The Witcher 3 in your browser! Includes cards from Hearts of Stone and Blood & Wine!" />
+		<meta name = "keywords" content = "arun, sundaram, reynolds, costa, randompianist, programmer, gwent, tw3, witcher, card, game, gamedev, play" />
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+		<link rel = "stylesheet" type = "text/css" href = "style.css" />
+	</head>
+	<body>
+		<div class = "abs" id = "very_start_bg1"></div>
+		<div class = "abs" id = "very_start_bg2">
+			<div id = "very_start" class = "abs" style = "padding-top:55%">
+				UP FOR
+				<br />
+				A FEW ROUNDS
+				<br />
+				OF GWENT?
+				<br /><br />
+				<font id = "load_text">Loading...</font>
+				<button class = "start-game_class" id = "button_start" style = "display:none">Click here to begin</button>
 			</div>
-			<div class="leader-active">
+		</div>
+		<div id = "dimensions" style = "position:fixed;width:100vw;height:calc(100vw * 1080 / 1920);"></div>
+		<div id = "youtube"></div>
+		<main style = "display:none">
+			<section id = "click-background" class = "noclick"></section>
+			<section id = "panel-left" class = "panel">
+				<div id = "leader-op" class = "leader-box">
+					<div class = "leader-container center"></div>
+					<div class = "leader-active">
+						<div></div>
+					</div>
+				</div>
+				<section id = "stats-op" class = "stats">
+					<div class = "profile-img">
+						<div>
+							<div></div>
+						</div>
+					</div>
+					<div id = "name-op" class = "name">Opponent</div>
+					<div id = "deck-name-op" class = "deck-name"></div>
+					<div id = "hand-count-op" class = "hand-count">6</div>
+					<div id = "gem1-op" class = "gem gem-on bg-contain"></div>
+					<div id = "gem2-op" class = "gem gem-on bg-contain"></div>
+					<div id = "score-total-op" class = "score-total">
+						<div class = "center">0</div>
+					</div>
+					<div id = "passed-op">Passed</div>
+				</section>
+				<div id = "weather" class = "card-container"></div>
+				<section id = "stats-me" class = "stats">
+					<div class = "profile-img">
+						<div>
+							<div></div>
+						</div>
+					</div>
+					<div id = "passed-me">Passed</div>
+					<div id = "hand-count-me" class = "hand-count">5</div>
+					<div id = "gem1-me" class = "gem gem-on bg-contain"></div>
+					<div id = "gem2-me" class = "gem gem-on bg-contain"></div>
+					<div id = "name-me" class = "name"></div>
+					<div id = "deck-name-me" class = "deck-name"></div>
+					<div id = "score-total-me" class = "score-total">
+						<div class = "center">0</div>
+					</div>
+				</section>
+				<div id = "leader-me" class = "leader-box">
+					<div class = "leader-container center"></div>
+					<div class = "leader-active">
+						<div></div>
+					</div>
+				</div>
+				<div id = "pass-button" class = "center">Pass</div>
+			</section>
+			<section id = "panel-mid" class = "panel">
+				<section id = "field-op" class = "field">
+					<div class = "field-row">
+						<div class = "row-score center">12</div>
+						<div class = "row-special card-container"></div>
+						<div id = "f1" class = "row-cards card-container"></div>
+						<div class = "row-weather"></div>
+					</div>
+					<div class = "field-row">
+						<div class = "row-score center">0</div>
+						<div class = "row-special card-container"></div>
+						<div id = "f2" class = "row-cards card-container"></div>
+						<div class = "row-weather"></div>
+					</div>
+					<div class = "field-row">
+						<div class = "row-score center">0</div>
+						<div class = "row-special card-container"></div>
+						<div id = "f3" class = "row-cards card-container"></div>
+						<div class = "row-weather"></div>
+					</div>
+				</section>
+				<section id = "field-me" class = "field">
+					<div class = "field-row">
+						<div class = "row-score center">0</div>
+						<div class = "row-special card-container"></div>
+						<div id = "f4" class = "row-cards card-container"></div>
+						<div class = "row-weather"></div>
+					</div>
+					<div class = "field-row">
+						<div class = "row-score center">0</div>
+						<div class = "row-special card-container"></div>
+						<div id = "f5" class = "row-cards card-container"></div>
+						<div class = "row-weather"></div>
+					</div>
+					<div class = "field-row">
+						<div class = "row-score center">0</div>
+						<div class = "row-special card-container"></div>
+						<div id = "f6" class = "row-cards card-container"></div>
+						<div class = "row-weather"></div>
+					</div>
+				</section>
+				<section id = "field-hand">
+					<div id = "hand-row" class = "card-container card-selectable">
+					</div>
+				</section>
+			</section>
+			<section id = "panel-right" class = "panel">
+				<div id = "grave-op" class = "cardpile"></div>
+				<div id = "deck-op" class = "cardpile"></div>
+				<div id = "grave-me" class = "cardpile"></div>
+				<div id = "deck-me" class = "cardpile"></div>
+			</section>
+			<div id = "hand-op"></div>
+			<section class = "card-preview hide">
+				<div class = "card-lg" id = "no_hover"></div>
+				<div class = "card-description">
+					<div></div>
+					<h1></h1>
+					<p></p>
+				</div>
+			</section>
+			<section id = "carousel" class = "hide">
+				<div>
+					<div class = "card-lg" onclick = "Carousel.curr.shift(event,-2)"></div>
+					<div class = "card-lg" onclick = "Carousel.curr.shift(event,-1)"></div>
+					<div class = "card-lg" onclick = "Carousel.curr.select(event)" id = "no_sound"></div>
+					<div class = "card-lg" onclick = "Carousel.curr.shift(event,1)"></div>
+					<div class = "card-lg" onclick = "Carousel.curr.shift(event,2)"></div>
+				</div>
+				<div class = "card-description">
+					<div></div>
+					<h1></h1>
+					<p></p>
+				</div>
+				<div id = "carousel_label"></div>
+			</section>
+			<section id = "popup" class = "center hide">
+				<div>
+					<h3></h3>
+					<p></p>
+					<div>
+						<button class = "hover_un" onclick = "Popup.curr.selectYes()"></button>
+						<button class = "hover_un" onclick = "Popup.curr.selectNo()"></button>
+					</div>
+				</div>
+			</section>
+			<section id = "notification-bar" class = "hide">
+				<div></div>
+			</section>
+			<section id = "end-screen" class = "hide">
+				<div></div>
+				<table>
+					<colgroup>
+						<col span = "3" />
+						<col span = "1" />
+						<col span = "1" />
+						<col span = "1" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th colspan = "2"></th>
+							<th>Round 1</th>
+							<th>Round 2</th>
+							<th>Round 3</th>
+						</tr>
+						<tr>
+							<th colspan = "2">You</th>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<th colspan = "2">Opponent</th>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class = "hide">The battle cannot end in a draw. You can play a rematch using the same decks or surrender.</p>
+				<button>Customize</button>
+				<button>Replay</button>
+			</section>
+			<section id = "deck-selector"></section>
+		</main>
+		<section id = "deck-customization" style = "display:none">
+			<div id = "faction-title" class = "center">
+				<h1></h1>
+			</div>
+			<p id = "faction-description"></p>
+			<label id = "upload-deck" class = "deck-options">
+				<input type = "file" id = "add-file" value = "Import" style = "display:none;"/>
+				Upload Deck
+			</label>
+			<a id = "change-faction" class = "deck-options">Change Faction</a>
+			<a id = "download-deck" class = "deck-options">Download Deck</a>
+			<a id = "download-json" style = "display:none;"></a>
+			<h2 id = "card-bank-title" class = "card-contianer-title">Card Collection</h2>
+			<h2 id = "card-deck-title" class = "card-contianer-title">Cards in Deck</h2>
+			<div id = "card-bank" class = "card-array"></div>
+			<div id = "card-deck" class = "card-array"></div>
+			<div id = "card-leader">
+				<p>Leader</p>
 				<div></div>
 			</div>
-		</div>
-		
-		<section id="stats-op" class="stats">
-			<div class="profile-img">
-				<div><div></div></div>
+			<div id = "deck-stats">
+				<p>Total cards in deck</p>
+				<p>0</p>
+				<p>Number of Unit Cards</p>
+				<p>0</p>
+				<p>Special Cards</p>
+				<p>0/10</p>
+				<p>Total Unit Card Strength</p>
+				<p>0</p>
+				<p>Hero Cards</p>
+				<p>0</p>
 			</div>
-			
-			<div id="name-op" class="name">Opponent</div>
-			<div id="deck-name-op" class="deck-name"></div>
-			
-			<div id="hand-count-op" class="hand-count">6</div>
-			
-			
-			
-			<div id="gem1-op" class="gem gem-on bg-contain"></div>
-			<div id="gem2-op" class="gem gem-on bg-contain"></div>
-			
-			<div id="score-total-op" class="score-total"><div class="center">0</div></div>
-			
-			<div id="passed-op">Passed</div>
-			
+			<button id = "start-game" class = "start-game_class">Start game</button>
 		</section>
-		
-		<div id="weather" class="card-container">
-		</div>
-		
-		<section id="stats-me" class="stats">
-			<div class="profile-img">
-				<div><div></div></div>
-			</div>
-			<div id="passed-me">Passed</div>
-			<div id="hand-count-me" class="hand-count">5</div>
-			
-			<div id="gem1-me" class="gem gem-on bg-contain"></div>
-			<div id="gem2-me" class="gem gem-on bg-contain"></div>
-			
-			<div id="name-me" class="name"></div>
-			<div id="deck-name-me" class="deck-name"></div>
-			
-			
-
-			<div id="score-total-me" class="score-total"><div class="center">0</div></div>
-			
-			
-		</section>
-		
-		<div id="leader-me" class="leader-box">
-			<div class="leader-container center"></div>
-			<div class="leader-active">
-				<div></div>
-			</div>
-		</div>
-		
-		<div id="pass-button" class="center">Pass</div>
-		
-	</section>
-	
-	<section id="panel-mid" class="panel">
-		<section id="field-op" class="field">
-			<div class="field-row">
-				<div class="row-score center">12</div>
-				<div class="row-special card-container"></div>
-				<div class="row-cards card-container"></div>
-				<div class="row-weather"></div>
-			</div>
-			<div class="field-row">
-				<div class="row-score center">0</div>
-				<div class="row-special card-container"></div>
-				<div class="row-cards card-container"></div>
-				<div class="row-weather"></div>
-			</div>
-			<div class="field-row">
-				<div class="row-score center">0</div>
-				<div class="row-special card-container"></div>
-				<div class="row-cards card-container"></div>
-				<div class="row-weather"></div>
-			</div>
-		</section>
-		
-		<section id="field-me" class="field">
-			<div class="field-row">
-				<div class="row-score center">0</div>
-				<div class="row-special card-container"></div>
-				<div class="row-cards card-container"></div>
-				<div class="row-weather"></div>
-			</div>
-			<div class="field-row">
-				<div class="row-score center">0</div>
-				<div class="row-special card-container"></div>
-				<div class="row-cards card-container"></div>
-				<div class="row-weather"></div>
-			</div>
-			<div class="field-row">
-				<div class="row-score center">0</div>
-				<div class="row-special card-container"></div>
-				<div class="row-cards card-container"></div>
-				<div class="row-weather"></div>
-			</div>
-		</section>
-		
-		<section id="field-hand">
-			<div id="hand-row" class="card-container card-selectable">
-			</div>
-		</section>
-	</section>
-	
-	<section id="panel-right" class="panel">
-		<div id="grave-op" class="cardpile">
-		</div>
-		<div id="deck-op" class="cardpile">
-		
-		</div>
-		<div id="grave-me" class="cardpile">
-		</div>
-		<div id="deck-me" class="cardpile">
-		</div>
-	</section>
-	
-	<div id="hand-op"></div>
-	
-	<section class="card-preview hide">
-		<div class="card-lg"></div>
-		<div class="card-description">
-			<div></div>
-			<h1></h1>
-			<p></p>
-		</div>
-	</section>
-	
-	<section id="carousel" class="hide">
-		<div>
-			<div class="card-lg" onclick="Carousel.curr.shift(event,-2)"></div>
-			<div class="card-lg" onclick="Carousel.curr.shift(event,-1)"></div>
-			<div class="card-lg" onclick="Carousel.curr.select(event)"></div>
-			<div class="card-lg" onclick="Carousel.curr.shift(event,1)"></div>
-			<div class="card-lg" onclick="Carousel.curr.shift(event,2)"></div>
-		</div>
-		<div class="card-description">
-			<div></div>
-			<h1></h1>
-			<p></p>
-		</div>
-		<div></div>
-	</section>
-	
-	
-	<section id="popup" class="center hide">
-		<div>
-			<h3></h3>
-			<p></p>
-			<div>
-				<button onclick="Popup.curr.selectYes()"></button>
-				<button onclick="Popup.curr.selectNo()"></button>
-			</div>
-		</div>
-	</section>
-	
-	
-	<section id="notification-bar" class="hide">
-		<div></div>
-	</section>
-	
-	<section id="end-screen" class="hide">
-		<div></div>
-		<table>
-			<colgroup>
-				<col span="3" />
-				<col span="1" />
-				<col span="1" />
-				<col span="1" />
-			</colgroup>
-			<tbody>
-				<tr>
-					<th colspan="2"></th>
-					<th>Round 1</th>
-					<th>Round 2</th>
-					<th>Round 3</th>
-				</tr>
-				<tr>
-					<th colspan="2">Geralt</th>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<th colspan="2">Opponent</th>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-				</tr>
-			</tbody>
-		</table>
-		<p class="hide">The battle cannot end in a draw. You can play a rematch using the same decks or surrender.</p>
-		<button>Customize</button>
-		<button>Replay</button>
-	</section>
-	
-	<section id="deck-selector">
-		
-	</section>
-	
-
-</main>
-
-<section id="deck-customization">
-	<div id="faction-title" class="center">
-		<h1></h1>
-	</div>
-	<p id="faction-description"></p>
-	
-	<label id="upload-deck" class="deck-options">
-		<input type="file" id="add-file" value="Import" style="display:none;"/>
-		Upload Deck
-	</label>
-	
-	<a id="change-faction" class="deck-options">Change Faction</a>
-	
-	<a id="download-deck" class="deck-options">Download Deck</a>
-	<a id="download-json" style="display:none;"></a>
-	
-	<h2 id="card-bank-title" class="card-contianer-title">Card Collection</h2>
-	<h2 id="card-deck-title" class="card-contianer-title">Cards in Deck</h2>
-	<div id="card-bank" class="card-array">
-	</div>
-	<div id="card-deck" class="card-array">
-	</div>
-	<div id="card-leader">
-		<p>Leader</p>
-		<div></div>
-	</div>
-	<div id="deck-stats">
-		<p>Total cards in deck</p>
-		<p>0</p>
-		<p>Number of Unit Cards</p>
-		<p>0</p>
-		<p>Special Cards</p>
-		<p>0/10</p>
-		<p>Total Unit Card Strength</p>
-		<p>0</p>
-		<p>Hero Cards</p>
-		<p>0</p>
-	</div>
-	<button id="start-game">Start game</button>
-</section>
-
-<div id="toggle-music" class="center music-customization">♫</div>
-
-<script type="text/javascript" src="cards.js"></script>
-<script type="text/javascript" src="decks.js"></script>
-<script type="text/javascript" src="abilities.js"></script>
-<script type="text/javascript" src="factions.js"></script>
-<script src="https://www.youtube.com/iframe_api"></script>
-<script type="text/javascript" src="gwent.js"></script>
-</body>
-
+		<div id = "toggle-music" class = "center music-customization" style = "display:none">♫</div>
+		<script type = "text/javascript" src = "cards.js"></script>
+		<script type = "text/javascript" src = "decks.js"></script>
+		<script type = "text/javascript" src = "abilities.js"></script>
+		<script type = "text/javascript" src = "factions.js"></script>
+		<script src = "https://www.youtube.com/iframe_api"></script>
+		<script type = "text/javascript" src = "gwent.js"></script>
+	</body>
 </html>
-
