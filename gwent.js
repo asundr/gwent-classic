@@ -669,16 +669,17 @@ class Player {
 				this.style.boxShadow = "0 0 0 #6d5210"
 			});
 			
-			window.addEventListener("keydown", async (e) => {
+			window.addEventListener("keydown", function(e) {
 				if (may_leader && may_pass1) {
 					if (e.keyCode == 88) {
 						if (exibindo_lider) {
 							player_me.activateLeader();
 							exibindo_lider = false;
-						} else if (player_me.leaderAvailable) {
+							called_leader = true;
+						} else if (player_me.leaderAvailable && !called_leader) {
 							may_leader = false;
 							exibindo_lider = true;
-							await ui.viewCard(player_me.leader, async () => await player_me.activateLeader());
+							player_me.callLeader();
 						}
 					} else if (e.keyCode == 13 && exibindo_lider) {
 						player_me.activateLeader();
@@ -696,8 +697,14 @@ class Player {
 		}
 		// TODO set crown color
 	}
+	
+	async callLeader() {
+		await ui.viewCard(player_me.leader, async () => await player_me.activateLeader());
+	}
 
 }
+
+var called_leader = false;
 
 function alteraClicavel(obj, add) {
 	try {
@@ -1610,6 +1617,7 @@ class Game {
 
 	// Sets up and displays the end-game screen
 	async endGame() {
+		called_leader = false;
 		let endScreen = document.getElementById("end-screen");
 		let rows = endScreen.getElementsByTagName("tr");
 		rows[1].children[0].innerHTML = player_me.name;
@@ -2877,6 +2885,7 @@ class DeckMaker {
 		player_op = new Player(1, "Player 2", op_deck);
 
 		this.elem.classList.add("hide");
+		called_leader = false;
 		tocar("game_opening", false);
 		game.startGame();
 	}
