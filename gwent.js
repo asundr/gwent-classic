@@ -2110,6 +2110,16 @@ class UI {
 		this.previewCard = card;
 		this.preview.classList.remove("hide");
 		this.preview.getElementsByClassName("card-lg")[0].style.backgroundImage = largeURL(card.faction + "_" + card.filename);
+		this.preview.getElementsByClassName("card-lg")[0].addEventListener("mousedown", function() {
+			if (fileira_clicavel !== null && may_act_card) {
+				ui.selectRow(fileira_clicavel);
+				may_act_card = false;
+				fileira_clicavel = null;
+			}
+		});
+		this.preview.getElementsByClassName("card-lg")[0].addEventListener("mouseup", function() {
+			may_act_card = true;
+		});
 		let desc_elem = this.preview.getElementsByClassName("card-description")[0];
 		this.setDescription(card, desc_elem);
 	}
