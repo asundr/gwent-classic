@@ -1928,38 +1928,42 @@ class UI {
 		this.preview = document.getElementsByClassName("card-preview")[0];
 		this.previewCard = null;
 		this.lastRow = null;
-		document.getElementById("pass-button").addEventListener("mousedown", function(e) {
-			if (e.button == 0) {
-				passStart("mouse");
-				may_pass3 = false;
-			} else if (may_pass2 == "mouse") passBreak();
+		if (!navigator.userAgentData.mobile) {
+			document.getElementById("pass-button").addEventListener("mousedown", function(e) {
+				if (e.button == 0) {
+					passStart("mouse");
+					may_pass3 = false;
+				} else if (may_pass2 == "mouse") passBreak();
+			});
+			document.getElementById("pass-button").addEventListener("mouseup", () => {
+				if (may_pass2 == "mouse") passBreak();
+			}, false);
+			document.getElementById("pass-button").addEventListener("mouseout", () => {
+				if (may_pass2 == "mouse") passBreak();
+			}, false);
+			window.addEventListener("keydown", function (e) {
+				switch (e.keyCode) {
+					case 81:
+						e.preventDefault();
+						try {
+							ui.cancel();
+						} catch (err) {}
+						break;
+					case 32:
+						if (may_pass3) passStart("keyboard");
+						break;
+				}
+			});
+			window.addEventListener("keyup", function (e) {
+				if (e.keyCode == 32 && may_pass1) {
+					may_pass3 = true;
+					if (may_pass2 == "keyboard") passBreak();
+				}
+			});
+		} else document.getElementById("pass-button").addEventListener("click", function(e) {
+			player_me.passRound();
 		});
-		document.getElementById("pass-button").addEventListener("mouseup", () => {
-			if (may_pass2 == "mouse") passBreak();
-		}, false);
-		document.getElementById("pass-button").addEventListener("mouseout", () => {
-			if (may_pass2 == "mouse") passBreak();
-		}, false);
 		document.getElementById("click-background").addEventListener("click", () => ui.cancel(), false);
-		window.addEventListener("keydown", function (e) {
-			switch (e.keyCode) {
-				case 81:
-					e.preventDefault();
-					try {
-						ui.cancel();
-					} catch (err) {}
-					break;
-				case 32:
-					if (may_pass3) passStart("keyboard");
-					break;
-			}
-		});
-		window.addEventListener("keyup", function (e) {
-			if (e.keyCode == 32 && may_pass1) {
-				may_pass3 = true;
-				if (may_pass2 == "keyboard") passBreak();
-			}
-		});
 		this.youtube;
 		this.ytActive;
 		this.toggleMusic_elem = document.getElementById("toggle-music");
