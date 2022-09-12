@@ -2614,7 +2614,7 @@ class DeckMaker {
 						if (isLoaded && iniciou) dm.startNewGame();
 						break;
 					case 88:
-						 dm.selectLeader();
+						if (document.getElementById("carousel").className == "hide") dm.selectLeader();
 						break;
 				}
 			}
