@@ -1928,7 +1928,7 @@ class UI {
 		this.preview = document.getElementsByClassName("card-preview")[0];
 		this.previewCard = null;
 		this.lastRow = null;
-		if (!navigator.userAgentData.mobile) {
+		if (!("ontouchstart" in document.documentElement)) {
 			document.getElementById("pass-button").addEventListener("mousedown", function(e) {
 				if (e.button == 0) {
 					passStart("mouse");
