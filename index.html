@@ -1,16 +1,19 @@
 <!doctype html>
 <html lang = "en-US">
 	<head>
-		<title>Gwent Classic from The Witcher 3: Wild Hunt</title>
+		<title>Gwent 3.1</title>
 		<meta charset = "utf-8" />
-		<meta name = "author" content = "Arun Sundaram & Reynolds Costa" />
+		<meta name = "author" content = "Sundaram, Costa & Sylver" />
 		<meta name = "description" content = "Play the original Gwent minigame from The Witcher 3 in your browser! Includes cards from Hearts of Stone and Blood & Wine!" />
-		<meta name = "keywords" content = "arun, sundaram, reynolds, costa, randompianist, programmer, gwent, tw3, witcher, card, game, gamedev, play" />
+		<meta name = "keywords" content = "arun, sundaram, reynolds, costa, randompianist, sylver, romain, durban, programmer, gwent, tw3, witcher, card, game, gamedev, play" />
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
-		<link rel = "stylesheet" type = "text/css" href = "style.css" />
+		<link rel = "icon" type = "image/x-icon" href = "images/favicon.ico" />
+		<link rel = "stylesheet" type = "text/css" href = "css/style.css" />
+		<style type = "text/css" id = "pLoad"></style>
 	</head>
 	<body>
 		<div class = "abs" id = "very_start_bg1"></div>
+		<div class = "abs" id = "very_start_gradient"></div>
 		<div class = "abs" id = "very_start_bg2">
 			<div id = "very_start" class = "abs" style = "padding-top:55%">
 				UP FOR
@@ -23,7 +26,7 @@
 				<button class = "start-game_class" id = "button_start" style = "display:none">Click here to begin</button>
 			</div>
 		</div>
-		<div id = "dimensions" style = "position:fixed;width:100vw;height:calc(100vw * 1080 / 1920);"></div>
+		<div id = "dimensions"></div>
 		<div id = "youtube"></div>
 		<main style = "display:none">
 			<section id = "click-background" class = "noclick"></section>
@@ -35,6 +38,9 @@
 					</div>
 				</div>
 				<section id = "stats-op" class = "stats">
+					<div id = "faction-ability-op" class = "faction-ability">
+						<div id = "faction-ability-count-op" class = "faction-ability-count">0</div>
+					</div>
 					<div class = "profile-img">
 						<div>
 							<div></div>
@@ -52,6 +58,9 @@
 				</section>
 				<div id = "weather" class = "card-container"></div>
 				<section id = "stats-me" class = "stats">
+					<div id = "faction-ability-me" class = "faction-ability">
+						<div id = "faction-ability-count-me" class = "faction-ability-count">0</div>
+					</div>
 					<div class = "profile-img">
 						<div>
 							<div></div>
@@ -73,25 +82,26 @@
 						<div></div>
 					</div>
 				</div>
-				<div id = "pass-button" class = "center">Pass</div>
+				<div id = "pass-button" class = "center botao-campo">Pass</div>
+				<div id = "giveup-button" class = "center botao-campo">Give up</div>
 			</section>
 			<section id = "panel-mid" class = "panel">
 				<section id = "field-op" class = "field">
 					<div class = "field-row">
-						<div class = "row-score center">12</div>
-						<div class = "row-special card-container"></div>
+						<div class = "row-score center">0</div>
+						<div class = "row-special cardpile"></div>
 						<div id = "f1" class = "row-cards card-container"></div>
 						<div class = "row-weather"></div>
 					</div>
 					<div class = "field-row">
 						<div class = "row-score center">0</div>
-						<div class = "row-special card-container"></div>
+						<div class = "row-special cardpile"></div>
 						<div id = "f2" class = "row-cards card-container"></div>
 						<div class = "row-weather"></div>
 					</div>
 					<div class = "field-row">
 						<div class = "row-score center">0</div>
-						<div class = "row-special card-container"></div>
+						<div class = "row-special cardpile"></div>
 						<div id = "f3" class = "row-cards card-container"></div>
 						<div class = "row-weather"></div>
 					</div>
@@ -99,26 +109,26 @@
 				<section id = "field-me" class = "field">
 					<div class = "field-row">
 						<div class = "row-score center">0</div>
-						<div class = "row-special card-container"></div>
+						<div class = "row-special cardpile"></div>
 						<div id = "f4" class = "row-cards card-container"></div>
 						<div class = "row-weather"></div>
 					</div>
 					<div class = "field-row">
 						<div class = "row-score center">0</div>
-						<div class = "row-special card-container"></div>
+						<div class = "row-special cardpile"></div>
 						<div id = "f5" class = "row-cards card-container"></div>
 						<div class = "row-weather"></div>
 					</div>
 					<div class = "field-row">
 						<div class = "row-score center">0</div>
-						<div class = "row-special card-container"></div>
+						<div class = "row-special cardpile"></div>
 						<div id = "f6" class = "row-cards card-container"></div>
 						<div class = "row-weather"></div>
 					</div>
 				</section>
 				<section id = "field-hand">
-					<div id = "hand-row" class = "card-container card-selectable">
-					</div>
+					<div id = "hand-row" class = "card-container card-selectable"></div>
+					<div id = "op-hand-row" class = "card-container card-selectable"></div>
 				</section>
 			</section>
 			<section id = "panel-right" class = "panel">
@@ -195,8 +205,11 @@
 					</tbody>
 				</table>
 				<p class = "hide">The battle cannot end in a draw. You can play a rematch using the same decks or surrender.</p>
-				<button>Customize</button>
-				<button>Replay</button>
+				<div class = "end-screen-buttons">
+					<button>Customize</button>
+					<button>Replay</button>
+					<button onclick = "showStats(true)">Statistics</button>
+				</div>
 			</section>
 			<section id = "deck-selector"></section>
 		</main>
@@ -204,14 +217,23 @@
 			<div id = "faction-title" class = "center">
 				<h1></h1>
 			</div>
+			<div class = "links" id = "stats">
+				<a href = "javascript:showStats(false);">Statistics</a>
+			</div>
+			<div class = "links" id = "site-links">
+				<a href = "rules.html" target = "_blank">Rules of Gwent</a>
+			</div>
 			<p id = "faction-description"></p>
+			<a id = "select-deck" class = "deck-options">Select Own Deck</a>
 			<label id = "upload-deck" class = "deck-options">
-				<input type = "file" id = "add-file" value = "Import" style = "display:none;"/>
+				<input type = "file" id = "add-file" value = "Import" style = "display:none;" />
 				Upload Deck
 			</label>
 			<a id = "change-faction" class = "deck-options">Change Faction</a>
 			<a id = "download-deck" class = "deck-options">Download Deck</a>
 			<a id = "download-json" style = "display:none;"></a>
+			<a id = "select-op-deck" class = "deck-options">Select Opponent Deck ></a>
+			<span id = "op-deck-name" class = "deck-options">Random deck</span>
 			<h2 id = "card-bank-title" class = "card-contianer-title">Card Collection</h2>
 			<h2 id = "card-deck-title" class = "card-contianer-title">Cards in Deck</h2>
 			<div id = "card-bank" class = "card-array"></div>
@@ -233,13 +255,14 @@
 				<p>0</p>
 			</div>
 			<button id = "start-game" class = "start-game_class">Start game</button>
+			<button id = "start-ai-game" class = "start-game_class">Start AI game</button>
 		</section>
 		<div id = "toggle-music" class = "center music-customization" style = "display:none">♫</div>
-		<script type = "text/javascript" src = "cards.js"></script>
-		<script type = "text/javascript" src = "decks.js"></script>
-		<script type = "text/javascript" src = "abilities.js"></script>
-		<script type = "text/javascript" src = "factions.js"></script>
-		<script src = "https://www.youtube.com/iframe_api"></script>
-		<script type = "text/javascript" src = "gwent.js"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "https://www.youtube.com/iframe_api"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/cards.js"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/decks.js"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/abilities.js"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/factions.js"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/gwent.js"></script>
 	</body>
 </html>

@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang = "en-US">
+	<head>
+		<title>Gwent 3.1 - Decks</title>
+		<meta charset = "utf-8" />
+		<meta name = "author" content = "Sundaram, Costa & Sylver" />
+		<meta name = "description" content = "Play the original Gwent minigame from The Witcher 3 in your browser! Includes cards from Hearts of Stone and Blood & Wine!" />
+		<meta name = "keywords" content = "arun, sundaram, reynolds, costa, randompianist, sylver, romain, durban, programmer, gwent, tw3, witcher, card, game, gamedev, play" />
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+		<link rel = "icon" type = "image/x-icon" href = "images/favicon.ico" />
+		<link rel = "stylesheet" type = "text/css" href = "css/rules.css" />
+		<link rel = "stylesheet" type = "text/css" href = "css/pure.min.css" />
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/rules.js"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/decks.js"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/cards.js"></script>
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/abilities.js"></script>
+	</head>
+	<body>
+		<div id = "layout">
+			<a href = "#menu" id = "menuLink" class = "menu-link">
+				<span></span>
+			</a>
+			<div id = "menu">
+				<div class = "pure-menu">
+					<a class = "pure-menu-heading" href = "">Gwent 3.1</a>
+					<ul class = "pure-menu-list">
+						<li class = "pure-menu-item menu-other-page">
+							<a href = "index.html" class = "pure-menu-link">Play Game</a>
+						</li>
+						<li class = "pure-menu-item menu-other-page">
+							<a href = "rules.html" class = "pure-menu-link">Rules</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#realms" class = "pure-menu-link">Northern Realms</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#nilfgaard" class = "pure-menu-link">Nilfgaard Empire</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#monsters" class = "pure-menu-link">Monsters</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#scoiatael" class = "pure-menu-link">Scoia'Tael</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#skellige" class = "pure-menu-link">Skellige</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#witcher_universe" class = "pure-menu-link">Witcher Universe</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#toussaint" class = "pure-menu-link">Toussaint</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#lyria_rivia" class = "pure-menu-link">Lyria & Rivia</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#syndicate" class = "pure-menu-link">Syndicate</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#zerrikania" class = "pure-menu-link">Zerrikania</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id = "main">
+				<div class = "header">
+					<h1>Gwent 3.1</h1>
+					<h2>The Witcher 3 minigame pulled to the browser and pushed further</h2>
+				</div>
+				<div class = "content">
+					<h2 class = "content-subhead" id = "setup">Building a deck in Gwent</h2>
+					<p>
+						Gwent was initially a deck building game. Now, the main difficulty to make Gwent interesting and playable with 2 human players is... building decks. No kidding.
+					</p>
+					<p>
+						In The Witcher 3, the purpose was to build the strongest and most imbalance deck. Of course, players wanted to win and the computer does not complain about always losing.
+						<br />
+						As a consequence, there was obvious choices of decks to have the highest chances of victory, using Nilfgaard or the Northern Realms as faction, with a lot of spies, medics and decoys.
+						<br />
+						Such decks are boring to play, especially as multiplier, so we want to get out of this dead end and make something more interesting out of the existing game.
+					</p>
+					<p>
+						Firstly, we want to accept one thing, to have more enjoyable games, decks must be weaker. They must contain less broken cards to leave more room for actual strategy.
+						<br />
+						Goal is no longer to win 100% of games but instead to enjoy all games.
+					</p>
+					<p>
+						There hasn't yet been any consensus about the best method to constitute a balanced and enjoyable deck. Various discussions can be found on the internet but most of them suggest the draw method, with variations.
+						<br />
+						Basically, the idea is like this:
+						<ul>
+							<li>
+								Pick a Faction (randomly if you prefer)
+							</li>
+							<li>
+								Pick a Leader (randomly if you prefer)
+							</li>
+							<li>
+								<b>Now constitue your deck as follows (or with your own variation):</b>
+							</li>
+							<li>
+								Shuffle your deck
+							</li>
+							<li>
+								Draw 3 cards. Keep 1 and discard the 2 others (variation, you can keep two, but only a limited amount of times)
+							</li>
+							<li>
+								Do this until you have at least 22 unit cards and max 10 special cards.
+							</li>
+						</ul>
+					</p>
+					<p>
+						For more balance, it is recommanded to add more restrictions, such as:
+						<ul>
+							<li>
+								Max 5 heroes per deck.
+							</li>
+							<li>
+								Max 2 spies per deck.
+							</li>
+						</ul>
+					</p>
+					<h2 class = "content-subhead" id = "setup">Our approach</h2>
+					<p>
+						The above approach has the advantage to add more variety, because there is some uncertainty in the building of the deck.
+						<br />
+						It is less likely to face several times the same deck.
+						<br />
+						We however see several big drawbacks which we don't like:
+						<ul>
+							<li>
+								Building your deck over and over is slow. Unless you have fun building a new deck again incrementaly, this is a waste of time.
+							</li>
+							<li>
+								You are less likely to build an efficient deck with a specific playstyle.
+							</li>
+							<li>
+								The outcome will be a rather random mix of cards with a limited connection to the Witcher Universe.
+							</li>
+						</ul>
+					</p>
+					<p>
+						<b>Consequently, we have built a set of decks with the following method and state of mind:</b>
+						<ul>
+							<li>
+								A deck must be coherent to a part of the Witcher universe.
+							</li>
+							<li>
+								A deck must have a playstyle that is unique if possible, but at least different from most decks.
+							</li>
+							<li>
+								Preferably a deck must have 5 heroes, + or - 1.
+							</li>
+							<li>
+								Preferably a deck must have between 22 and 30 unit cards (heroes included).
+							</li>
+							<li>
+								Preferably a deck must have between 5 and 10 special cards, usually around 7.
+							</li>
+							<li>
+								The weight of a deck should be balanced as compared to the weight of the other decks (often between 270 and 300 in our method).
+							</li>
+							<li>
+								A character should preferably be available in only one deck.
+							</li>
+						</ul>
+					</p>
+					<h2 class = "content-subhead" id = "setup">Wait, did you say weight?</h2>
+					<p>
+						Well yes, our main method for balancing decks is actually similar to the modern Gwent game.
+						<br />
+						We try to compute a weight for each card (except special cards), which is comparable to the "Provision" value the modern Gwent game is using.
+					</p>
+					<p>
+						Don't be too scared! Just like the classic Gwent 3.1 is simpler with less abilities, it does not need to fine tune the weight of each card accurately.
+						<br />
+						Basically, the idea is to statistically estimate the strength potential of a card, based on its abilities. This isn't easy to do it for each ability, but we tried to have a good estimation.
+						<br />
+						Here are the big lines:
+						<ul>
+							<li>
+								A basic unit card with a strength of 7 has a weight of 7. Simple, we play it, it adds 7 points to the total score. Of course this can be altered, in good or bad, but this is not the point.
+							</li>
+							<li>
+								On the other hand, a hero of strength 10 will also add 10 points, but it cannot be altered. We took the decision to apply a multiplier of 2, so the weight of this hero would be 20. This is the trickiest part to weight, the fact it can or cannot be affected by abilities. However, since most hero cards have the same strength (around 10), and if each deck has almost the same amount of heroes, this multiplier does not really have a significance in the balance/total weight.
+							</li>
+							<li>
+								Before talking about the other abilities weight, we need to jump to the end to justify some choices.
+								We have seen that overall, the average weight of a card is around 10, heroes included. It goes down to around 8 without heroes. So this gives us an idea of the average value/potential of a card.
+							</li>
+							<li>
+								Let's start with the infamous spy ability. It gives 2 cards but gives some strength to the enemy, so the weight is
+								<code>(2*10) - spy_strength</code>
+								(10 being the average weight of a card).
+							</li>
+							<li>
+								Similarly, a medic brings back a unit card (not a hero) of average weight 8. However some of these units won't be able to use their ability (such as Muster), so we considerd the weight to be
+								<code>7 + medic_strength</code>.
+							</li>
+							<li>
+								Muster and Tight Bond: these are a little tricky because they work in groups. You have several copies of the same card, but their potential changes a lot when used correcly.
+								<br />
+								Actual potential also changes depending on the number of copies available.
+								<br />
+								In short, we have chosen to apply a multiplier of 2 for both. It simplifies their behaviour, but a probability analysis of these abilities has shown that, compared to a basic card being played, the effect of these abilities multiples the outcome potential by around 2.
+							</li>
+							<li>
+								We will not go into details for each of the other abilities because they are even more guesses (very situational). Most of the other abilities have an added weight of 5 (added to the unit strength), such as for Scorch, Morale Boost or Summon Avenger.
+								<br />
+								The main exception to this is Commander's Horn which has an added weight of 10. We have also decided to give an added weigth of 2 to agile cards, which have the option to be played in 2 rows;
+							</li>
+							<li>
+								For now, all leaders have a weight of 20 by default. We haven't yet gone into the trouble of fine tuning their weight.
+							</li>
+						</ul>
+					</p>
+					<p>
+						Let's be realistic, this is not exact science, this is not perfect.
+						<br />
+						But try it yourself and you'll see that it is already enough to show when a deck is far stronger (put a lot of Tight Bond cards in a deck) or very weak.
+						<br />
+						We believe it does its job well enough to end up with decks of comparable potential. Tests have shown good results.
+					</p>
+					<p>
+						With all this in mind, we came up with a selection of decks which we think remain true to the Witcher Universe all while being interesting to play.
+					</p>
+					<h2 class = "content-subhead" id = "decks">Suggestion of decks</h2>
+					<p>
+						For more details about the content of these decks, launch the game and inspect them!
+					</p>
+					<a id = "realms" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/realms_foltest_lord.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-realms">Northern Realms - Temeria</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["nr_foltest_lord"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[0]) + " (" + premade_deck[0].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["foltest_lord"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Tight Bond, Spy and siege cards.
+								</p>
+								<p>
+									This deck focuses mostly on units and characters from the realm of Temeria, including Blue Stripes units.
+									<br />
+									Spy units will increase the chances of getting Tight Bond units together. You will also have a good selection of Siege units to rely on.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/realms_foltest_siegemaster.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-realms">Northern Realms - Aedirn & Kaedwen</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["nr_foltest_siegemaster"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[1]) + " (" + premade_deck[1].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["foltest_siegemaster"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Tight Bond, Morale Boost and siege cards.
+								</p>
+								<p>
+									This deck focuses mostly on units and characters from the realms of Aedirn and Kaedwen.
+									<br />
+									It has a great selection of siege units (several with the Tight Bond ability) which can be boosted with the several Morale Boost applying on the Siege row.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/realms_queen_calanthe.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-realms">Northern Realms - Cintra</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["nr_queen_calanthe"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[2]) + " (" + premade_deck[2].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["queen_calanthe"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster, Slaughter of Cintra and Summon Avenger.
+								</p>
+								<p>
+									This deck focuses mostly on units and characters from the realm of Cintra and some minor neighbour realms, such as Kerack or Cidaris.
+									<br />
+									It also brings the power of the Skellige fleet thanks to the presence of Eist Tuirseach.
+									<br />
+									The idea of the deck is to emphasize the slaughter of Cintra and its rebirth, hence the selection of abilities.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/realms_radovid_ruthless.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-realms">Northern Realms - Redania</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["nr_radovid_ruthless"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[3]) + " (" + premade_deck[3].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["radovid_ruthless"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Spies, Medic and Tall units.
+								</p>
+								<p>
+									This deck focuses mostly on units and characters from the realm of Redania.
+									<br />
+									Its many strong units combine well with spies and medics. You also have the option to try to combine the Crinfrid Reavers.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "nilfgaard" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/nilfgaard_emhyr_relentless.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-nilfgaard">Nilfgaard Empire - Army</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["ne_emhyr_relentless"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[4]) + " (" + premade_deck[4].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["emhyr_relentless"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Spies, Medic, Commander's Horn and some Tight Bond.
+								</p>
+								<p>
+									This deck focuses mostly on army units of the Empire of Nilfgaard.
+									<br />
+									It aims at representing the mass of the army of Nilfgaard, hence the higher amount of cards.
+									<br />
+									Its many medics and few spies allow it to bring in more units on the board, which can be amplified by the available Commander's Horns.
+									<br />
+									It has more heroes than usual, but some of them are weak hero cards.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/nilfgaard_emhyr_emperor.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-nilfgaard">Nilfgaard Empire - Nobility</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["ne_emhyr_emperor"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[5]) + " (" + premade_deck[5].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["emhyr_emperor"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Spies and Tight Bond.
+								</p>
+								<p>
+									This deck focuses mostly on nobles and aristocrats of the Empire of Nilfgaard.
+									<br />
+									It aims at representing the court of the Empire and its schemes.
+									<br />
+									The many spies allow to make great use of the Impera Brigade.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/nilfgaard_emhyr_invader_of_the_north.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-nilfgaard">Nilfgaard Empire - Second Army</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["ne_emhyr_invader_of_the_north"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[6]) + " (" + premade_deck[6].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["emhyr_invader"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster, Scorch, Medic and Spies.
+								</p>
+								<p>
+									This deck focuses on other army units of the Empire of Nilfgaard.
+									<br />
+									Unlike the other army deck, this one features some Muster and Scorch and relies less on the mass.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "monsters" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/monsters_eredin_bringer_of_death.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-monsters">Monsters - Wild Hunt & Giants</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["mo_eredin_bringer_of_death"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[7]) + " (" + premade_deck[7].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["eredin_bringer_of_death"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster and tall units.
+								</p>
+								<p>
+									This deck focuses on cards related to the Wild Hunt along with other giant monsters.
+									<br />
+									Even though Muster of Melee units is the main focus of this deck, it's got a decent selection of Siege units as well.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/monsters_eredin_commander.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-monsters">Monsters - Beasts & Creatures</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["mo_eredin_commander"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[8]) + " (" + premade_deck[8].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["eredin_commander"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around a lot of Muster units.
+								</p>
+								<p>
+									This deck focuses on the wide variety of monters in the Witcher universe, the smaller but more numerous ones.
+									<br />
+									This deck relies heavily on a lot of Muster, mostly on the Melee row. This is why this deck has more cards than usual.
+									<br />
+									It can quickly swarm the opponent, though the cards must be played carefully because you can quickly exhaust of of your musters.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "scoiatael" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/scoiatael_francesca_daisy.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-scoiatael">Scoia'Tael - Commandos</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["sc_francesca_daisy"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[9]) + " (" + premade_deck[9].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["francesca_daisy"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster and Medic units.
+								</p>
+								<p>
+									This deck focuses on the non-human guerilla fighters of Scoia'Tael.
+									<br />
+									It relies mostly on Muster, combined with a good amount of medic cards.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/scoiatael_francesca_beautiful.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-scoiatael">Scoia'Tael - Independant Realms</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["sc_francesca_beautiful"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[10]) + " (" + premade_deck[10].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["francesca_beautiful"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster and Morale Boost units.
+								</p>
+								<p>
+									This deck focuses on the more passific non-human realms, such sa Brokilon, Dol Blathanna and Mahakam.
+									<br />
+									It relies on a combination of Muster and Morale Boost.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "skellige" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/skellige_crach_an_craite.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-skellige">Skellige - Ard Skellig & Svalblod</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["sk_crach_an_craite"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[11]) + " (" + premade_deck[11].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["crach_an_craite"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Berserker, Muster and Tight Bond units.
+								</p>
+								<p>
+									This deck focuses on the main island of Skellige, Ard Skellige, and the two clans base on it (an Craite and Drummond) along with the Svalblod cult.
+									<br />
+									This decks focuses on the Berserker/Mardroeme abilities, along with some Tight Bond and one very powerfull Muster.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/skellige_king_bran.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-skellige">Skellige - Small Islands</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["sk_king_bran"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[12]) + " (" + premade_deck[12].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["king_bran"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster, Tight Bond and Medic units.
+								</p>
+								<p>
+									This deck focuses on the other small islands of Skellige and the clans living on them.
+									<br />
+									It relies on a good combination of Tight Bond and Muster units, supported by a decent amount of medics.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "witcher_universe" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/witcher_universe_vilgefortz_magician_kovir.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-witcher_universe">Witcher Universe - Fighters & Mages</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["wu_vilgefortz_magician_kovir"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[13]) + " (" + premade_deck[13].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["vilgefortz_magician_kovir"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster and Medic units.
+								</p>
+								<p>
+									This deck focuses on some famous fighters and mages of the Witcher universe which aren't very attached to a realm.
+									<br />
+									It relies mostly on Muster and Medic units.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/witcher_universe_cosimo_malaspina.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-witcher_universe">Witcher Universe - Witchers</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["wu_cosimo_malaspina"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[14]) + " (" + premade_deck[14].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["cosimo_malaspina"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Witcher Schools, Resilience and Scorch.
+								</p>
+								<p>
+									This deck focuses on the actual witchers and their school.
+									<br />
+									It uses a specific set of abilities that encourage to play witchers of the same school together along with their keep.
+									<br />
+									Instead of the usual special cards, signs are available with some unique abilities.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/witcher_universe_alzur_maker.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-witcher_universe">Witcher Universe - Demons & Creatures</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["wu_alzur_maker"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[15]) + " (" + premade_deck[15].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["alzur_maker"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster, Scorch and Spy units.
+								</p>
+								<p>
+									This deck focuses on some rare creatures and demons of the witcher universe, including the characters of Heart of Stone.
+									<br />
+									It relies mostly on Muster and Scorch units, supported by some spies and overall strong units.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/witcher_universe_vilgefortz_sorcerer.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-witcher_universe">Witcher Universe - Geralt & Friends</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["wu_vilgefortz_sorcerer"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[16]) + " (" + premade_deck[16].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["vilgefortz_sorcerer"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Summon Avenger and Medic units.
+								</p>
+								<p>
+									This deck focuses on Geralt of Rivia, his close friends and various allies within the Witcher Universe.
+									<br />
+									Summon Avenger plays an important part of the deck, with Roach & Kelpie summoning Geralt and Ciri.
+									<br />
+									Combined with Medic units, it can become very powerfull.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "toussaint" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/toussaint_anna_henrietta_duchess.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-toussaint">Toussaint - Knights & Nobles</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["to_anna_henrietta_duchess"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[17]) + " (" + premade_deck[17].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["anna_henrietta_duchess"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Tight Bond, Muster and tall units.
+								</p>
+								<p>
+									This deck focuses on the knights and noble people of Toussaint.
+									<br />
+									It is composed of mostly strong units, some with Tight Bond, which can be very strong if left unckecked.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/toussaint_anna_henrietta_ladyship.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-toussaint">Toussaint - Monsters & Vampires</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["to_anna_henrietta_ladyship"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[18]) + " (" + premade_deck[18].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["anna_henrietta_ladyship"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster and tall units.
+								</p>
+								<p>
+									This deck focuses on the monsters and vampires of Toussaint.
+									<br />
+									It is composed of mostly strong units along with some Muster units. It is a quite resilient mix.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "lyria_rivia" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/lyria_rivia_meve_princess.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-lyria_rivia">Lyria & Rivia - First Line</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["lr_meve_princess"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[19]) + " (" + premade_deck[19].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["meve_princess"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Muster and Medic units.
+								</p>
+								<p>
+									This deck focuses on the first line of the Lyria & Rivia army (mix of Melee and Ranged units).
+									<br />
+									It is composed of a good mix of Muster units, supported by medics. The shield special cards give great potential to the concentration of Muster units.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/lyria_rivia_meve_white_queen.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-lyria_rivia">Lyria & Rivia - Rear Guard</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["lr_meve_white_queen"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[20]) + " (" + premade_deck[20].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["meve_white_queen"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Scorch, Spy and Medic units.
+								</p>
+								<p>
+									This deck focuses on the first line of the Lyria & Rivia army (mix of Melee and Ranged units).
+									<br />
+									It is composed of a good mix of Muster units, supported by medics. The shield special cards give great potential to the concentration of Muster units.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "syndicate" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/syndicate_cyrus_hemmelfart.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-syndicate">Syndicate - Church of Eternal Fire</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["sy_cyrus_hemmelfart"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[21]) + " (" + premade_deck[21].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["cyrus_hemmelfart"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Witch Hunt, Muster and Dimeritium.
+								</p>
+								<p>
+									This deck focuses on the cult of the Eternal Fire along with the Order of the Flaming Rose.
+									<br />
+									Due to its nature, it has the unique ability Witch Hunt, combined with Muster and Dimeritium Shackles special cards.
+									<br />
+									This decks looks weak in numbers, but it is quite aggressive.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/syndicate_azar_javed.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-syndicate">Syndicate - Salamandra</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">document.write(card_dict["sy_azar_javed"].name);</script><br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">document.write(calcDeckWeight(premade_deck[22]) + " (" + premade_deck[22].cards.reduce((a, e) => a + e[1], 0) + " cards)");</script><br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">document.write(ability_dict["azar_javed"].description);</script><br />
+									<b>Play style:</b> Revolves around Muster, Scorch and Summon Avenger.
+								</p>
+								<p>
+									This deck focuses on the Salamandra gang.
+									<br />
+									It relies mostly on many Scorch units along with some Muster and Summon Avenger, making it an aggressive deck as well.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/syndicate_cyprian_wiley.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-syndicate">Syndicate - Novidgrad Gangs</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["sy_cyprian_wiley"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[23]) + " (" + premade_deck[23].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["cyprian_wiley"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Spy, Tight Bond and Muster.
+								</p>
+								<p>
+									This deck focuses on gangs of Novigrad (the core of the Syndicate).
+									<br />
+									It relies mostly heavily on many spies to make the multiple Tight Bond units work.
+								</p>
+							</div>
+						</div>
+					</div>
+					<a id = "zerrikania" />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/zerrikania_zerrikanterment.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-zerrikania">Zerrikania - Dragon Cult</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["ze_zerrikanterment"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[24]) + " (" + premade_deck[24].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["zerrikanterment"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Whorshipper and Whorshipped units along with Medic.
+								</p>
+								<p>
+									This deck focuses on the cult of dragons in Zerrikania.
+									<br />
+									It requires to combine on the board dragons and faithel to make use of the powerfull boost.
+									<br />
+									Since dragons are rather strong units anyway, you can either play all in a massive round, or spread them accross several rounds.
+									<br />
+									Usage of Medics will allow to bring back dragons later.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive card-preview" src = "images/sm/zerrikania_rarog.jpg" alt = "Deck leader" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "deck-list-name faction-zerrikania">Zerrikania - Army</div>
+							<div class = "deck-list-description">
+								<p>
+									<b>Leader:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(card_dict["ze_rarog"].name);
+									</script>
+									<br />
+									<b>Deck weight:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(calcDeckWeight(premade_deck[25]) + " (" + premade_deck[25].cards.reduce((a, e) => a + e[1], 0) + " cards)");
+									</script>
+									<br />
+									<b>Leader Ability:</b>
+									<script type = "text/javascript" language= "JavaScript">
+										document.write(ability_dict["rarog"].description);
+									</script>
+									<br />
+									<b>Play style:</b>
+									Revolves around Inspire, Scorch and a various selection of abilities.
+								</p>
+								<p>
+									This deck focuses on the fighting units and creatures of Zerrikania.
+									<br />
+									It primarly features Free Warriors which can boost each other.
+									<br />
+									This deck also has a balanced variety of most abilities, especially Scorch and Medics.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
