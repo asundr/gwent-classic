@@ -14,14 +14,14 @@ Are listed here only the modifications done in this present fork, more were done
 - Favicon
 - A statistics table
 - A "Give up" button
-- Better styles on warning messages
 - New visuals for carousel
+- Better styles on warning messages
 
 ### Corrects
 
-- Aesthetic values
-- Unusued code
 - Typo errors
+- Unusued code
+- Aesthetic values
 - Bug in leader use
 - Bug when drawing a match
 - Bug when redrawing cards at the start of each match
