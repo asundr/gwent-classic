@@ -14,6 +14,7 @@ Are listed here only the modifications done in this present fork, more were done
 - Favicon
 - A statistics table
 - A "Give up" button
+- Better styles on warning messages
 - New visuals for carousel
 
 ### Corrects
