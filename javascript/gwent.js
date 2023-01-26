@@ -1014,7 +1014,7 @@ class Player {
 			if (this.endTurnAfterAbilityUse) this.endTurn();
 			if (this.controller instanceof ControllerAI) {
 				if (this.deck.faction === "lyria_rivia") {
-					let best_row = this.controller.bestRowToussaintWine(ui.previewCard); // Reusing bestRowToussaintWine because it is nearly the same principle
+					let best_row = this.controller.bestRowToussaintWine(ui.previewCard);
 					ui.selectRow(best_row, true);
 				}
 			}
