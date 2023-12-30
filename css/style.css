@@ -1,0 +1,2141 @@
+.deck-counter,
+.panel div,
+.panel section,
+.panel span,
+.card-preview,
+.card-description > *,
+#end-screen *,
+#card-leader > div,
+#popup > div > div,
+.card-array .card-lg,
+.field-row .cardpile,
+.faction-ability .faction-ability-count,
+.card-array .card-lg div.card-count {
+	position:relative
+}
+
+.card,
+.deck-card,
+#carousel .card-lg,
+#carousel .faction {
+	position:relative;
+	display:inline-block
+}
+
+.cardpile .deck-card,
+.cardpile > .card {
+	top:-5%
+}
+
+.links,
+.row-weather {
+	top:5%
+}
+
+.name,
+#faction-title {
+	top:6%
+}
+
+#card-bank,
+#card-deck {
+	top:22.5%
+}
+
+#end-screen > table,
+.card-preview .card-lg .card-large-ability-2 {
+	top:55%
+}
+
+#card-leader .card-large-name,
+#carousel .card-lg .card-large-name,
+.card > div:nth-child(2),
+.card > div:nth-child(3),
+.card > .card-ability-2:nth-child(4),
+.card-preview .card-lg .card-large-name {
+	top:75%
+}
+
+#start-ai-game,
+.card-array .card-lg div.card-count {
+	top:91%
+}
+
+#carousel .card-lg .card-large-name,
+.card-array .card-lg .card-large-row,
+.card-array .card-lg .card-large-name,
+.card-array .card-lg .card-large-quote,
+.card-array .card-lg .card-large-ability,
+.card-array .card-lg .card-large-ability-2, 
+.card-preview .card-lg .card-large-name {
+	left:0
+}
+
+.faction-ability,
+#stats,
+.card-description > p {
+	left:5%
+}
+
+#card-leader .card-large-name,
+#carousel .card-lg .card-large-quote,
+.card-preview .card-lg .card-large-quote {
+	left:0;
+	height:5vw;
+	color:#000;
+	font-size:.9vw;
+	background-position:left
+}
+
+.field-row,
+.card-array {
+	display:flex
+}
+
+.center,
+.cardpile,
+#popup > div > div,
+#notification-bar > div::after {
+	display:flex;
+	align-items:center
+}
+
+.center,
+.card-container,
+#card-leader .card-large-name,
+#carousel .card-lg .card-large-name,
+#carousel .card-lg .card-large-quote,
+#carousel .card-lg .card-large-power .card-large-power-strength,
+.leader-box > .leader-container,
+.card-array .card-lg .card-large-name,
+.card-array .card-lg .card-large-quote,
+.card-array .card-lg .card-large-power .card-large-power-strength,
+.card-preview .card-lg .card-large-name,
+.card-preview .card-lg .card-large-quote,
+.card-preview .card-lg .card-large-power .card-large-power-strength {
+	display:flex;
+	justify-content:center
+}
+
+.card > div:nth-child(3),
+.card > .card-ability-2:nth-child(4) {
+	width:33%;
+	height:22%;
+	margin-bottom:-32%;
+	font-size:1vw
+}
+
+#carousel > :nth-child(1) > :nth-child(3),
+#carousel > :nth-child(1) > :nth-child(3):hover {
+	border:.3vw solid goldenrod;
+	box-shadow:0 0 4vw goldenrod;
+	background-origin:border-box
+}
+
+#carousel .selection,
+#carousel .card-lg:hover {
+	background-origin:border-box
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+* {
+	cursor:wait
+}
+
+html {
+	scrollbar-color:#5559 #131313
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+body {
+	overflow-Y:hidden;
+	font-size:0;
+	font-family:Arial Narrow, sans-serif
+}
+
+body::-webkit-scrollbar {
+	display:none
+}
+
+::selection {
+	background:transparent
+}
+
+::-moz-selection {
+	background:transparent
+}
+
+::-webkit-scrollbar {
+	width:1.5vw
+}
+
+::-webkit-scrollbar-thumb {
+	height:3vw;
+	border:.35vw double #000;
+	border-radius:.5vw;
+	background:#5559
+}
+
+::-webkit-scrollbar-track {
+	background:#131313
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+main {
+	background-image:url("../images/board.jpg")
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+div.abs {
+	z-index:2000
+}
+
+#very_start {
+	z-index:3000;
+	height:auto;
+	font-size:20px
+}
+
+#very_start_bg1 {
+	background-image:url("../images/start.jpg");
+}
+
+#very_start_bg2 {
+	top:3%;
+	width:32%;
+	height:94%;
+	border:solid 4px #fff
+}
+
+#very_start_gradient {
+	top:0;
+	background-image:linear-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 1) 100%)
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+#popup {
+	background-image:linear-gradient(rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 1) 100%)
+}
+
+#popup > div {
+	margin-top:-89px;
+	border:.2vw ridge rgb(40, 40, 40);
+	padding:0 .5vw
+}
+
+#popup h3 {
+	display:block;
+	font-size:1.05vw;
+	text-transform:uppercase;
+	color:grey;
+	line-height:100%
+}
+
+#popup p {
+	font-size:1.23vw;
+	padding-top:.6vw
+}
+
+#popup button {
+	width:auto;
+	height:1.8vw;
+	border:.2vw ridge rgb(20, 20, 20);
+	text-shadow:1vw 1vw 1vw #000;
+	margin:0 .3vw
+}
+
+#popup button:first-child {
+	color:green
+}
+
+#popup button:last-child {
+	color:darkred
+}
+
+#popup table {
+	margin:auto;
+	border-collapse:collapse
+}
+
+#popup table td {
+	border-style:solid;
+	border-width:2px;
+	border-color:tan;
+	padding:.6vw 1.5vw
+}
+
+#popup table td.first {
+	border-top:none;
+	border-left:none
+}
+
+#popup table td.title {
+	text-align:right;
+	padding:.6vw .6vw .6vw 1.5vw
+}
+
+#popup > div > div {
+	padding:.2vw;
+	min-width:10%;
+	width:fit-content;
+	margin:-1.4vw auto 0;
+	border:.2vw ridge rgb(25, 25, 25);
+	top:1.3vw
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+#hand-op {
+	top:-7vw;
+	left:33vw;
+	border:1px solid blue
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+#youtube {
+	display:hidden;
+	z-index:-100;
+	width:10px;
+	height:10px
+}
+
+#toggle-music {
+	z-index:86;
+	top:45.6vw;
+	left:26vw;
+	width:2vw;
+	font-size:3vw;
+	text-shadow:0 0 2vw #000
+}
+
+.music-customization {
+	transform:translate(22.5vw, -.5vw)
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+#notification-bar {
+	top:43%;
+	z-index:100;
+	height:14%
+}
+
+#notification-bar > div {
+	top:-66.6%;
+	left:22.55%;
+	width:22.1%;
+	height:207.25%
+}
+
+#notification-bar > div::after {
+	top:32.1%;
+	left:100.5%;
+	width:205%;
+	height:47.25%;
+	font-size:1.6vw;
+	white-space:pre
+}
+
+#notif-nilfgaard-wins-draws {
+	background-image:url("../images/icons/notif_nilfgaard.png")
+}
+
+#notif-nilfgaard-wins-draws::after {
+	content:"Nilfgaard wins draws"
+}
+
+#notif-op-leader::after {
+	content:"Opponent uses leader"
+}
+
+#notif-op-white-flame {
+	background-image:url("../images/icons/notif_nilfgaard.png")
+}
+
+#notif-op-white-flame::after {
+	content:"The opponent's leader cancel \A your opponent's Leader Ability"
+}
+
+#notif-meve_white_queen {
+	background-image:url("../images/icons/notif_lyria_rivia.png")
+}
+
+#notif-meve_white_queen::after {
+	content:"Lyria & Rivia leader allows both players to restore \A 2 units when using the medic ability."
+}
+
+#notif-me-first::after {
+	content:"You will go first"
+}
+
+#notif-op-first::after {
+	content:"Your opponent will go first"
+}
+
+#notif-me-coin {
+	background-image:url("../images/icons/notif_me_coin.png")
+}
+
+#notif-me-coin::after {
+	content:"You will go first"
+}
+
+#notif-op-coin {
+	background-image:url("../images/icons/notif_op_coin.png")
+}
+
+#notif-op-coin::after {
+	content:"Your opponent will go first"
+}
+
+#notif-round-start {
+	background-image:url("../images/icons/notif_round_start.png")
+}
+
+#notif-round-start::after {
+	content:"Round Start"
+}
+
+#notif-me-pass {
+	background-image:url("../images/icons/notif_round_passed.png")
+}
+
+#notif-me-pass::after {
+	content:"Round passed"
+}
+
+#notif-op-pass {
+	background-image:url("../images/icons/notif_round_passed.png")
+}
+
+#notif-op-pass::after {
+	content:"Your opponent has passed"
+}
+
+#notif-win-round {
+	background-image:url("../images/icons/notif_win_round.png")
+}
+
+#notif-win-round::after {
+	content:"You won the round!"
+}
+
+#notif-lose-round {
+	background-image:url("../images/icons/notif_lose_round.png")
+}
+
+#notif-lose-round::after {
+	content:"Your opponent won the round"
+}
+
+#notif-draw-round {
+	background-image:url("../images/icons/notif_draw_round.png")
+}
+
+#notif-draw-round::after {
+	content:"The round ended in a draw"
+}
+
+#notif-me-turn {
+	background-image:url("../images/icons/notif_me_turn.png")
+}
+
+#notif-me-turn::after {
+	content:"Your turn!"
+}
+
+#notif-op-turn {
+	background-image:url("../images/icons/notif_op_turn.png")
+}
+
+#notif-op-turn::after {
+	content:"Opponent's turn"
+}
+
+#notif-north::after {
+	content:"Northern Realms faction ability triggered:\A North draws an additional card."
+}
+
+#notif-north-scorch-cancelled::after {
+	content:"Northern Realms leader ability used:\A Scorch ability cancelled for the rest of the round."
+}
+
+#notif-monsters {
+	background-image:url("../images/icons/notif_monsters.png")
+}
+
+#notif-monsters::after {
+	content:"Monsters faction ability triggered:\A one randomly-chosen Monster Unit Card stays on the board"
+}
+
+#notif-scoiatael {
+	background-image:url("../images/icons/notif_scoiatael.png")
+}
+
+#notif-scoiatael::after {
+	content:"Opponent used the Scoia'tael faction perk to go first."
+}
+
+#notif-skellige-op {
+	background-image:url("../images/icons/notif_skellige.png")
+}
+
+#notif-skellige-op::after {
+	content:"Opponent Skellige Ability Triggered!"
+}
+
+#notif-skellige-me {
+	background-image:url("../images/icons/notif_skellige.png")
+}
+
+#notif-skellige-me::after {
+	content:"Skellige Ability Triggered!"
+}
+
+#notif-witcher_universe {
+	background-image:url("../images/icons/notif_witcher_universe.png")
+}
+
+#notif-witcher_universe::after {
+	content:"Witcher Universe faction ability used:\A Turn skipped."
+}
+
+#notif-toussaint::after {
+	content:"Toussaint faction ability used:\A Toussaint draws an additional card."
+}
+
+#notif-toussaint-decoy-cancelled::after {
+	content:"Toussaint leader ability used:\A Decoy ability cancelled for the rest of the round."
+}
+
+#notif-lyria_rivia {
+	background-image:url("../images/icons/notif_lyria_rivia.png")
+}
+
+#notif-lyria_rivia::after {
+	content:"Lyria & Rivia faction ability used:\A Morale Boost effect applied to a row."
+}
+
+#notif-zerrikania {
+	background-image:url("../images/icons/notif_zerrikania.png")
+}
+
+#notif-zerrikania::after {
+	content:"Zerrikania faction ability used:\A Unit restored from the discard pile."
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+#end-screen > :nth-child(1) {
+	top:12.6%;
+	left:32.9%;
+	width:calc(100% * 656 / 1920);
+	height:calc(100% * 416 / 1080);
+	margin-bottom:-21.65%;
+	background-size:contain
+}
+
+.end-draw {
+	background-image:url("../images/icons/end_draw.png")
+}
+
+.end-win {
+	background-image:url("../images/icons/end_win.png")
+}
+
+.end-lose {
+	background-image:url("../images/icons/end_lose.png")
+}
+
+#end-screen > table {
+	left:7.6%;
+	width:74%;
+	height:22%;
+	margin-bottom:-12.3%;
+	table-layout:fixed
+}
+
+#end-screen tbody :first-child th {
+	font-size:.9vw;
+	color:darkslategrey;
+	color:rgb(100, 100, 100)
+}
+
+#end-screen td {
+	font-size:1.7vw;
+}
+
+#end-screen tr :first-child {
+	font-size:1.2vw;
+	text-align:right;
+	color:darkorange;
+	padding-right:5%
+}
+
+#end-screen > p {
+	top:80%;
+	left:30.1%;
+	width:41%;
+	font-size:1.21vw;
+}
+
+#end-screen button {
+	width:10vw;
+	margin:45.5% 1% 0;
+	font-family:Arial Narrow;
+	font-size:1.5vw;
+	background-color:#4c390a66;
+	border:.2vw solid #1d180b;
+	box-shadow:0 0 1vw #6d5210
+}
+
+#end-screen button:hover {
+	box-shadow:0 0 2vw #6d5210
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+.panel {
+	overflow:visible;
+}
+
+#panel-mid {
+	width:52.5%;
+	left:26.5%
+}
+
+#panel-right {
+	width:21%;
+	left:79%
+}
+
+#weather {
+	top:41.25%;
+	left:27.9%;
+	width:54.9%;
+	height:12.75%;
+	margin-bottom:-27%
+}
+
+.leader-box {
+	left:27.5%;
+	width:31.4%;
+	height:12.5%;
+	margin-bottom:-26.25%
+}
+
+.leader-box > .leader-container {
+	width:63%;
+	margin-bottom:-80%;
+	flex-items:center
+}
+
+.leader-box > div > .card {
+	height:98%;
+	width:95%;
+	border-radius:.6vw
+}
+
+.leader-active {
+	top:33%;
+	left:75%;
+	height:28%;
+	width:24%
+}
+
+.leader-active > div {
+	background-image:url("../images/icons/icon_leader_active.png")
+}
+
+#leader-op {
+	top:7.55%
+}
+
+#leader-me {
+	top:77.5%
+}
+
+.stats {
+	height:12.5%;
+	width:88.5%;
+	margin-bottom:-27%;
+	background-color:rgba(20, 20, 20, .6)
+}
+
+#stats-op {
+	top:24.25%
+}
+
+#stats-me {
+	top:61.75%
+}
+
+.current-turn {
+	box-shadow:-3vw 0 1vw .1vw goldenrod
+}
+
+.profile-img {
+	left:28.4%;
+	top:9.6%;
+	width:21.9%;
+	height:80%;
+	margin-bottom:-24%;
+	background-image:url("../images/icons/profile.png");
+	border-radius:100%
+}
+
+.profile-img > div {
+	left:-10%;
+	top:-6%;
+	height:118%;
+	width:118%;
+	background-image:url("../images/icons/icon_player_border.png");
+	overflow:visible
+}
+
+.profile-img > div > div {
+	width:43%;
+	height:43%;
+	left:-10.5%;
+	top:.5%
+}
+
+.faction-ability {
+	background-image:url("../images/icons/faction-ability.png");
+	top:9.6%;
+	width:15%;
+	height:80%;
+	margin-bottom:-24%
+}
+
+.faction-ability .faction-ability-count {
+	left:40%;
+	top:17%;
+	margin-bottom:-24%;
+	color:#ddd;
+	font-size:1.5vw
+}
+
+#stats-me > div > div > div {
+	top:59%
+}
+
+.score-total {
+	top:21%;
+	left:94.8%;
+	height:40%;
+	width:12%;
+	margin-bottom:-12%;
+	color:#000;
+	text-shadow:0 0 5px #fff;
+	font-size:2.3vw
+}
+
+#score-total-me {
+	background-image:url("../images/icons/score_total_me.png")
+}
+
+#score-total-op {
+	background-image:url("../images/icons/score_total_op.png")
+}
+
+.score-leader > div {
+	background-image:url("../images/icons/icon_high_score.png");
+	background-position:bottom;
+	left:-46%;
+	top:-32%;
+	width:195%;
+	height:170%
+}
+
+.hand-count {
+	top:58.5%;
+	left:53.25%;
+	width:17%;
+	height:29.5%;
+	margin-bottom:-9%;
+	font-size:1.7vw;
+	padding-left:7%;
+	background-image:url("../images/icons/icon_card_count.png");
+	background-position:left
+}
+
+#hand-count-me {
+	top:10%
+}
+
+.gem {
+	width:9%;
+	height:31%;
+	margin-bottom:-9.25%;
+	background-image:url("../images/icons/icon_gem_off.png")
+}
+
+.gem-on {
+	background-image:url("../images/icons/icon_gem_on.png")
+}
+
+#gem2-op {
+	top:56.25%;
+	left:70.75%
+}
+
+#gem1-op {
+	top:56%;
+	left:80%
+}
+
+#gem2-me {
+	top:9%;
+	left:70.75%
+}
+
+#gem1-me {
+	top:9%;
+	left:80%
+}
+
+.name {
+	left:53%;
+	width:41.5%;
+	height:20%;
+	margin-bottom:-6%;
+	overflow:hidden;
+	font-size:1.1vw
+}
+
+#name-me {
+	top:46%
+}
+
+.deck-name {
+	left:53%;
+	top:25%;
+	width:41.5%;
+	height:30%;
+	margin-bottom:-6%;
+	overflow:hidden
+}
+
+#deck-name-me {
+	top:64%
+}
+
+.passed {
+	height:0%;
+	width:0%;
+	left:90%;
+	top:87%;
+	font-size:1.5vw;
+	text-shadow:1px 1px 2px #000
+}
+
+#passed-me {
+	top:-3%
+}
+
+.botao-campo {
+	left:63%;
+	width:20%;
+	height:4%;
+	font-size:1.5vw;
+	border:.1vw solid goldenrod;
+	border-radius:.5vw;
+	background-color:rgba(20, 20, 20, .9)
+}
+
+#pass-button {
+	top:79%
+}
+
+#giveup-button {
+	top:82%
+}
+
+.field {
+	height:38.5%
+}
+
+#field-op {
+	top:-1.1%
+}
+
+#field-me {
+	top:-1%
+}
+
+#field-hand {
+	height:13%
+}
+
+.field-row {
+	height:32%;
+	top:4%
+}
+
+.row-score {
+	width:5.1%;
+	top:7%;
+	height:95%;
+	margin-bottom:-12.65%;
+	font-size:1.8vw;
+	color:#000;
+	text-shadow:0 0 5px #fff
+}
+
+.row-special {
+	width:14.25%;
+	left:5.1%;
+	margin-bottom:-12.65%
+}
+
+.row-cards {
+	width:80.65%;
+	left:19.35%;
+	left:20%;
+	width:79.7%
+}
+
+.row-weather {
+	left:5.75%;
+	width:94.25%;
+	background-position:bottom
+}
+
+.frost {
+	background-image:url("../images/icons/overlay_frost.png")
+}
+
+.rain {
+	background-image:url("../images/icons/overlay_rain.png")
+}
+
+.fog {
+	background-image:url("../images/icons/overlay_fog.png")
+}
+
+#hand-row {
+	top:8%;
+	height:91%;
+	left:7.1%;
+	width:92.5%
+}
+
+#op-hand-row {
+	top:9%;
+	height:91%;
+	left:7.1%;
+	width:92.5%
+}
+
+.row-selectable {
+	background-color:rgba(255, 255, 0, .08)
+}
+
+.row-selectable:hover {
+	box-shadow:0 0 .25vw rgba(255, 255, 0, 1)
+}
+
+.card-selectable > .card:hover {
+	border:.12vw outset goldenrod;
+	border-radius:.3vw;
+	margin-bottom:1vw
+}
+
+.cardpile {
+	width:27.6%;
+	height:13.5%;
+	margin-bottom:-36.25%;
+	flex-direction:column-reverse;
+	overflow:visible
+}
+
+.field-row .cardpile {
+	width:14.25%;
+	left:5.1%;
+	margin-bottom:-12.65%;
+	flex:none
+}
+
+.field-row .cardpile .special {
+	top:-1.7vw;
+	margin-top:2.2vw;
+}
+
+#grave-op {
+	top:6.5%;
+	left:6.5%
+}
+
+#deck-op {
+	top:6.5%;
+	left:51%
+}
+
+#grave-me {
+	top:76.5%;
+	left:6.5%
+}
+
+#deck-me {
+	top:76.5%;
+	left:51%
+}
+
+.deck-card {
+	height:6.675vw;
+	width:4.45vw;
+	box-shadow:-.1vw -.1vw .5vw rgba(20, 20, 20, .5)
+}
+
+.deck-counter {
+	background-color:rgba(20, 20, 20, .8);
+	width:3vw;
+	height:2vw
+}
+
+.cardpile .deck-card {
+	margin-top:-114.5%
+}
+
+.cardpile > .card {
+	margin-top:-108.5%
+}
+
+#deck-customization {
+	z-index:85
+}
+
+#faction-title {
+	height:5%
+}
+
+#deck-customization h1 {
+	font-size:1.45vw;
+	margin-left:3%;
+	color:#dedede;
+	line-height:220%;
+	padding:0 3%;
+	top:-60%;
+}
+
+#faction-description {
+	font-size:1.14vw;
+	color:#ab977c;
+	top:9.45%;
+	left:20.2%;
+	width:60%
+}
+
+.deck-options {
+	top:15%
+}
+
+#select-deck {
+	left:30%
+}
+
+#upload-deck {
+	left:39%
+}
+
+#change-faction {
+	left:46%
+}
+
+#download-deck {
+	left:54%
+}
+
+#select-op-deck {
+	left:62%
+}
+
+#op-deck-name {
+	left:72%;
+	font-style:italic
+}
+
+#site-links {
+	right:5%
+}
+
+.links a {
+	color:#aaa;
+	text-decoration:none
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+#card-bank {
+	left:8.275%
+}
+
+#card-bank-title {
+	top:7.45%;
+	left:8.5%
+}
+
+#card-deck-title {
+	top:7.8%;
+	left:84.45%
+}
+
+#card-deck {
+	left:58.4%
+}
+
+.card {
+	box-shadow:-.1vw -.1vw .5vw rgba(20, 20, 20, .5);
+	transition:margin-bottom 0.05s, margin-left .25s, margin-right .25s, transform 0.5s;
+}
+
+.card > div:nth-child(1) {
+	top:-4%;
+	left:-4%;
+	width:70%;
+	height:50%;
+	margin-bottom:-71%;
+	background-position:0 0
+}
+
+.card > div:nth-child(1) > div {
+	top:13%;
+	left:7%;
+	width:50%;
+	font-size:1vw;
+	color:#000;
+	text-shadow:0 0 .1vw #fff
+}
+
+.card > div:nth-child(2) {
+	left:65%;
+	width:33%;
+	height:22%;
+	margin-bottom:-32%
+}
+
+.card > div:nth-child(3) {
+	left:32%;
+}
+
+.card > .card-ability-2:nth-child(4) {
+	left:0;
+}
+
+.card > div:last-child {
+	background-size:40% auto;
+	opacity:0;
+	filter:alpha(opacity=0);
+	transition:background-size 0.25s
+}
+
+.card-lg {
+	width:16.1vw;
+	height:30.4vw;
+	border-radius:1.5vw
+}
+
+.card-lg:hover {
+	border:.1vw solid goldenrod;
+	box-shadow:0 0 1vw goldenrod
+}
+
+.card-array {
+	width:34.4%;
+	height:68%;
+	overflow-y:scroll;
+	padding:.1vw 1.1vw;
+	flex-wrap:wrap
+}
+
+.card-array .hero .card-large-power {
+	top:-2%;
+	left:-4%
+}
+
+.card-array .card-lg {
+	margin-bottom:.75vw
+}
+
+.card-array .card-lg div.card-count {
+	left:74%;
+	width:20%;
+	height:7%;
+	color:#5f4923;
+	padding-left:1.7vw;
+	background-image:url("../images/icons/preview_count.png")
+}
+
+.card-array .card-lg .card-large-bg {
+	margin-left:-.05vw
+}
+
+.card-array .card-lg .card-large-row {
+	top:22%;
+	width:3.5vw;
+	height:2.5vw
+}
+
+.card-array .card-lg .card-large-name {
+	top:75.5%;
+	line-height:.8vw
+}
+
+.card-array .card-lg .card-large-quote {
+	top:83%;
+	width:98%;
+	font-size:.7vw
+}
+
+.card-array .card-lg .card-large-power {
+	top:-2%;
+	left:-4%;
+	width:5vw;
+	height:5vw
+}
+
+.card-array .card-lg .card-large-power .card-large-power-strength {
+	align-items:center;
+	color:#000;
+	font-size:1.4vw;
+	margin-left:-1.8vw;
+	margin-top:.8vw
+}
+
+.card-array .card-lg .card-large-ability {
+	top:40%;
+	width:3.5vw;
+	height:2.5vw
+}
+
+.card-array .card-lg .card-large-ability-2 {
+	top:56%;
+	width:3.5vw;
+	height:2.5vw
+}
+
+.card-array .card-lg .card-large-faction-band {
+	left:-.05vw;
+	top:.55vw;
+	width:2.5vw;
+	height:12.8vw
+}
+
+.card-preview {
+	z-index:80
+}
+
+.card-preview .hero .card-large-power {
+	top:-3%;
+	left:-6%
+}
+
+.card-preview .card-lg .card-large-row {
+	top:25%;
+	width:10vw;
+	height:4vw
+}
+
+.card-preview .card-lg .card-large-name {
+	font-size:1.4vw;
+	line-height:1.1vw
+}
+
+.card-preview .card-lg .card-large-quote {
+	top:84%;
+	width:96%;
+}
+
+.card-preview .card-lg .card-large-power {
+	top:-2%;
+	left:-4%;
+	width:10vw;
+	height:10vw
+}
+
+.card-preview .card-lg .card-large-power .card-large-power-strength {
+	align-items:center;
+	color:#000;
+	font-size:2.5vw;
+	margin-left:-3.6vw;
+	margin-top:1.7vw
+}
+
+.card-preview .card-lg .card-large-ability {
+	top:40%;
+	width:10vw;
+	height:4vw
+}
+
+.card-preview .card-lg .card-large-ability-2 {
+	width:10vw;
+	height:4vw
+}
+
+.card-preview .card-lg .card-large-faction-band {
+	left:.15vw;
+	top:1.15vw;
+	width:4.5vw;
+	height:20.5vw
+}
+
+.card-preview > .card-lg {
+	top:11.95vw;
+	left:80.3vw
+}
+
+.card-preview > .card-description {
+	top:43.1vw;
+	left:67.95vw
+}
+
+.card-container {
+	align-items:flex-end
+}
+
+.card-container .card {
+	margin:0 1px;
+	flex-shrink:0
+}
+
+.card-contianer-title {
+	width:10%;
+	color:#959595
+}
+
+.card-description {
+	width:29.12vw;
+	height:11vw;
+	border:.1vw solid #ffffff57;
+	border-width:.1vw 0;
+	background-color:rgba(20, 20, 20, .95)
+}
+
+.card-description > div {
+	top:1vw;
+	left:.9vw;
+	width:1.95vw;
+	height:1.95vw;
+	margin-bottom:-1.9vw;
+	background-size:cover
+}
+
+.card-description > h1 {
+	top:.5vw;
+	left:16%;
+	height:16%;
+	width:70%;
+	margin-bottom:-2.1vw
+}
+
+.card-description > p {
+	top:16%;
+	width:90%;
+	height:50%
+}
+
+#carousel {
+	z-index:90
+}
+
+#carousel .selection {
+	border:.3vw solid green;
+	box-shadow:0 0 4vw green
+}
+
+#carousel .card-description {
+	left:35.35%;
+	top:77%
+}
+
+#carousel > div > div.card-lg {
+	margin:0 1.8%
+}
+
+#carousel > :nth-child(1) {
+	padding:11.5% 10%;
+	display:flex;
+	align-items:flex-start;
+	justify-content:space-between
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) {
+	width:13.75vw;
+	height:25.9vw
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) .card-large-row {
+	height:3.5vw;
+	left:1.6%
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) .card-large-name {
+	font-size:1.3vw
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) .card-large-quote {
+	font-size:.8vw
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) .card-large-power {
+	top:-2%;
+	left:-4%;
+	width:8vw;
+	height:8vw
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) .card-large-power .card-large-power-strength {
+	margin-left:-2.8vw;
+	margin-top:1.1vw
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) .card-large-ability {
+	height:3.4vw;
+	top:41%;
+	left:2%
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) .card-large-ability-2 {
+	height:3.4vw;
+	top:56%;
+	left:2.5%
+}
+
+#carousel > :nth-child(1) > :nth-child(2n) .card-large-faction-band {
+	left:.5vw;
+	top:.6vw;
+	width:3vw;
+	height:18.1vw
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) {
+	width:11.3vw;
+	height:21.3vw;
+	margin:0 2%
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-row {
+	height:3vw;
+	left:2.1%
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-name {
+	font-size:1.1vw
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-quote {
+	font-size:.7vw
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-power {
+	top:-2%;
+	left:-4%;
+	width:7vw;
+	height:7vw
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-power .card-large-power-strength {
+	margin-left:-2.7vw;
+	margin-top:.9vw;
+	font-size:2.3vw
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-ability {
+	top:42%;
+	left:2.5%
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-ability-2 {
+	top:57%;
+	left:2.5%
+}
+
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-faction-band {
+	left:.5vw;
+	top:.5vw;
+	width:2.5vw;
+	height:14.9vw
+}
+
+#carousel > :nth-child(3) {
+	height:7.5%;
+	top:12%;
+	font-size:1.75vw;
+	line-height:250%;
+	box-shadow:0 0 1vw #ffffff54
+}
+
+#carousel .hero .card-large-power {
+	top:-3%;
+	left:-6%
+}
+
+#carousel .card-lg .card-large-row {
+	top:25%;
+	width:10vw;
+	height:4vw
+}
+
+#carousel .card-lg .card-large-name {
+	font-size:1.4vw
+}
+
+#carousel .card-lg .card-large-quote {
+	top:86%;
+	width:96%;
+}
+
+#carousel .card-lg .card-large-power {
+	top:-2%;
+	left:-4%;
+	width:10vw;
+	height:10vw
+}
+
+#carousel .card-lg .card-large-ability {
+	top:41%;
+	width:10vw;
+	height:4vw
+}
+
+#carousel .card-lg .card-large-ability-2 {
+	top:56%;
+	width:10vw;
+	height:4vw
+}
+
+#carousel .card-lg .card-large-power .card-large-power-strength {
+	align-items:center;
+	color:#000;
+	font-size:2.5vw;
+	margin-left:-3.6vw;
+	margin-top:1.7vw
+}
+
+#carousel .card-lg .card-large-faction-band {
+	left:.4vw;
+	top:1.15vw;
+	width:4.5vw;
+	height:20.7vw;
+}
+
+#card-leader {
+	height:27%;
+	width:6.9%;
+	top:20.8%;
+	left:46.6%
+}
+
+#card-leader p {
+	font-size:1.1vw;
+	color:#8f6c36;
+	line-height:0%;
+	margin:9%
+}
+
+#card-leader > div {
+	height:84.5%;
+	margin-top:24.5%;
+	border-radius:.5vw
+}
+
+#deck-stats {
+	width:12%;
+	height:30%;
+	top:49.5%;
+	left:44.05%
+}
+
+#deck-stats > p:nth-child(odd) {
+	color:#82735f;
+	font-size:1.05vw;
+	margin-bottom:-6.75%
+}
+
+#deck-stats > p:nth-child(even) {
+	color:#9f7d3e;
+	padding-left:2.3vw;
+	margin-left:3.95vw;
+	margin-bottom:-6.75%;
+	background-repeat:no-repeat;
+	background-size:2.5vw
+}
+
+#deck-stats > p:nth-child(2) {
+	background-image:url("../images/icons/deck_stats_count.png")
+}
+
+#deck-stats > p:nth-child(4) {
+	background-image:url("../images/icons/deck_stats_unit.png")
+}
+
+#deck-stats > p:nth-child(6) {
+	background-image:url("../images/icons/deck_stats_special.png")
+}
+
+#deck-stats > p:nth-child(8) {
+	background-image:url("../images/icons/deck_stats_strength.png")
+}
+
+#deck-stats > p:nth-child(10) {
+	background-image:url("../images/icons/deck_stats_hero.png")
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+.start-game_class {
+	border:.1vw ridge rgb(30, 30, 30)
+}
+
+.start-game_class:hover {
+	border:.1vw solid #fff;
+	box-shadow:0 0 .1vw #fff
+}
+
+#start-game {
+	top:86%;
+	left:46.65%;
+	width:6%
+}
+
+#start-ai-game {
+	left:46.2%;
+	width:7%
+}
+
+.hero > div:nth-child(1) > div {
+	text-shadow:0 0 .1vw #000
+}
+
+.visible {
+	display:visible
+}
+
+.fade {
+	opacity:.2;
+	filter:alpha(opacity=20)
+}
+
+#no_hover:hover {
+	box-shadow:none
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+html,
+body {
+	margin:0;
+	padding:0;
+	overflow-X:visible;
+	scrollbar-width:none
+}
+
+.card-array .card-lg .card-large-name,
+.card-array .card-lg .card-large-quote,
+.card-preview .card-lg .card-large-name,
+#carousel .card-lg .card-large-name {
+	height:5vw;
+	background-position:left;
+	color:#000
+}
+
+#start-game,
+#start-ai-game {
+	height:3%;
+	font-size:.98vw
+}
+
+#card-leader .card-large-bg,
+.card-array .card-lg .card-large-bg,
+.card-preview .card-lg .card-large-bg {
+	margin-bottom:.75vw;
+	border-radius:1vw;
+	background-position:top
+}
+
+#carousel .card-lg .card-large-bg,
+#carousel .card-lg .card-large-faction-band,
+.card-array .card-lg .card-large-faction-band {
+	margin-bottom:.75vw;
+	background-position:bottom
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+.links,
+.panel,
+.row-weather,
+.deck-options,
+.card-contianer-title,
+main,
+#popup,
+#deck-stats,
+#end-screen,
+#start-game,
+#start-ai-game,
+#very_start,
+#toggle-music,
+#faction-title,
+#faction-description,
+#deck-customization,
+#deck-customization h1,
+#hand-op,
+#hand-op .card,
+#notification-bar,
+#notification-bar > div,
+#notification-bar > div::after,
+#carousel,
+#carousel .card-lg .card-large-row,
+#carousel .card-lg .card-large-name,
+#carousel .card-lg .card-large-quote,
+#carousel .card-lg .card-large-power,
+#carousel .card-lg .card-large-ability,
+#carousel .card-lg .card-large-ability-2,
+#carousel .card-lg .card-large-faction-band,
+#carousel > :nth-child(3),
+#card-leader,
+#card-leader .card-large-name,
+.card-array,
+.card-array .card-lg .card-large-row,
+.card-array .card-lg .card-large-name,
+.card-array .card-lg .card-large-quote,
+.card-array .card-lg .card-large-power,
+.card-array .card-lg .card-large-ability,
+.card-array .card-lg .card-large-ability-2,
+.card-array .card-lg .card-large-faction-band,
+.card-preview .card-lg .card-large-row,
+.card-preview .card-lg .card-large-name,
+.card-preview .card-lg .card-large-quote,
+.card-preview .card-lg .card-large-power,
+.card-preview .card-lg .card-large-ability,
+.card-preview .card-lg .card-large-ability-2,
+.card-preview .card-lg .card-large-faction-band,
+.card-preview > .card-lg,
+.card-description,
+.deck-card .card,
+.field-row > div,
+.field-row .cardpile .special,
+.leader-box > div > .card {
+	position:absolute
+}
+
+div.abs,
+#youtube,
+#dimensions,
+#click-background {
+	position:fixed
+}
+
+#very_start_bg2,
+#carousel .card-lg .card-large-row,
+#carousel .card-lg .card-large-ability,
+#carousel .card-lg .card-large-ability-2,
+.card-preview .card-lg .card-large-row,
+.card-preview .card-lg .card-large-ability,
+.card-preview .card-lg .card-large-ability-2 {
+	left:4%
+}
+
+#popup,
+#end-screen {
+	z-index:1000
+}
+
+.cardpile,
+.field-row,
+.deck-counter,
+#weather,
+#hand-row,
+#op-hand-row,
+#click-background,
+.card-selectable > .card:hover {
+	z-index:1
+}
+
+.hide,
+#op-hand-row,
+#card-leader .card-large-quote,
+#carousel .hide .card-large-bg,
+#carousel .hide .card-large-faction-band,
+#carousel .hide .card-large-name,
+#carousel .hide .card-large-power,
+#carousel .hide .card-large-power-strength,
+#carousel .hide .card-large-row,
+#carousel .hide .card-large-ability,
+#carousel .hide .card-large-ability-2,
+#carousel .hide .card-large-quote {
+	display:none
+}
+
+.panel,
+#popup button {
+	display:inline-block
+}
+
+.card,
+#hand-op {
+	width:4.45vw;
+	height:6.35vw
+}
+
+.card-array .card-lg,
+.card-array .card-lg .card-large-bg {
+	width:9.88vw;
+	height:18.45vw
+}
+
+.field,
+html,
+body,
+main,
+div.abs,
+#popup,
+#carousel,
+#dimensions,
+#end-screen,
+#field-hand,
+#click-background,
+#notification-bar,
+#deck-customization,
+#faction-title,
+#very_start_gradient,
+#card-leader .card-large-bg,
+#card-leader .card-large-name,
+#carousel > :nth-child(3),
+#carousel .card-lg .card-large-bg,
+#carousel .card-lg .card-large-name,
+.leader-active > div,
+.faction-ability .faction-ability-count,
+.card-array .card-lg .card-large-name,
+.card-preview .card-lg .card-large-bg,
+.card-preview .card-lg .card-large-name,
+.card > div:last-child {
+	width:100%
+}
+
+#panel-left, #popup > div {
+	width:26.5%
+}
+
+.panel,
+.row-special,
+.row-cards,
+.row-weather,
+html,
+body,
+div.abs,
+#click-background,
+#carousel .card-lg .card-large-bg,
+#card-leader .card-large-bg,
+.leader-active > div,
+.leader-box > .leader-container,
+.card > div:last-child,
+.field-row .cardpile,
+.faction-ability .faction-ability-count,
+.card-preview .card-lg .card-large-bg {
+	height:100%
+}
+
+.card-contianer-title,
+#end-screen > p {
+	height:3%
+}
+
+#toggle-music,
+#end-screen button,
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-ability,
+#carousel > :nth-child(1) > :nth-child(4n - 3) .card-large-ability-2 {
+	height:3vw
+}
+
+.panel,
+main,
+#popup,
+#carousel,
+#dimensions,
+#end-screen,
+#very_start_gradient,
+#deck-customization {
+	height:calc(100vw * 1080 / 1920)
+}
+
+.card-lg, #no_hover:hover {
+	border:.1vw solid transparent
+}
+
+#end-screen button, 
+.card-array .card-lg, 
+#carousel .card-lg .card-large-bg {
+	border-radius:1vw
+}
+
+#notif-north,
+#notif-north-scorch-cancelled {
+	background-image:url("../images/icons/notif_north.png")
+}
+
+#notif-toussaint,
+#notif-toussaint-decoy-cancelled {
+	background-image:url("../images/icons/notif_toussaint.png")
+}
+
+body,
+#popup > div > div {
+	background-color:#000
+}
+
+.start-game_class,
+#popup button,
+#popup > div {
+	background-color:rgb(20, 20, 20)
+}
+
+#end-screen,
+#notification-bar,
+#deck-customization,
+#carousel > :nth-child(3) {
+	background-color:rgba(10, 10, 10, .95)
+}
+
+.card-lg,
+#carousel .card-lg,
+#carousel .faction {
+	background-position:top
+}
+
+.score-total,
+.faction-ability,
+.profile-img,
+.profile-img > div,
+.profile-img > div > div,
+.card > div,
+.card > div:last-child,
+.card-description > div,
+#notification-bar > div {
+	background-position:center
+}
+
+.row-weather,
+#carousel .faction,
+.leader-active > div {
+	background-size:cover;
+	background-repeat:no-repeat
+}
+
+main,
+#very_start_bg1 {
+	background-size:100% auto;
+	background-repeat:no-repeat
+}
+
+.card-lg,
+.deck-card,
+.bg-contain,
+.hand-count,
+.score-total,
+.faction-ability,
+.profile-img,
+.profile-img > div,
+.profile-img > div > div,
+.score-leader > div,
+.card,
+.card > div,
+#deck-customization h1,
+#card-leader > div,
+#card-leader .card-large-bg,
+#card-leader .card-large-name,
+#carousel .card-lg,
+#carousel .card-lg .card-large-bg,
+#carousel .card-lg .card-large-row,
+#carousel .card-lg .card-large-name,
+#carousel .card-lg .card-large-quote,
+#carousel .card-lg .card-large-power,
+#carousel .card-lg .card-large-ability,
+#carousel .card-lg .card-large-ability-2,
+#carousel .card-lg .card-large-faction-band,
+#notification-bar > div,
+.card-array .card-lg div.card-count,
+.card-array .card-lg .card-large-bg,
+.card-array .card-lg .card-large-row,
+.card-array .card-lg .card-large-name,
+.card-array .card-lg .card-large-quote,
+.card-array .card-lg .card-large-power,
+.card-array .card-lg .card-large-ability,
+.card-array .card-lg .card-large-ability-2,
+.card-array .card-lg .card-large-faction-band,
+.card-preview .card-lg .card-large-bg,
+.card-preview .card-lg .card-large-row,
+.card-preview .card-lg .card-large-name,
+.card-preview .card-lg .card-large-quote,
+.card-preview .card-lg .card-large-power,
+.card-preview .card-lg .card-large-ability,
+.card-preview .card-lg .card-large-ability-2, 
+.card-preview .card-lg .card-large-faction-band {
+	background-size:contain;
+	background-repeat:no-repeat
+}
+
+.card-array .card-lg div.card-count,
+.card-array .card-lg .card-large-power,
+.card-array .card-lg .card-large-row,
+.card-array .card-lg .card-large-ability,
+.card-array .card-lg .card-large-ability-2,
+.card-preview .card-lg .card-large-power,
+.card-preview .card-lg .card-large-row,
+.card-preview .card-lg .card-large-ability,
+.card-preview .card-lg .card-large-ability-2,
+#carousel .card-lg .card-large-power,
+#carousel .card-lg .card-large-row,
+#carousel .card-lg .card-large-ability,
+#carousel .card-lg .card-large-ability-2,
+#deck-stats > p:nth-child(even) {
+	background-position:left;
+	font-size:1.2vw
+}
+
+.links,
+.deck-options,
+#popup button,
+.card-description > h1,
+.card-array .card-lg .card-large-name {
+	font-size:1vw
+}
+
+.deck-counter,
+.card-contianer-title {
+	font-size:1.3vw
+}
+
+.deck-name,
+.card-description > p {
+	font-size:.9vw
+}
+
+.name,
+.passed,
+.hand-count,
+.score-total,
+.botao-campo,
+#very_start,
+#notification-bar > div::after,
+#carousel .card-lg .card-large-power .card-large-power-strength,
+.card-description > h1,
+.faction-ability .faction-ability-count,
+.card-array .card-lg .card-large-power .card-large-power-strength,
+.card-preview .card-lg .card-large-power .card-large-power-strength,
+.card > div:nth-child(1) > div {
+	font-weight:700
+}
+
+#notification-bar > div::after,
+#deck-stats > p:nth-child(even) {
+	text-align:left
+}
+
+.card-description,
+#very_start,
+#faction-description,
+#popup h3,
+#popup p,
+#card-leader p,
+#card-leader .card-large-name,
+#carousel .card-lg .card-large-name,
+#carousel .card-lg .card-large-quote,
+#carousel > :nth-child(3),
+#end-screen td,
+#end-screen .end-screen-buttons,
+#end-screen tbody :first-child th,
+#deck-stats > p:nth-child(odd),
+.card-array .card-lg .card-large-name,
+.card-array .card-lg .card-large-quote,
+.card-preview .card-lg .card-large-name,
+.card-preview .card-lg .card-large-quote {
+	text-align:center
+}
+
+a:hover,
+label:hover,
+.hover_un:hover,
+.links a:hover {
+	text-decoration:underline
+}
+
+.botao-campo:hover,
+#toggle-music:hover {
+	text-shadow:0 0 1vw #6d5210
+}
+
+.deck-name,
+#popup button,
+#deck-customization h1,
+.card-description > h1 {
+	text-transform:capitalize
+}
+
+.passed,
+.deck-name,
+.deck-counter,
+.card-description,
+#popup p {
+	color:tan
+}
+
+body,
+#toggle-music,
+#end-screen button,
+#notification-bar > div::after {
+	color:goldenrod
+}
+
+.links,
+#op-deck-name {
+	color:#ccc
+}
+
+.deck-options,
+.start-game_class,
+#very_start,
+#carousel .hero .card-large-power .card-large-power-strength,
+.card-array .hero .card-large-power .card-large-power-strength,
+.card-preview .hero .card-large-power .card-large-power-strength,
+.hero > div:nth-child(1) > div {
+	color:#fff
+}
+
+#end-screen > p,
+#end-screen td {
+	color:rgb(180, 180, 180)
+}
+
+.noclick,
+.row-weather,
+.card-description,
+#field-op .card,
+.field .hero,
+.cardpile .card,
+.leader-box .card {
+	pointer-events:none
+}
+
+.name,
+.start-game_class {
+	white-space:nowrap
+}
+
+*,
+.panel,
+.row-selectable:hover {
+	box-sizing:border-box
+}
+
+.card-array,
+#popup > div > div {
+	justify-content:space-between
+}

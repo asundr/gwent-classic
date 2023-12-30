@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang = "en-US">
+	<head>
+		<title>Gwent 3.1 - Rules</title>
+		<meta charset = "utf-8" />
+		<meta name = "author" content = "Sundaram, Costa & Sylver" />
+		<meta name = "description" content = "Play the original Gwent minigame from The Witcher 3 in your browser! Includes cards from Hearts of Stone and Blood & Wine!" />
+		<meta name = "keywords" content = "arun, sundaram, reynolds, costa, randompianist, sylver, romain, durban, programmer, gwent, tw3, witcher, card, game, gamedev, play" />
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+		<link rel = "icon" type = "image/x-icon" href = "images/favicon.ico" />
+		<link rel = "stylesheet" type = "text/css" href = "css/rules.css" />
+		<link rel = "stylesheet" type = "text/css" href = "css/pure.min.css" />
+		<script type = "text/javascript" language = "JavaScript" src = "javascript/rules.js"></script>
+	</head>
+	<body>
+		<div id = "layout">
+			<a href = "#menu" id = "menuLink" class = "menu-link">
+				<span></span>
+			</a>
+			<div id = "menu">
+				<div class = "pure-menu">
+					<a class = "pure-menu-heading" href = "#">Gwent 3.1</a>
+					<ul class = "pure-menu-list">
+						<li class = "pure-menu-item menu-other-page">
+							<a href = "index.html" class = "pure-menu-link">Play Game</a>
+						</li>
+						<li class = "pure-menu-item menu-other-page">
+							<a href = "decks.html" class = "pure-menu-link">Decks</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#cards" class = "pure-menu-link">Cards</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#abilities" class = "pure-menu-link">Abilities</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#factions" class = "pure-menu-link">Factions</a>
+						</li>
+						<li class = "pure-menu-item">
+							<a href = "#setup" class = "pure-menu-link">Setup</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id = "main">
+				<div class = "header">
+					<h1>Gwent 3.1</h1>
+					<h2>The Witcher 3 minigame pulled to the browser and pushed further</h2>
+				</div>
+				<div class = "content">
+					<h2 class = "content-subhead">What is Gwent?</h2>
+					<p>
+						<b>Gwent</b>
+						<i>(a.k.a Gwynt)</i>
+						used to be a minigame in the video game
+						<b>The Witcher 3</b>
+						developed by CD Project.
+						<br />
+						It was designed to be a collection card game in which you could play your cards against the computer.
+						<br />
+						You would start with a basic starting deck which you could improve in parallel of the game story and quests by buying more cards here and there or by defeating characters in the game.
+					</p>
+					<p>
+						It was never designed to be a balanced game. NPCs don't complain, so the idea was to build a deck with all the strongest cards possible to try to always win.
+						<br />
+						Adapting Gwent to be multiplayer is consequently not an easy task. Furthermore, the game could grow boring because there are obvious optimal decks and optimal ways to play the game.
+						<br />
+						Players would usually do the same things over and over.
+						<br />
+						Fortunately, it does not stop the game from being very interesting and full of potential, which is why we wanted to push it even further, especially with a vast universe like The Witcher.
+					</p>
+					<h2 class = "content-subhead">But how does it play?</h2>
+					<p>
+						Gwent is played with 2 players. They start with the same number of cards and take turns to play these cards one by one until both players pass or are out of cards.
+						<br />
+						At the end of each round the strength of each player's cards is summed to calculate their score. The player with the highest score wins the round.
+						<br />
+						<b>First player to win two rounds wins the game.</b>
+					</p>
+					<p>
+						Gwent is sometimes compared to poker because bluff plays an important role.
+						<br />
+						Usually you want to win a round with as few cards as possible but since each player can lose a round, you might want to convince your opponent you are trying to win the round and push him/her to play more of his/her best cards, while saving yours.
+						<br />
+						Cards are a limited resource in the game, so winning requires to make a better use of them.
+					</p>
+					<h2 class = "content-subhead">Board layout</h2>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/rules/board_layout.jpg" alt = "Gwent board layout" />
+						</div>
+						<div class = "pure-u-7-8">
+							<p>
+								In Gwent, the board is a battlefied divided in two parts, the side of each player.
+								<br />
+								Each side is made of three distinct rows:
+								<ul>
+									<li>
+										<b>Melee</b> (or Close Combat)
+									</li>
+									<li>
+										<b>Ranged</b>
+									</li>
+									<li>
+										<b>Siege</b>
+									</li>
+								</ul>
+							</p>
+							<p>
+								Most cards can be played in only one of these rows. Some special cards can affect only one row at a time.
+								<br />
+								Concentrating cards in a row or on the contrary spreading them across your side of the battlefield will be important strategic decisions.
+							</p>
+							<p>
+								This division of the board in three rows and the effects which can apply to them are an important factor in the specificity and elegance of Gwent.
+								<br />
+								For many players, this is a crucial part missing in the more recent standalone official Gwent game.
+							</p>
+						</div>
+					</div>
+					<h2 class = "content-subhead" id = "cards">So, what are these cards?</h2>
+					<p>
+						In Gwent, there are 3 major kinds of cards:
+						<ul>
+							<li>
+								<b>Leader cards</b>
+							</li>
+							<li>
+								<b>Unit cards</b>
+							</li>
+							<li>
+								<b>Special cards</b>
+							</li>
+						</ul>
+					</p>
+					<h3 class = "content-subhead">Leader cards</h3>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/lg/monsters_eredin_commander.jpg" alt = "Example of leader card" />
+						</div>
+						<div class = "pure-u-7-8">
+							<p>
+								Each player has one and only one leader card, which is chosen before the start of the game. It is not part of the deck.
+								<br />
+								This card is not played on the battlefield, it remains face up on the side until the end.
+								<br />
+								It does not have a strength value but it has a strong ability which can affect the board and cards.
+							</p>
+						</div>
+					</div>
+					<h3 class = "content-subhead">Unit cards</h3>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/lg/neutral_olgierd.jpg" alt = "Example of unit card" />
+							<img class = "pure-img-responsive" src = "images/lg/neutral_ciri.jpg" alt = "Example of hero card" />
+						</div>
+						<div class = "pure-u-7-8">
+							<p>
+								This is the main category of cards, these are the ones with a strength value and which allow to increase the player's score in the round.
+								<br />
+								Some units have an ability (some even have two), allowing them to affect the board or combine with other cards in order to further increase (or decrease) the scores of players.
+								<br />
+								These abilities allow to increase the strength of some of your units, summon more cards or remove some other cards from the boad.
+								<br />
+								Unit abilities is most likely the most important part of the game because it is what brings variety and unpredictability, forcing players to read the opponent strategy and style and react to it approprietly.
+								<br />
+							</p>
+							<p>
+								A small portion of these units are
+								<b>Hero</b>
+								units, their visual is slightly different than the others. Hero units are not affected by any ability, yours or the opponents.
+								<br />
+								This means that these cards cannot be removed before the end of the round and their strength cannot be changed. Exceptions to this rule are very very rare.
+							</p>
+							<p>
+								Unit cards can usually be played in only one of the three rows, which is indicated on the card. Some can be placed in one of two rows.
+							</p>
+						</div>
+					</div>
+					<h3 class = "content-subhead">Special cards</h3>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/lg/special_horn.jpg" alt = "Example of special card" />
+							<img class = "pure-img-responsive" src = "images/lg/weather_fog.jpg" alt = "Example of weather card" />
+						</div>
+						<div class = "pure-u-7-8">
+							<p>
+								Special cards have no strength but have a powerfull ability which can have a significant effect on the board. They usually either affect a specific or the entire board.
+							</p>
+							<p>
+								Some special cards have a direct effect and are discarded right after use.
+								<br />
+								Some provide a durable effect on a row until the end of the round or before another ability removes it. These cards are not played on the battlefield but in a dedicated slot on its side.
+							</p>
+							<p>
+								A category of these special cards is worth a specific mention, they are called
+								<b>Weather Cards</b>.
+								<br />
+								These cards apply a malus in a specific row but for both players at the same time (all unit cards strength is lowered to 1).
+								<br />
+								They are a powerfull tool which can change the course of a game. Fortunately, there is one special cards allowing to cancel these weather effects, when you have one in your, that is.
+							</p>
+							<p>
+								These cards play an important role in the strategy of Gwent and in its elegance. They are simple but deadly, it is crucial to anticipate the possibility of the opponent playing them.
+							</p>
+						</div>
+					</div>
+					<h2 class = "content-subhead">How to read the cards</h2>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/rules/gwent_card_legend.png" alt = "Gwent card legend" />
+							<img class = "pure-img-responsive" src = "images/rules/gwent_card_legend_2.png" alt = "Gwent special card legend" />
+						</div>
+						<div class = "pure-u-7-8">
+							<p>
+								<ul>
+									<li>
+										<b>1:</b>
+										Strength of the cards to contributes to the player score. What initially on the card is considered the "base strength", since the strength of unit cards can be increased/decreased by other cards.
+										<b>Special cards</b>
+										will have their ability indicated here, instead of the strength.
+									</li>
+									<li>
+										<b>2:</b>
+										Card's row. This icon indicate to which row(s) the card can be placed. Sword means Melee row, Bow means Ranged row and Catapult means Siege row. In some cases, the icon while contain 2 elements, indicating that the card can be placed in several rows, at choice.
+									</li>
+									<li>
+										<b>3:</b>
+										Card's ability, when the card has one. Sometimes a card will have two abilities, the second will similarly be placed bellow this position. Abilities will be explained elsewhere.
+									</li>
+									<li>
+										<b>4:</b>
+										The icon and the coloured ribbon are an indication of the faction the card is part of. Factions will be explained later. If there is no such icon/ribbon, this means the card is neutral and compatible with all factions.
+									</li>
+									<li>
+										<b>5:</b>
+										Name of the card. Most cards also have a custom quote bellow the name, which relates to the character/unit/effect.
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<h2 class = "content-subhead" id = "abilities">Abilities</h2>
+					<p>
+						This card game revolves a lot around a set of abilities, they allow to develop strategies and adapt/react to the opponent's.
+						<br />
+						The beauty of Gwent is that the number of abilities remains rather low and easy to grasp.
+						<br />
+						Unlike the official modern Gwent game where each card has a unique effect, the original Gwent has multiple cards having the same ability.
+						<br />
+						Consequently, it is much easier to understand what a card does (a quick look at the card is usually enough) and what a deck can do.
+					</p>
+					<h3 class = "content-subhead">Abilities available</h3>
+					<h4 class = "content-subhead">Original game</h4>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_scorch.png" alt = "Scorch unit ability" />
+							<img class = "pure-img-responsive" src = "images/icons/card_special_scorch.png" alt = "Scorch special ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Scorch</div>
+							<div class = "ability-list-description">
+								<p>
+									This ability is quite simple, it destroys (removes from the board and sends to the graveyard/discard pile) all the unit cards (not heroes) having the highest strength.
+									<br />
+									It affects the entire board, for both players, so it means you can destroy your own cards.
+								</p>
+								<p>
+									It is best used when the opponent has several units with the same value (and no other units on the board is stronger) or when a single unit represents a big part of the total strength of the player.
+								</p>
+								<p>
+									Note that when using this ability from a card, the card is excluded from the effect, it cannot destroy itself and it doesn't count in what the strongest units are.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_scorch_combat.png" alt = "Scorch combat unit ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Scorch Combat</div>
+							<div class = "ability-list-description">
+								<p>
+									This ability is a slight variation of Scorch. Instead of affecting the entire board for both players, it affects only one of the opponent row.
+									<br />
+									If the total strength present in that row is 10 or higher (heroes included), it destroys the strongest units of the row (but not heroes).
+								</p>
+								<p>
+									Originally, the target row of this effect was the opposite row the card is played in.
+									<br />
+									However, we have changed it to always target the Melee row to make this ability a little more usable/effective and predictable, because most factions have a lot more Melee units than the other rows.
+									<br />
+									Also, we believe that having this ability affect only the first enemy line seems more "realistic".
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_muster.png" alt = "Muster ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Muster</div>
+							<div class = "ability-list-description">
+								<p>
+									When a card with the Muster ability is played on the board, it summons as well all the other cards in your deck and hand with the same name.
+									<br />
+									In reality, they do not always have the same name but they share a common element which is easily distinguishable.
+								</p>
+								<p>
+									The power of this ability resides in the fact it can quickly add several cards to the board and increase your total score.
+									<br />
+									Its weakness is that the cards often have the same strength and can consequently be destroyed all at the same time if not played carefully.
+									<br />
+									Also, keep in mind that if you have several Muster cards of the same familly in hand, playing one of them will play all the copies in hand, putting you at a disadvantage.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_bond.png" alt = "Tight Bond ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Tight Bond</div>
+							<div class = "ability-list-description">
+								<p>
+									In a way, the Tight Bond ability behaves similarly to the Muster ability. These cards are part of a "familly" and are stronger together.
+									<br />
+									For each card of the same familly (same or similar name) with the Tight Bond ability, the base strength of the card is multiplied by the number of copies in the same row.
+									<br />
+									So if you have managed to play 3 copies, each card will have its value tripled. All combined, the total will be 9 times higher than without the ability.
+								</p>
+								<p>
+									The power of this ability is that you can reach a very high strength on the row, so high that it will be very difficult for your opponent to match it (with 3 cards you have the strength of 9 cards).
+									<br />
+									However, this very strength is also its main weakness. Since these cards are copies, they share the same strength and tend to be the strongest cards on the board, easy target for Scorch.
+									<br />
+									Also, a single copy of such a card isn't very strong, the most important part is managing to gather several copies.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_morale.png" alt = "Morale Boost ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Morale Boost</div>
+							<div class = "ability-list-description">
+								<p>
+									Now let's get into row boosting. Morale boost increases the base strength of all units of the row by 1, except on itself. It is obviously more effective if you have many units concentrated in the same row.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_horn.png" alt = "Commander' Horn unit ability" />
+							<img class = "pure-img-responsive" src = "images/icons/card_special_horn.png" alt = "Commander' Horn special ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Commander' Horn</div>
+							<div class = "ability-list-description">
+								<p>
+									A stronger boost now. Commander' Horn doubles the strength of all units (not heroes then) in the row. It applies last, so it combines well with other boosts.
+									<br />
+									Here as well, it is more effective in a row with many cards, but the number of cards isn't has important as for Morale Boost. A couple Tight Bond cards might have a larger boost potential than 5 weak cards.
+									<br />
+									While this ability hold a huge potential, it also makes yourself very vulnerable to Scorch.
+								</p>
+								<p>
+									When this ability is played through a unit, the unit does not boost itself.
+									<br />
+									Also, only one Commander' Horn can be effective at the same time in a row. If several cards in the row have it, it will aply only once.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_medic.png" alt = "Medic ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Medic</div>
+							<div class = "ability-list-description">
+								<p>
+									When a card is removed from the board (destroyed or at the end of a round), it goes into the graveyard (aka discard pile).
+									<br />
+									The Medic ability allows to restore a unit card (not a hero) from the grave.
+									<br />
+									When a card is restored on the board, its abilities apply again.
+								</p>
+								<p>
+									This ability is very powerfull because it effectively gives you an additional card on the long term. It also allows you to use again some important abilities, which can be very decisive.
+									<br />
+									This card is like wine, it gets better with time. The later you play it, the more options of cards you have. If your graveyard is empty, this ability isn't very useful.
+									<br />
+									A medic can even restore another medic, allowing you to restore yet another card.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_spy.png" alt = "Spy ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Spy</div>
+							<div class = "ability-list-description">
+								<p>
+									Probably the most infamous ability of the game. We said earlier that cards are the most important resource of the game and that's the aim of this ability, give a card advantage (meaning getting more cards than your opponen).
+									<br />
+									When this card is played, it goes in the side of your opponent and will contribute to increase his/her total score.
+									<br />
+									In return, you will draw two cards from your deck. The aftermath is that you gave a card to your opponent but you know have one more card in your card than before, and 2 more options to play later.
+								</p>
+								<p>
+									In addition to the card advantage this card gives you, having drawn more cards than initially possible gives you more options and more chances to get good combos.
+									<br />
+									Be careful though, once on the opponent side of the board, the spy is under his/control and it can be played back against you.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_decoy.png" alt = "Decoy unit ability" />
+							<img class = "pure-img-responsive" src = "images/icons/card_special_decoy.png" alt = "Decoy special ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Decoy</div>
+							<div class = "ability-list-description">
+								<p>
+									This ability is often summarized as the counter to spies. It allows to swap one unit on the board with this card (in other words, take the targert card back into your hand).
+								</p>
+								<p>
+									The Decoy ability has many advantages. Obviously, this is a great counter to spies, because you can restore the balance by playing the spy back and draw cards as well.
+									<br />
+									But it can also be used on other cards with important abilities, such as Scorch or Medic.
+									<br />
+									Also, keep in mind that effectively when you play a Decoy, it is almost like skipping a round because your hand size does not reduce, this is often underestimated.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_agile.png" alt = "Agile ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Agile</div>
+							<div class = "ability-list-description">
+								<p>
+									This ability is rarely used and thus rarely has a visible effect after the card is played.
+									<br />
+									Basicaly, it goes in combination with cards which can be played on the Melee or Ranged row (which is the most useful part).
+									<br />
+									Under some limited circumpstances, agile cards can be moved later in the round to a more favourable row.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_avenger.png" alt = "Summon Avenger ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Summon Avenger</div>
+							<div class = "ability-list-description">
+								<p>
+									A bit like Medic, the Summon Avenger ability takes longer to show its effects.
+									<br />
+									When a card with this ability is removed from the board (either destroyed or at the end of the round), it is replaced by another more powerful card.
+									<br />
+									More often than not, this other card will enter battle at the begining of the next round.
+								</p>
+								<p>
+									Usually a unit with the Summon Avenger will be very weak. Playing it is like investing on the future because it will allow yourself to start the next round with an advantage (provided the card wasn't destroyed before the end of the round).
+									<br />
+									This ability combines very well with Medic.
+									<br />
+									Note that if the card that should be summoned is in your hand or deck, it will be taken from there. Otherwise, it will be "created" but it will not go into your graveyard when removed.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_berserker.png" alt = "Berserker unit ability" />
+							<img class = "pure-img-responsive" src = "images/icons/card_special_mardroeme.png" alt = "Mardroeme special ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Berserker / Mardroeme</div>
+							<div class = "ability-list-description">
+								<p>
+									These two abilities need to be presented together. They are specific to the Skellige faction.
+									<br />
+									Unit cards with the Berserker ability can be transformed into their more savage form when a card with the Mardroeme ability is played in their row.
+								</p>
+								<p>
+									Berserker units are initially not very strong, and thus not very interesting if not combined with Mardroeme.
+									<br />
+									However, their transformed versions are very strong but also very vulnerable to scorch.
+									<br />
+									Using this ability well isn't easy.
+								</p>
+							</div>
+						</div>
+					</div>
+					<h4 class = "content-subhead">Original game - Weather cards</h4>
+					<p>
+						Like mentioned earlier, Weather Cards are a more specific kind of special cards (and thus special amongst abilities).
+						<br />
+						Their effect is more global and will affect both players. In some rare cases, a unit card might have a weather ability, but these are exceptions.
+					</p>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_weather_frost.png" alt = "Biting Frost Weather" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Biting Frost</div>
+							<div class = "ability-list-description">
+								<p>
+									Reduce the base strength of all units in the Melee row (not heroes) to 1, for both players. This applies before any other ability/effect.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_weather_fog.png" alt = "Impenetrable Fog Weather" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Impenetrable Fog</div>
+							<div class = "ability-list-description">
+								<p>
+									Reduce the base strength of all units in the Ranged row (not heroes) to 1, for both players. This applies before any other ability/effect.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_weather_rain.png" alt = "Torrential Rain Weather" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Torrential Rain</div>
+							<div class = "ability-list-description">
+								<p>
+									Reduce the base strength of all units in the Siege row (not heroes) to 1, for both players. This applies before any other ability/effect.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_weather_storm.png" alt = "Skellige Storm Weather" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Skellige Storm</div>
+							<div class = "ability-list-description">
+								<p>
+									Reduce the base strength of all units in both the Ranged and Siege rows (not heroes) to 1, for both players. This applies before any other ability/effect.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_weather_clear.png" alt = "Clear Weather" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Clear Weather</div>
+							<div class = "ability-list-description">
+								<p>
+									Remove all other weather effects currently effective on the board, this applies to all players.
+								</p>
+							</div>
+						</div>
+					</div>
+					<h4 class = "content-subhead">New custom abilities</h4>
+					<p>
+						To extend the game with more cards and factions, additional abilities have been added. Otherwise most decks would look and play similarly.
+						<br />
+						This might make the game a little more complex, since there are more concepts to assimilate, but these abilities have been designed to keep the spirit of the original game and remain simple.
+					</p>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_cintra_slaughter.png" alt = "Slaughter of Cintra unit ability" />
+							<img class = "pure-img-responsive" src = "images/icons/card_special_cintra_slaughter.png" alt = "Slaughter of Cintra special ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Slaughter of Cintra</div>
+							<div class = "ability-list-description">
+								<p>
+									Like the name suggest, the Slaughter of Cintra ability applies to some Cintrian units. Some units have this ability, they are marked for slaugther.
+									<br />
+									When the corresponding special card is played, all of your cards on the board being marked (having the ability) are destroyed and move to the discard pile.
+									<br />
+									In return, you draw a card from the deck for each of the removed cards. This gives you a potential card advantage.
+								</p>
+								<p>
+									The trick is that you are not forced to use the special ability, the marked units can stay on the board and you can keep their strength for your total score.
+									<br />
+									So your opponent does not know whether you are planning to throw the round for card advantage or if you will keep the units.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_special_toussaint_wine.png" alt = "Toussaint wine ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Toussaint Wine</div>
+							<div class = "ability-list-description">
+								<p>
+									Toussaint Wine ability is like the cross of a Commander's Horn and Morale Boost. The ability will be played and stay on a row and boost all unit cards (not heroes) by 2 (instead of 1 like Morale Boost).
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_special_bank.png" alt = "Bank ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Bank</div>
+							<div class = "ability-list-description">
+								<p>
+									Bank ability is quite simple. You play it and you draw a card from your deck. No complication.
+									<br />
+									It is a little like skipping a round (you keep the same number of cards in your hand), except you do not know with which card you'll end up.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_special_lock.png" alt = "Lock ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Lock</div>
+							<div class = "ability-list-description">
+								<p>
+									This ability is actually shared by several special cards. This card is played in one of the opponent's row.
+									<br />
+									If he/she plays a unit card (not a hero) in that row and that the units has an ability, the card will be locked and this special card will go to the graveyard.
+									<br />
+									A locked card cannot use its ability until it is removed from the board.
+								</p>
+								<p>
+									This ability requires a good understanding of the opponent deck and anticipation of the cards it can have.
+									<br />
+									It is very powerfull at preventing Muster and Tight Bond from working as intended.
+									<br />
+									Be careful though not to play your spy in this row while a lock is pending.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_special_knockback.png" alt = "Knockback ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Knockback</div>
+							<div class = "ability-list-description">
+								<p>
+									This ability is quite straight-forward. It is played in either the enemy Melee or Ranged row. All unit cards (not heroes) are moved 1 row backward towards the Siege row.
+								</p>
+								<p>
+									The purpose of this ability is mostly to break some effective row bonuses (like a Commander's Horn) or to push units into bad weather.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_special_seize.png" alt = "Seize ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Seize</div>
+							<div class = "ability-list-description">
+								<p>
+									When using this ability, you will take control of the units with the lower strength in the enemy Melee row. If there are several, take all.
+								</p>
+								<p>
+									This ability can be very strong on Muster units or when the enemy Melee row is under bad weather. Be careful though that the timing is key.
+									<br />
+									Good targets this round might not be available next round because the opponent will have played a weaker card.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_special_shield.png" alt = "Shield ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Shield</div>
+							<div class = "ability-list-description">
+								<p>
+									This ability protects an entire row from all abilities of the opponent, except weather, until the end of the round.
+									<br />
+									The main purpose is to protect the row from Scorch. Note that consequently cards in this row do not count in the definition of the highest strength on the board.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_witch_hunt.png" alt = "Witch Hunt ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Witch Hunt</div>
+							<div class = "ability-list-description">
+								<p>
+									This ability is the mirror effect of Scorch Combat, it destroys the weakest units (not heroes) in the opposite row this card is playing on.
+									<br />
+									It is a very powerfull counter to Muster.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_witcher_wolf_school.png" alt = "Witcher Wolf School ability" />
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_witcher_viper_school.png" alt = "Witcher Viper School ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Witcher School(s)</div>
+							<div class = "ability-list-description">
+								<p>
+									This Witcher School ability is actually 5 identical abilities.
+									<br />
+									There is one variation of the ability for each Witcher School (Wolf, Viper, Cat, Bear and Griffin).
+									<br />
+									When there is more than one unit card of a same Witcher School, boost all of these by 2 for each other members of the school (e.g. there are 3 cards of the School of the Wolf, boost all units by 4).	
+								</p>
+								<p>
+									This ability seems difficult to exploit, but it works in combination with another ability.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_resilience.png" alt = "Resilience ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Resilience</div>
+							<div class = "ability-list-description">
+								<p>
+									If at the end of the round you have a card with the Resilience ability on the board and that it shares a second ability with another card on the board, keep the card with Resilience on the board for the next round.
+								</p>
+								<p>
+									For now, cards with the Resilience ability are Witchers Keeps. They stay on the board if a witcher of the corresponding school was also here.
+									<br />
+									This card will also contribute to boost witchers of the same school.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_whorshipper.png" alt = "Whorshipper ability" />
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_whorshipped.png" alt = "Whorshipped ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Whorshipper/Whorshipped</div>
+							<div class = "ability-list-description">
+								<p>
+									Whorshipped units are boosted by the amount of Whorshipper units on the board.
+								</p>
+								<p>
+									This ability requires to combine two type of cards for a powerful result.
+									<br />
+									Medic units can help to prolongate this combo into later rounds.
+									<br />
+									Be careful that it exposes a lot Whorshipped units to scorch.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/card_ability_inspire.png" alt = "Inspire ability" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "ability-list-name">Inspire</div>
+							<div class = "ability-list-description">
+								<p>
+									All units with Inspire ability take the highest base strength of the Inspire units on your side of the board. Still affected by weather.
+								</p>
+								<p>
+									Basically, if you have several units on the board with the Inspire ability, they will align to the highest base strength among them (base strength, meaning before any effect, positive or negative).
+									<br />
+									Consequently playing late a stronger Inspire unit will boost all others on the board, which can bring an unpleasant and unnexpected surprise to the opponent.
+									<br />
+									Be aware though that since all Inspire units will have the same strength (prior to effects), they are vulnerable to scorch and can all be destroyed at the same time.
+									<br />
+									Providing a boost to some of them can help remediate this effect.
+								</p>
+							</div>
+						</div>
+					</div>
+					<h2 class = "content-subhead" id = "factions">Factions</h2>
+					<p>
+						The Witcher universe is vast, so to bring more variety and fun to the game, it is divided into several factions.
+						<br />
+						Factions usually represent a realm or a group/faction of people. Each faction has its own set of cards along with a faction ability, and thus its own playstyle.
+						<br />
+						A faction ability, often passive (triggered at a specific moment of the game) but sometimes active as well (used at the discretion of the player), will have a significant influence on the way to play the game because you need to adapt to it to make the best of it.
+					</p>
+					<p>
+						Before to start the game, a player must chose the faction to play, which will define the set of leaders and units that can be used to build the deck.
+						<br />
+						Some unit and special cards are
+						<b>Neutral</b>,
+						this means that they can be played in any faction.
+					</p>
+					<h3 class = "content-subhead">Factions available</h3>
+					<h4 class = "content-subhead">Original game</h4>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_realms.png" alt = "Northern Realms Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Northern Realms</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									Draw a card from your deck when you win a round.
+									<br />
+									This faction relies mostly on Tight Bond units, along with Spies and Siege units.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_nilfgaard.png" alt = "Nilfgaard Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Nilfgaard</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									If a round ends in a draw, Nilfgaard wins the round.
+									<br />
+									This faction relies mostly on Tight Bond units, Spies, Medics and Strong cards.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_monsters.png" alt = "Monsters Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Monsters</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									At the end of each round, a random unit card stays on the board.
+									<br />
+									This faction relies heavily on the Muster ability, it can quickly swarm the board.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_scoiatael.png" alt = "Scoia'Tael Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Scoia'Tael</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									Before the game starts, this faction decides who plays first.
+									<br />
+									This faction relies mostly on Muster and Medic units and some Morale Boost.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_skellige.png" alt = "Skellige Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Skellige</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									On the third round, restores two random unit cards from the graveyard.
+									<br />
+									This faction has a balance of Tight Bond, Muster and Medic, but its specificity is the Berserker/Mardroeme combo.
+								</p>
+							</div>
+						</div>
+					</div>
+					<h4 class = "content-subhead">Custom new factions</h4>
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_witcher_universe.png" alt = "Witcher Universe Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Witcher Universe</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									Once per round, the player can skip a round.
+									<br />
+									This faction has a variety of cards of all kinds, but its specificity is the witchers and their corresponding abilities and signs.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_toussaint.png" alt = "Toussaint Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Toussaint</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									Draw a card from your deck whenever you lose a round.
+									<br />
+									This faction has a balance of Tight Bond, Muster and Scorch units and many strong cards.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_lyria_rivia.png" alt = "Lyria & Rivia Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Lyria & Rivia</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									Once per game, apply a Morale Boost to a row of your choice.
+									<br />
+									This faction relies mostly on Muster and Medic cards but also has the specificity of having decoy units and shield special cards.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_syndicate.png" alt = "Syndicate Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Syndicate</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									Start the game with the hero Sigi Reuven on the board.
+									<br />
+									This faction relies mostly on Spies, Muster and Tight Bond units but also has the specificity of having the Bank special card and some Witch Hunt units.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class = "pure-g">
+						<div class = "pure-u-1-8">
+							<img class = "pure-img-responsive" src = "images/icons/deck_shield_zerrikania.png" alt = "Zerrikania Faction" />
+						</div>
+						<div class = "pure-u-7-8">
+							<div class = "faction-list-name">Zerrikania</div>
+							<div class = "faction-list-description">
+								<p>
+									<b>Faction Ability:</b>
+									Restore a unit card of your choice whenever you lose a round.
+									<br />
+									This faction brings in some new abilities. On one side the dragon cult has the combination of Whorshippers and Whorshipped units.
+									<br />
+									On the other side, Free Warriors have the Inspire ability, allowing them to have the strength of the strongest of them on board.
+								</p>
+							</div>
+						</div>
+					</div>
+					<h2 class = "content-subhead" id = "setup">Setup</h2>
+					<h3 class = "content-subhead">Building your deck</h3>
+					<p>
+						To play, each player must chose a faction, a leader and select or prepare a deck of the selected faction.
+						<br />
+						We have prepared a selection of decks which we think are interesting to play and reasonably balanced.
+						<br />
+						However, you can constitute your own, the only rules are the following:
+						<ul>
+							<li>
+								<b>Minumum 22 unit cards</b>
+								(heroes included) from the selected faction or neutral cards.
+							</li>
+							<li>
+								<b>Maximum 10 special cards</b>
+							</li>
+						</ul>
+					</p>
+					<p>
+						<b>Tips:</b>
+						<ul>
+							<li>
+								The more cards you have in your deck, the less likely you are to draw the best cards and make the combos work. Chose wisely, here less is more.
+							</li>
+							<li>
+								Hero cards might look powerfull at first, but in the end they are boring and are not the cards that win games because most of them have a limited impact.
+								Consequently, don't take too many of those.
+							</li>
+						</ul>
+					</p>
+					<h3 class = "content-subhead">Start</h3>
+					<p>
+						A coin toss decides who starts first. Each player shuffles his/her deck and draws 10 cards. Before starting the game, each player can discard up to 2 cards and draw a replacement (aka Mulligan).
+						<br />
+						The remaining 10 cards will constitute the starting hand of the players, and most likely all the cards the players will have for the game.
+					</p>
+					<h3 class = "content-subhead">Rounds</h3>
+					<p>
+						Players take turns either playing a card or using the active ability of their leader or faction (when available).
+						<br />
+						A player can instead chose to pass and sit out of the rest of the round (not play any hard), while the other player is free to play more cards.
+						<br />
+						When both players have passed or cannot play any other card, the round ends. The player with the lowest total strength loses a round and a life point.
+						<br />
+						Each player starts with 2 life points and thus loses the game when losing 2 rounds.
+					</p>
+					<p>
+						Note that in case of a draw, both players have the lowest strength and lose a life point. Unless you play as Nilfgaard (wins in case of draws), this is not a desirable situation.
+					</p>
+					<p>
+						<b>The players that wins the round plays first in the next round.</b>
+					</p>
+					<p>
+						Counting the total score can be really bothersome, good thing that here the computer is doing it for us.
+						<br />
+						But it remains important to understand how it's done in order to anticipate the changes when playing certain cards.
+						<br />
+						Here are the principles to count the scores.
+					</p>
+					<p>
+						For each row:
+						<ul>
+							<li>Weather effects always apply first, before anything else. They change the base strength of the unit cards.</li>
+							<li>Some rare faction/leader abilities also affect the base strength. Weather takes precedence over them, but if no weather effect is active, apply these changes first.</li>
+							<li>From this point, consider that the strength is calculated from the most specific ability of the card to the more global effects.</li>
+							<li>First we apply the Tight Bond effects.</li>
+							<li>Then we apply the various boosts (Morale, Witcher School, Toussaint Wine etc), which simply add up one another, order does not matter.</li>
+							<li>Last, always last, we apply the row multipler, being the Commander's Horn.</li>
+						</ul>
+					</p>
+					<h3 class = "content-subhead" style = "text-align:center">
+						That's it, now you know everything you need
+						<br />
+						to play a round of Gwent!
+					</h3>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

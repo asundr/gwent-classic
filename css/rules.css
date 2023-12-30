@@ -1,0 +1,306 @@
+.header,
+#menu .pure-menu-heading {
+	margin:0
+}
+
+.header h1,
+.header h2,
+.content-subhead {
+	font-weight:300
+}
+
+.menu-link,
+.pure-img-responsive {
+	height:auto
+}
+
+.menu-link,
+#menu {
+	position:fixed;
+	top:0
+}
+
+.menu-link,
+#menu,
+#layout {
+	-webkit-transition:all 0.2s ease-out;
+	-moz-transition:all 0.2s ease-out;
+	-ms-transition:all 0.2s ease-out;
+	-o-transition:all 0.2s ease-out;
+	transition:all 0.2s ease-out;
+	left:0
+}
+
+.menu-link span,
+#layout {
+	position:relative
+}
+
+menu .pure-menu
+menu .pure-menu ul,
+#menu a {
+	border:none
+}
+
+#layout.active .menu-link,
+#layout.active #menu {
+	left:150px
+}
+
+.faction-list-name,
+.ability-list-name,
+.deck-list-name {
+	margin-left:20px;
+	font-weight:700;
+	font-size:24px;
+}
+
+.faction-list-description,
+.ability-list-description,
+.deck-list-description {
+	margin-left:30px
+}
+
+.faction-realms,
+.faction-nilfgaard,
+.faction-monsters,
+.faction-scoiatael,
+.faction-skellige,
+.faction-witcher_universe,
+.faction-toussaint,
+.faction-lyria_rivia,
+.faction-syndicate,
+.faction-zerrikania {
+	padding:5px
+}
+
+.faction-toussaint,
+.faction-lyria_rivia,
+.faction-syndicate,
+.faction-zerrikania {
+	color:#000
+}
+
+body {
+	color:#555;
+	background-color:#ccc
+}
+
+.pure-img-responsive {
+	max-width:100%
+}
+
+#main p {
+	margin-left:10px
+}
+
+#layout {
+	padding-left:0
+}
+
+.content {
+	padding:0 2em;
+	margin:0 auto 50px auto;
+	text-align:justify;
+	max-width:800px;
+	line-height:1.6em
+}
+
+.header {
+	padding:2.5em 2em 0;
+	border-bottom:1px solid #444;
+	background-color:#bbb;
+	color:#333;
+	text-align:center
+}
+
+.header h1 {
+	margin:.2em 0;
+	font-size:3em
+}
+
+.header h2 {
+	padding:0;
+	margin-top:0;
+	color:#444
+}
+
+.content-subhead {
+	margin:50px 0 20px 0;
+	color:#666
+}
+
+.content h2 {
+	font-size:2.5em
+}
+
+.content h3 {
+	font-size:1.8em
+}
+
+.content h4 {
+	font-size:1.5em
+}
+
+#menu {
+	bottom:0;
+	z-index:1000;
+	width:150px;
+	margin-left:-150px;
+	background:#191818;
+	overflow-y:auto
+}
+
+#menu a {
+	padding:.6em 0 .6em .6em;
+	color:#999
+}
+
+#menu .pure-menu,
+#menu .pure-menu ul {
+	background:transparent
+}
+
+#menu .pure-menu ul,
+#menu .pure-menu .menu-item-divided {
+	border-top:1px solid #333
+}
+
+#menu .pure-menu li a:hover,
+#menu .pure-menu li a:focus {
+	background:#333
+}
+
+#menu .pure-menu-selected,
+#menu .pure-menu-heading {
+	background:#5a2323
+}
+
+#menu .pure-menu-heading {
+	font-size:110%
+}
+
+#menu .pure-menu-selected a,
+#menu .pure-menu-heading,
+.faction-realms,
+.faction-monsters,
+.faction-scoiatael,
+.faction-skellige,
+.faction-witcher_universe {
+	color:#fff
+}
+
+.menu-link,
+.menu-link span {
+	display:block
+}
+
+.menu-link {
+	z-index:10;
+	width:2em;
+	padding:2.1em 1.6em;
+	background:#000;
+	background:rgba(0, 0, 0, .7);
+	font-size:10px
+}
+
+.menu-link:hover,
+.menu-link:focus {
+	background:#000
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+	width:100%;
+	height:.2em;
+	background-color:#fff;
+	pointer-events:none
+}
+
+.menu-link span:before,
+.menu-link span:after {
+	position:absolute;
+	margin-top:-.6em;
+	content:" "
+}
+
+.menu-link span:after {
+	margin-top:.6em
+}
+
+.menu-other-page {
+	background-color:#553c2e
+}
+
+.faction-realms {
+	background-color:#1b205c
+}
+
+.faction-nilfgaard {
+	background-color:#111;
+	color:#c68a10
+}
+
+.faction-monsters {
+	background-color:#421616
+}
+
+.faction-scoiatael {
+	background-color:#214f11
+}
+
+.faction-skellige {
+	background-color:#3b1b57
+}
+
+.faction-witcher_universe {
+	background-color:#2e4b87
+}
+
+.faction-toussaint {
+	background-color:#d5a710
+}
+
+.faction-lyria_rivia {
+	background-color:#15b08f
+}
+
+.faction-syndicate {
+	background-color:#ac600d
+}
+
+.faction-zerrikania {
+	background-color:#6e9646
+}
+
+.card-preview {
+	border-radius:.5vw
+}
+
+@media (min-width:48em) {
+	.header,
+	.content {
+		padding-left:2em;
+		padding-right:2em
+	}
+
+	#layout {
+		padding-left:150px
+	}
+
+	#menu {
+		left:150px
+	}
+
+	.menu-link {
+		left:150px;
+		display:none
+	}
+}
+
+@media (max-width:48em) {
+	#layout.active {
+		left:150px
+	}
+}
